@@ -83,10 +83,19 @@
 
   <xsl:template match="dc:identifier">
     <xsl:choose>
-      <xsl:when test="@xsi:type">
-        <skos:notation rdf:datatype="concat(namespace-uri-for-prefix(substring-before(':', @xsi:type)), substring-after(':', @xsi:type))">
-          <xsl:value-of select="text()"/>
-        </skos:notation>
+      <xsl:when test="@xsi:type and contains(@xsi:type, ':')">
+        <xsl:variable name="prefix" select="substring-before(@xsi:type, ':')"/>
+        <xsl:variable name="localpart" select="substring-after(@xsi:type, ':')"/>
+        <xsl:choose>
+          <xsl:when test="$prefix and index-of(in-scope-prefixes(.), $prefix)">
+            <skos:notation rdf:datatype="{concat(namespace-uri-for-prefix($prefix, .), $localpart)}">
+              <xsl:value-of select="text()"/>
+            </skos:notation>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:message>Prefix "<xsl:value-of select="$prefix"/>" not defined.</xsl:message>
+          </xsl:otherwise>
+        </xsl:choose>
       </xsl:when>
       <xsl:otherwise>
         <dcterms:identifier>
