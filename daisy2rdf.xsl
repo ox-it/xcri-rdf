@@ -21,16 +21,9 @@
   <xsl:import href="xcri2rdf.xsl"/>
   <xsl:output method="xml" indent="yes"/>
 
-  <xsl:template name="rdf-about">
-    <xsl:choose>
-      <xsl:when test="self::course">
-        <xsl:attribute name="rdf:about">
-          <xsl:value-of select="concat('http://data.ox.ac.uk/id/course/', dc:identifier[@daisy:type='assessmentUnitCode']/text())"/>
-        </xsl:attribute>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:apply-imports/>
-      </xsl:otherwise>
-    </xsl:choose>
+  <xsl:template match="course" mode="rdf-about">
+    <xsl:attribute name="rdf:about">
+      <xsl:value-of select="concat('http://data.ox.ac.uk/id/course/', dc:identifier[@daisy:type='assessmentUnitCode']/text())"/>
+    </xsl:attribute>
   </xsl:template>
 </xsl:stylesheet>

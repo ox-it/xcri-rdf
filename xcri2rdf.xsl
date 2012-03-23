@@ -19,7 +19,7 @@
     xpath-default-namespace="http://xcri.org/profiles/1.2/catalog">
   <xsl:output method="xml" indent="yes"/>
 
-  <xsl:template name="rdf-about">
+  <xsl:template match="*" mode="rdf-about">
     <!-- Override this to attach identifiers to your RDF resources. If you
          don't, you'll end up with blank nodes, which would be Bad. -->
     <xsl:variable name="identifier" select="dc:identifier[matches('^http:', text()) and not(@xsi:type)]"/>
@@ -42,7 +42,7 @@
 
   <xsl:template match="provider">
     <xcri:provider>
-      <xsl:call-template name="rdf-about"/>
+      <xsl:apply-templates select="." mode="rdf-about"/>
       <xsl:apply-templates select="*"/>
     </xcri:provider>
   </xsl:template>
@@ -50,7 +50,7 @@
   <xsl:template match="course">
     <mlo:offers>
       <xcri:course>
-        <xsl:call-template name="rdf-about"/>
+        <xsl:apply-templates select="." mode="rdf-about"/>
         <xsl:apply-templates select="*"/>
       </xcri:course>
     </mlo:offers>
