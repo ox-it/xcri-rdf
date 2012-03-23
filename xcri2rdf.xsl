@@ -125,6 +125,9 @@
     </xsl:variable>
     <xsl:element name="{$elementName}">
       <xsl:choose>
+        <xsl:when test="@href">
+          <xsl:attribute name="rdf:resource" select="@href"/>
+        </xsl:when>
         <xsl:when test="*[1][namespace-uri() = '&xhtml;']">
           <xsl:attribute name="rdf:parseType">Literal</xsl:attribute>
           <xsl:attribute name="rdf:datatype">xtypes:Fragment-XHTML</xsl:attribute>
