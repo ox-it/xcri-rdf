@@ -48,6 +48,15 @@
     </xsl:if>
   </xsl:template>
 
+  <xsl:template match="xmlo:start|end" mode="rdf-about">
+    <xsl:variable name="parentURI">
+      <xsl:apply-templates select=".." mode="rdf-about"/>
+    </xsl:variable>
+    <xsl:if test="$parentURI/text()">
+      <xsl:value-of select="concat($parentURI, '/', (if (self::xmlo:start) then 'start' else 'end'))"/>
+    </xsl:if>
+  </xsl:template>
+
   <xsl:template match="/">
     <rdf:RDF>
       <xsl:apply-templates select="*"/>
@@ -182,6 +191,26 @@
 
   <xsl:template name="normalize-phone">
     <xsl:value-of select="concat('tel:+44', replace(substring(text(), 2), ' ', ''))"/>
+  </xsl:template>
+
+  <xsl:template match="xmlo:start|end">
+    <xsl:if test="@dtf or text()">
+    <xsl:element name="{if (self::xmlo:start) then 'mlo:start' else 'xcri:end'}">
+      <time:Instant>
+        <xsl:apply-templates select="." mode="rdf-about-attribute"/>
+        <xsl:if test="text()">
+          <rdfs:label>
+            <xsl:value-of select="text()"/>
+          </rdfs:label>
+        </xsl:if>
+        <xsl:if test="@dtf">
+          <time:inXSDDateTime rdf:datatype="&xsd;{if (string-length(@dtf) &gt; 11) then 'dateTime' else 'date'}">
+            <xsl:value-of select="replace(@dtf, ' ', 'T')"/>
+          </time:inXSDDateTime>
+        </xsl:if>
+      </time:Instant>
+    </xsl:element>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="*|@*|text()|processing-instruction()"/>
