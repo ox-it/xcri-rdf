@@ -107,10 +107,37 @@
     </rdfs:label>
   </xsl:template>
 
-  <xsl:template match="dc:description">
-    <dcterms:description>
-      <xsl:value-of select="text()"/>
-    </dcterms:description>
+  <xsl:template match="dc:description|abstract|applicationProcedure|learningOutcome
+                      |regulations|xmlo:assessment|xmlo:objective|xmlo:prerequisite">
+    <xsl:variable name="elementName">
+      <xsl:choose>
+        <xsl:when test="self::dc:description">dcterms:description</xsl:when>
+        <xsl:when test="namespace-uri(.) = 'http://xcri.org/profiles/1.2/catalog'">
+          <xsl:value-of select="concat('xcri:', local-name(.))"/>
+        </xsl:when>
+        <xsl:when test="namespace-uri(.) = 'http://purl.org/net/mlo'">
+          <xsl:value-of select="concat('mlo:', local-name(.))"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:message terminate="yes">You forgot to map an XCRI-CAP element name (<xsl:value-of select="name()"/>) into an RDF property.</xsl:message>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:element name="{$elementName}">
+      <xsl:choose>
+        <xsl:when test="*[1][namespace-uri() = '&xhtml;']">
+          <xsl:attribute name="rdf:parseType">Literal</xsl:attribute>
+          <xsl:attribute name="rdf:datatype">xtypes:Fragment-XHTML</xsl:attribute>
+          <xsl:element name="{name(*[1])}">
+            <xsl:copy-of select="@xml:lang"/>
+            <xsl:copy-of select="*[1]/(@*|*)"/>
+          </xsl:element>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="text()"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:element>
   </xsl:template>
 
   <xsl:template match="mlo:url">
