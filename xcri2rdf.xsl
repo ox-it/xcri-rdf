@@ -28,14 +28,23 @@
     xpath-default-namespace="http://xcri.org/profiles/1.2/catalog">
   <xsl:output method="xml" indent="yes"/>
 
+  <xsl:template match="*" mode="rdf-about-attribute">
+    <xsl:variable name="value">
+      <xsl:apply-templates select="." mode="rdf-about"/>
+    </xsl:variable>
+    <xsl:if test="$value/text()">
+      <xsl:attribute name="rdf:about">
+        <xsl:value-of select="$value"/>
+      </xsl:attribute>
+    </xsl:if>
+  </xsl:template>
+
   <xsl:template match="*" mode="rdf-about">
     <!-- Override this to attach identifiers to your RDF resources. If you
          don't, you'll end up with blank nodes, which would be Bad. -->
-    <xsl:variable name="identifier" select="dc:identifier[matches('^http:', text()) and not(@xsi:type)]"/>
+    <xsl:variable name="identifier" select="dc:identifier[not(@xsi:type) and starts-with(text(), 'http:')]"/>
     <xsl:if test="$identifier">
-      <xsl:attribute name="rdf:about">
         <xsl:value-of select="$identifier[1]/text()"/>
-      </xsl:attribute>
     </xsl:if>
   </xsl:template>
 
@@ -51,7 +60,7 @@
 
   <xsl:template match="catalog/provider">
     <xcri:provider>
-      <xsl:apply-templates select="." mode="rdf-about"/>
+      <xsl:apply-templates select="." mode="rdf-about-attribute"/>
       <xsl:apply-templates select="*"/>
     </xcri:provider>
   </xsl:template>
@@ -59,7 +68,7 @@
   <xsl:template match="course">
     <mlo:offers>
       <xcri:course>
-        <xsl:apply-templates select="." mode="rdf-about"/>
+        <xsl:apply-templates select="." mode="rdf-about-attribute"/>
         <xsl:apply-templates select="*"/>
       </xcri:course>
     </mlo:offers>
@@ -68,7 +77,7 @@
   <xsl:template match="presentation">
     <mlo:specifies>
       <xcri:presentation>
-        <xsl:apply-templates select="." mode="rdf-about"/>
+        <xsl:apply-templates select="." mode="rdf-about-attribute"/>
         <xsl:apply-templates select="*"/>
       </xcri:presentation>
     </mlo:specifies>
@@ -77,7 +86,7 @@
   <xsl:template match="venue">
     <xcri:venue>
       <geo:SpatialThing>
-        <xsl:apply-templates select="provider" mode="rdf-about"/>
+        <xsl:apply-templates select="provider" mode="rdf-about-attribute"/>
         <xsl:apply-templates select="provider/*"/>
       </geo:SpatialThing>
     </xcri:venue>
@@ -126,7 +135,7 @@
   <xsl:template match="xmlo:location">
     <v:adr>
       <v:Address>
-        <xsl:apply-templates select="." mode="rdf-about"/>
+        <xsl:apply-templates select="." mode="rdf-about-attribute"/>
         <xsl:variable name="addressLines" select="xmlo:address[not(@xsi:type)]"/>
         <xsl:if test="count($addressLines) &gt; 0">
           <v:street-address><xsl:value-of select="$addressLines[1]"/></v:street-address>
@@ -161,7 +170,7 @@
   <xsl:template match="catalog/provider/xmlo:location/xmlo:phone">
     <v:tel>
       <v:Voice>
-        <xsl:apply-templates select="." mode="rdf-about"/>
+        <xsl:apply-templates select="." mode="rdf-about-attribute"/>
         <rdf:value>
           <xsl:attribute name="rdf:resource">
             <xsl:call-template name="normalize-phone"/>

@@ -22,8 +22,10 @@
   <xsl:output method="xml" indent="yes"/>
 
   <xsl:template match="course" mode="rdf-about">
-    <xsl:attribute name="rdf:about">
-      <xsl:value-of select="concat('http://data.ox.ac.uk/id/course/', dc:identifier[@daisy:type='assessmentUnitCode']/text())"/>
-    </xsl:attribute>
+    <xsl:value-of select="concat('http://data.ox.ac.uk/id/course/', dc:identifier[@daisy:type='assessmentUnitCode']/text())"/>
+  </xsl:template>
+
+  <xsl:template match="presentation" mode="rdf-about">
+    <xsl:value-of select="concat('http://data.ox.ac.uk/id/presentation/', dc:identifier/text())"/>
   </xsl:template>
 </xsl:stylesheet>
