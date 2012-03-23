@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE stylesheet [
   <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+  <!ENTITY xhtml "http://www.w3.org/1999/xhtml">
 ]>
 <xsl:stylesheet version="2.0"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -21,6 +22,8 @@
     xmlns:xcri="http://xcri.org/profiles/1.2/"
     xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
     xmlns:v="http://www.w3.org/2006/vcard/ns#"
+    xmlns:time="http://www.w3.org/2006/time#"
+    xmlns:xtypes="http://purl.org/xtypes/"
     xmlns="http://xcri.org/profiles/1.2/catalog"
     xpath-default-namespace="http://xcri.org/profiles/1.2/catalog">
   <xsl:output method="xml" indent="yes"/>
