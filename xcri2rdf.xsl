@@ -137,6 +137,7 @@
           </xsl:element>
         </xsl:when>
         <xsl:otherwise>
+          <xsl:copy-of select="@xml:lang"/>
           <xsl:value-of select="text()"/>
         </xsl:otherwise>
       </xsl:choose>
