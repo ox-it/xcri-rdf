@@ -120,6 +120,58 @@
     </xsl:choose>
   </xsl:template>
 
+  <xsl:template match="xmlo:location">
+    <v:adr>
+      <v:Address>
+        <xsl:apply-templates select="." mode="rdf-about"/>
+        <xsl:variable name="addressLines" select="xmlo:address[not(@xsi:type)]"/>
+        <xsl:if test="count($addressLines) &gt; 0">
+          <v:street-address><xsl:value-of select="$addressLines[1]"/></v:street-address>
+        </xsl:if>
+        <xsl:if test="count($addressLines) &gt; 2">
+          <v:extended-address><xsl:value-of select="$addressLines[2]"/></v:extended-address>
+        </xsl:if>
+        <xsl:if test="count($addressLines) &gt; 1">
+          <v:locality><xsl:value-of select="$addressLines[count($addressLines)]"/></v:locality>
+        </xsl:if>
+        <xsl:if test="xmlo:postcode">
+          <v:postal-code><xsl:value-of select="xmlo:postcode"/></v:postal-code>
+        </xsl:if>
+      </v:Address>
+    </v:adr>
+
+    <!-- FIXME: this doesn't actually do the namespace look-up. -->
+    <xsl:if test="xmlo:address[@xsi:type='geo:lat']">
+      <geo:lat rdf:datatype="&xsd;float"><xsl:value-of select="xmlo:address[@xsi:type='geo:lat']"/></geo:lat>
+    </xsl:if>
+    <xsl:if test="xmlo:address[@xsi:type='geo:long']">
+      <geo:long rdf:datatype="&xsd;float"><xsl:value-of select="xmlo:address[@xsi:type='geo:long']"/></geo:long>
+    </xsl:if>
+
+    <xsl:apply-templates select="xmlo:phone|xmlo:email"/>
+  </xsl:template>
+
+  <xsl:template match="catalog/provider/xmlo:location/xmlo:email">
+    <v:email rdf:resource="mailto:{text()}"/>
+  </xsl:template>
+
+  <xsl:template match="catalog/provider/xmlo:location/xmlo:phone">
+    <v:tel>
+      <v:Voice>
+        <xsl:apply-templates select="." mode="rdf-about"/>
+        <rdf:value>
+          <xsl:attribute name="rdf:resource">
+            <xsl:call-template name="normalize-phone"/>
+          </xsl:attribute>
+        </rdf:value>
+      </v:Voice>
+    </v:tel>
+  </xsl:template>
+
+  <xsl:template name="normalize-phone">
+    <xsl:value-of select="concat('tel:+44', replace(substring(text(), 2), ' ', ''))"/>
+  </xsl:template>
+
   <xsl:template match="*|@*|text()|processing-instruction()"/>
 </xsl:stylesheet>
 
