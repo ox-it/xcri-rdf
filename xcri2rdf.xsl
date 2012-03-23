@@ -46,7 +46,7 @@
     <xsl:apply-templates select="*"/>
   </xsl:template>
 
-  <xsl:template match="provider">
+  <xsl:template match="catalog/provider">
     <xcri:provider>
       <xsl:apply-templates select="." mode="rdf-about"/>
       <xsl:apply-templates select="*"/>
@@ -69,6 +69,15 @@
         <xsl:apply-templates select="*"/>
       </xcri:presentation>
     </mlo:specifies>
+  </xsl:template>
+
+  <xsl:template match="venue">
+    <xcri:venue>
+      <geo:SpatialThing>
+        <xsl:apply-templates select="provider" mode="rdf-about"/>
+        <xsl:apply-templates select="provider/*"/>
+      </geo:SpatialThing>
+    </xcri:venue>
   </xsl:template>
 
   <xsl:template match="dc:title">
