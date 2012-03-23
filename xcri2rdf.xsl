@@ -56,6 +56,15 @@
     </mlo:offers>
   </xsl:template>
 
+  <xsl:template match="presentation">
+    <mlo:specifies>
+      <xcri:presentation>
+        <xsl:apply-templates select="." mode="rdf-about"/>
+        <xsl:apply-templates select="*"/>
+      </xcri:presentation>
+    </mlo:specifies>
+  </xsl:template>
+
   <xsl:template match="dc:title">
     <rdfs:label>
       <xsl:value-of select="text()"/>
