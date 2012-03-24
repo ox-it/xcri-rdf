@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE stylesheet [
+<!DOCTYPE xsl:stylesheet [
   <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
   <!ENTITY xhtml "http://www.w3.org/1999/xhtml">
 ]>
@@ -144,9 +144,6 @@
     </xsl:element>
   </xsl:template>
 
-  <xsl:template match="mlo:url">
-    <foaf:homepage rdf:resource="{text()}"/>
-  </xsl:template>
 
   <xsl:template match="dc:identifier">
     <xsl:choose>
@@ -242,6 +239,16 @@
       </time:Instant>
     </xsl:element>
     </xsl:if>
+  </xsl:template>
+
+  <xsl:template match="xmlo:url">
+    <foaf:homepage rdf:resource="{text()}"/>
+  </xsl:template>
+
+  <xsl:template match="xmlo:places">
+    <mlo:places rdf:datatype="&xsd;int">
+      <xsl:value-of select="text()"/>
+    </mlo:places>
   </xsl:template>
 
   <xsl:template match="*|@*|text()|processing-instruction()"/>
