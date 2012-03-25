@@ -5,6 +5,7 @@
 <xsl:stylesheet version="2.0"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
     xmlns:cc="http://creativecommons.org/ns#"
     xmlns:dcterms="http://purl.org/dc/terms/"
@@ -80,6 +81,9 @@
     <skos:ConceptScheme rdf:about="{$scheme-uri}">
       <skos:prefLabel xml:lang="en">Vitae Researcher Development Framework</skos:prefLabel>
       <skos:altLabel>Vitae RDF</skos:altLabel>
+      <rdfs:comment>The Researcher Development Framework (RDF) is a major new approach to researcher development, to enhance our capacity to build the UK workforce, develop world-class researchers and build our research base.
+
+The RDF is a professional development framework for planning, promoting and supporting the personal, professional and career development of researchers in higher education. It articulates the knowledge, behaviours and attributes of successful researchers and encourages them to realise their potential.</rdfs:comment>
       <cc:attributionName>Vitae, Careers and Advisory Centre (CRAC), Limited</cc:attributionName>
       <cc:attributionURL rdf:resource="http://www.vitae.ac.uk/rdf"/>
       <dcterms:license>
