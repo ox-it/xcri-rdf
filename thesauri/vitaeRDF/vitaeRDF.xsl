@@ -177,12 +177,6 @@ The RDF is a professional development framework for planning, promoting and supp
           </skos:narrower>
         </xsl:if>
       </xsl:for-each>
-      <xsl:for-each select="cell[position() &gt; 6]">
-        <x>
-          <xsl:copy-of select="@*"/>
-          <xsl:value-of select="."/>
-        </x>
-      </xsl:for-each>
     </skos:Concept>
   </xsl:template>
 
