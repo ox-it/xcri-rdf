@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+   <skos:ConceptScheme rdf:about="http://xcri.org/profiles/catalog/1.2/attendancePattern">
+      <skos:prefLabel>Attendance Pattern for Course Data Programme.  Created by Jennifer Paull, APS Ltd.  This VDEX version 5 March 2012.</skos:prefLabel>
+      <skos:hasTopConcept>
+         <skos:Concept rdf:about="http://xcri.org/profiles/catalog/1.2/attendancePattern/concept/DT">
+            <skos:prefLabel>Daytime</skos:prefLabel>
+            <skos:definition>The opportunity takes place at some time roughly in the hours 9am to 5pm.</skos:definition>
+            <skos:inScheme rdf:resource="http://xcri.org/profiles/catalog/1.2/attendancePattern"/>
+            <skos:notation rdf:datatype="http://xcri.org/profiles/catalog/1.2/attendancePattern/notation">DT</skos:notation>
+         </skos:Concept>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <skos:Concept rdf:about="http://xcri.org/profiles/catalog/1.2/attendancePattern/concept/EV">
+            <skos:prefLabel>Evening</skos:prefLabel>
+            <skos:definition>The opportunity takes place at 8pm or later.</skos:definition>
+            <skos:inScheme rdf:resource="http://xcri.org/profiles/catalog/1.2/attendancePattern"/>
+            <skos:notation rdf:datatype="http://xcri.org/profiles/catalog/1.2/attendancePattern/notation">EV</skos:notation>
+         </skos:Concept>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <skos:Concept rdf:about="http://xcri.org/profiles/catalog/1.2/attendancePattern/concept/TW">
+            <skos:prefLabel>Twilight</skos:prefLabel>
+            <skos:definition>The opportunity takes place between 5pm and 8pm.</skos:definition>
+            <skos:inScheme rdf:resource="http://xcri.org/profiles/catalog/1.2/attendancePattern"/>
+            <skos:notation rdf:datatype="http://xcri.org/profiles/catalog/1.2/attendancePattern/notation">TW</skos:notation>
+         </skos:Concept>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <skos:Concept rdf:about="http://xcri.org/profiles/catalog/1.2/attendancePattern/concept/DR">
+            <skos:prefLabel>Day/Block release</skos:prefLabel>
+            <skos:definition>The opportunity takes place over the course of a day or more of intensive study.</skos:definition>
+            <skos:inScheme rdf:resource="http://xcri.org/profiles/catalog/1.2/attendancePattern"/>
+            <skos:notation rdf:datatype="http://xcri.org/profiles/catalog/1.2/attendancePattern/notation">DR</skos:notation>
+         </skos:Concept>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <skos:Concept rdf:about="http://xcri.org/profiles/catalog/1.2/attendancePattern/concept/WE">
+            <skos:prefLabel>Weekend</skos:prefLabel>
+            <skos:definition>The opportunity takes place on Saturday or Sunday.</skos:definition>
+            <skos:inScheme rdf:resource="http://xcri.org/profiles/catalog/1.2/attendancePattern"/>
+            <skos:notation rdf:datatype="http://xcri.org/profiles/catalog/1.2/attendancePattern/notation">WE</skos:notation>
+         </skos:Concept>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <skos:Concept rdf:about="http://xcri.org/profiles/catalog/1.2/attendancePattern/concept/CS">
+            <skos:prefLabel>Customised</skos:prefLabel>
+            <skos:definition>The timetable for the learning opportunity is agreed with the learner.</skos:definition>
+            <skos:inScheme rdf:resource="http://xcri.org/profiles/catalog/1.2/attendancePattern"/>
+            <skos:notation rdf:datatype="http://xcri.org/profiles/catalog/1.2/attendancePattern/notation">CS</skos:notation>
+         </skos:Concept>
+      </skos:hasTopConcept>
+   </skos:ConceptScheme>
+</rdf:RDF>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+   <skos:ConceptScheme rdf:about="http://xcri.org/profiles/catalog/1.2/studyMode">
+      <skos:prefLabel>Generic Study Mode for Course Data Programme.  Created by Alan Paull, APS Ltd.  This VDEX version 5 March 2012.</skos:prefLabel>
+      <skos:hasTopConcept>
+         <skos:Concept rdf:about="http://xcri.org/profiles/catalog/1.2/studyMode/concept/NK">
+            <skos:prefLabel>Not known</skos:prefLabel>
+            <skos:definition>The study mode is not known.</skos:definition>
+            <skos:inScheme rdf:resource="http://xcri.org/profiles/catalog/1.2/studyMode"/>
+            <skos:notation rdf:datatype="http://xcri.org/profiles/catalog/1.2/studyMode/notation">NK</skos:notation>
+         </skos:Concept>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <skos:Concept rdf:about="http://xcri.org/profiles/catalog/1.2/studyMode/concept/FL">
+            <skos:prefLabel>Flexible</skos:prefLabel>
+            <skos:definition>Could be full time or part time dependent on the learner. </skos:definition>
+            <skos:inScheme rdf:resource="http://xcri.org/profiles/catalog/1.2/studyMode"/>
+            <skos:notation rdf:datatype="http://xcri.org/profiles/catalog/1.2/studyMode/notation">FL</skos:notation>
+         </skos:Concept>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <skos:Concept rdf:about="http://xcri.org/profiles/catalog/1.2/studyMode/concept/FT">
+            <skos:prefLabel>Full time</skos:prefLabel>
+            <skos:definition>The learning opportunity is the learner's main activity.</skos:definition>
+            <skos:inScheme rdf:resource="http://xcri.org/profiles/catalog/1.2/studyMode"/>
+            <skos:notation rdf:datatype="http://xcri.org/profiles/catalog/1.2/studyMode/notation">FT</skos:notation>
+         </skos:Concept>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <skos:Concept rdf:about="http://xcri.org/profiles/catalog/1.2/studyMode/concept/PF">
+            <skos:prefLabel>Part of a full time programme</skos:prefLabel>
+            <skos:definition>The learning opportunity is a component of a set of learning opportunities that form the learner's main activity. </skos:definition>
+            <skos:inScheme rdf:resource="http://xcri.org/profiles/catalog/1.2/studyMode"/>
+            <skos:notation rdf:datatype="http://xcri.org/profiles/catalog/1.2/studyMode/notation">PF</skos:notation>
+         </skos:Concept>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <skos:Concept rdf:about="http://xcri.org/profiles/catalog/1.2/studyMode/concept/PT">
+            <skos:prefLabel>Part time</skos:prefLabel>
+            <skos:definition>The learning opportunity is not the learner's main activity</skos:definition>
+            <skos:inScheme rdf:resource="http://xcri.org/profiles/catalog/1.2/studyMode"/>
+            <skos:notation rdf:datatype="http://xcri.org/profiles/catalog/1.2/studyMode/notation">PT</skos:notation>
+         </skos:Concept>
+      </skos:hasTopConcept>
+   </skos:ConceptScheme>
+</rdf:RDF>
