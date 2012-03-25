@@ -20,7 +20,7 @@
 
   <xsl:template match="/">
     <xsl:variable name="simplified">
-      <xsl:apply-templates select=".//table:table[1]" mode="simplify"/>
+      <xsl:apply-templates select=".//table:table[@table:name='Descriptors']" mode="simplify"/>
     </xsl:variable>
     <rdf:RDF>
       <xsl:apply-templates select="$simplified/table"/>
