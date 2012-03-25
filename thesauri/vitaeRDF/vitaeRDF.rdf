@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rdf:RDF xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"
+<rdf:RDF xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0"
+         xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"
          xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0"
          xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
          xmlns:skos="http://www.w3.org/2004/02/skos/core#"
          xmlns:cc="http://creativecommons.org/ns#"
-         xmlns:dcterms="http://purl.org/dc/terms/"
-         xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0">
+         xmlns:dcterms="http://purl.org/dc/terms/">
    <skos:ConceptScheme rdf:about="http://id.vitae.ac.uk/rdf/concept-scheme">
       <skos:prefLabel xml:lang="en">Vitae Researcher Development Framework</skos:prefLabel>
       <skos:altLabel>Vitae RDF</skos:altLabel>
+      <rdfs:comment>The Researcher Development Framework (RDF) is a major new approach to researcher development, to enhance our capacity to build the UK workforce, develop world-class researchers and build our research base.
+
+The RDF is a professional development framework for planning, promoting and supporting the personal, professional and career development of researchers in higher education. It articulates the knowledge, behaviours and attributes of successful researchers and encourages them to realise their potential.</rdfs:comment>
       <cc:attributionName>Vitae, Careers and Advisory Centre (CRAC), Limited</cc:attributionName>
       <cc:attributionURL rdf:resource="http://www.vitae.ac.uk/rdf"/>
       <dcterms:license>
@@ -61,19 +65,6 @@ Has deep and holistic understanding of strategic direction and intellectual deve
 Contributes to the integrity and future vibrancy of the discipline/research area. Exercises international influence.</skos:definition>
                            </skos:Concept>
                         </skos:narrower>
-                        <x repeated="false" table:style-name="ce4" office:value-type="string">Has, at least, core knowledge and basic understanding of key concepts, issues and history of thought.Knows of recent advances within own research area and in related areas. (A3)*Is working towards making an original contribution to knowledge.Is developing a broader awareness of international and non-academic aspects of knowledge creation.</x>
-                        <x repeated="false" table:style-name="ce4" office:value-type="string"
-                           table:number-columns-spanned="2"
-                           table:number-rows-spanned="1">Develops detailed and thorough knowledge/understanding of own and related subject areas – and becomes familiar with associated areas in other disciplines/research areas.Demonstrates link between own research and real world affairs.Situates knowledge in international context.</x>
-                        <x repeated="true" table:style-name="ce4" office:value-type="string"
-                           table:number-columns-spanned="2"
-                           table:number-rows-spanned="1">Develops detailed and thorough knowledge/understanding of own and related subject areas – and becomes familiar with associated areas in other disciplines/research areas.Demonstrates link between own research and real world affairs.Situates knowledge in international context.</x>
-                        <x repeated="false" table:style-name="ce4" office:value-type="string"
-                           table:number-columns-spanned="2"
-                           table:number-rows-spanned="1">Stimulates new knowledge; may make outstanding breakthroughs. Considers multiple perspectives.Has deep and holistic understanding of strategic direction and intellectual developments of discipline/research area and its inter-relatedness with other disciplines/research areas. Uses this knowledge to enrich own discipline/research area.Contributes to the integrity and future vibrancy of the discipline/research area. Exercises international influence.</x>
-                        <x repeated="true" table:style-name="ce4" office:value-type="string"
-                           table:number-columns-spanned="2"
-                           table:number-rows-spanned="1">Stimulates new knowledge; may make outstanding breakthroughs. Considers multiple perspectives.Has deep and holistic understanding of strategic direction and intellectual developments of discipline/research area and its inter-relatedness with other disciplines/research areas. Uses this knowledge to enrich own discipline/research area.Contributes to the integrity and future vibrancy of the discipline/research area. Exercises international influence.</x>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
@@ -110,15 +101,6 @@ Justifies the principles and experimental techniques used in own research. (B6)*
                               <skos:definition>Recognises the value of alternative research paradigms and is able to work in, and support others working in, an inter-disciplinary way.</skos:definition>
                            </skos:Concept>
                         </skos:narrower>
-                        <x repeated="false" office:value-type="string">Understands relevant research methodologies and techniques and their appropriate application within own research area. (A4)*Justifies the principles and experimental techniques used in own research. (B6)*</x>
-                        <x repeated="false" office:value-type="string">Appreciates the value of a range of standards and methods/techniques for information/data collection and analysis; assesses and demonstrates usefulness and validity of information/data in the context of a specific problem/question.</x>
-                        <x repeated="false" office:value-type="string">Combines and justifies methods/techniques designed specifically for an investigation in a flexible and vigorous manner.</x>
-                        <x repeated="false" table:style-name="ce4" office:value-type="string"
-                           table:number-columns-spanned="2"
-                           table:number-rows-spanned="1">Recognises the value of alternative research paradigms and is able to work in, and support others working in, an inter-disciplinary way.</x>
-                        <x repeated="true" table:style-name="ce4" office:value-type="string"
-                           table:number-columns-spanned="2"
-                           table:number-rows-spanned="1">Recognises the value of alternative research paradigms and is able to work in, and support others working in, an inter-disciplinary way.</x>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
@@ -159,13 +141,6 @@ Documents and evaluates research processes, using statistics where appropriate.<
 Sets expectations for application of methods locally, nationally and internationally.</skos:definition>
                            </skos:Concept>
                         </skos:narrower>
-                        <x repeated="false" office:value-type="string">Uses a range of research methods linked to study area; documents own activity.Shows growing competence in own subject area and is developing awareness of alternative methods and analysis techniques.</x>
-                        <x repeated="false" office:value-type="string">Develops research approach and applies a range of appropriate methods and techniques with confidence.Documents and evaluates research processes, using statistics where appropriate.</x>
-                        <x repeated="false" office:value-type="string">Educates and guides others in the appropriate selection and use of research design, information/data collection, information/data management, analysis and methods/techniques.</x>
-                        <x repeated="false" office:value-type="string" table:number-columns-spanned="2"
-                           table:number-rows-spanned="1">Creates new models and hypotheses, research designs, data collection and analysis techniques.Sets expectations for application of methods locally, nationally and internationally.</x>
-                        <x repeated="true" office:value-type="string" table:number-columns-spanned="2"
-                           table:number-rows-spanned="1">Creates new models and hypotheses, research designs, data collection and analysis techniques.Sets expectations for application of methods locally, nationally and internationally.</x>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
@@ -209,32 +184,122 @@ Manages bibliometrics and citations to best advantage and with a high level of p
 Educates others in information/data seeking, accessing, evaluating and verifying techniques.</skos:definition>
                            </skos:Concept>
                         </skos:narrower>
-                        <x repeated="false" office:value-type="string">Acquires and develops search and discovery skills and techniques.Identifies and accesses appropriate bibliographical resources, archives and other sources of relevant information (C3)* including web-based resources, primary sources and repositories.Makes best use of a range of current tools and techniques.Assesses the reliability, reputation, currency, authority and relevance of sources.Seeks feedback from relevant groups to access other insights.</x>
-                        <x repeated="false" office:value-type="string">Conducts advanced searches using a range of information software, resources and techniques; recognises their advantages and limitations.Recognises the importance of bibliometrics and citations.</x>
-                        <x repeated="false" office:value-type="string" table:number-columns-spanned="3"
-                           table:number-rows-spanned="1">Shows highly developed awareness of appropriate sources for research.Uses a range of specialist print and on-line resources, as appropriate.Manages bibliometrics and citations to best advantage and with a high level of proficiency.Educates others in information/data seeking, accessing, evaluating and verifying techniques.</x>
-                        <x repeated="true" office:value-type="string" table:number-columns-spanned="3"
-                           table:number-rows-spanned="1">Shows highly developed awareness of appropriate sources for research.Uses a range of specialist print and on-line resources, as appropriate.Manages bibliometrics and citations to best advantage and with a high level of proficiency.Educates others in information/data seeking, accessing, evaluating and verifying techniques.</x>
-                        <x repeated="true" office:value-type="string" table:number-columns-spanned="3"
-                           table:number-rows-spanned="1">Shows highly developed awareness of appropriate sources for research.Uses a range of specialist print and on-line resources, as appropriate.Manages bibliometrics and citations to best advantage and with a high level of proficiency.Educates others in information/data seeking, accessing, evaluating and verifying techniques.</x>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.1.5">
                         <skos:prefLabel>Information literacy and management</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.1.5</skos:notation>
+                        <skos:narrower>
+                           <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.1.5.1">
+                              <skos:prefLabel>Phase 1 of Information literacy and management</skos:prefLabel>
+                              <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.1.5.1</skos:notation>
+                              <skos:definition>Designs and executes systems for the acquisition and collation of information using information technology appropriately (e.g. word processing, spreadsheets, simulation systems, databases). (C2, C4)*
+
+Develops awareness of information/data security and longevity issues.
+
+Knows where to obtain expert advice, i.e. information/data managers, archivists and librarians.</skos:definition>
+                           </skos:Concept>
+                        </skos:narrower>
+                        <skos:narrower>
+                           <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.1.5.2">
+                              <skos:prefLabel>Phase 2 of Information literacy and management</skos:prefLabel>
+                              <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.1.5.2</skos:notation>
+                              <skos:definition>Develops awareness of the creation, organisation, validation, sharing, storing and curation of information/data and the associated risks.
+
+Understands legal, ethical and security requirements involved in information/data management, especially over time.
+
+Has knowledge of purpose of metadata.</skos:definition>
+                           </skos:Concept>
+                        </skos:narrower>
+                        <skos:narrower>
+                           <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.1.5.3">
+                              <skos:prefLabel>Phase 3 of Information literacy and management</skos:prefLabel>
+                              <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.1.5.3</skos:notation>
+                              <skos:definition>Advises and educates peers, less experienced researchers, students and staff in discipline/research area-specific information/data management techniques, data security, legal and ethical requirements.</skos:definition>
+                           </skos:Concept>
+                        </skos:narrower>
+                        <skos:narrower>
+                           <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.1.5.4">
+                              <skos:prefLabel>Phases 4–5 of Information literacy and management</skos:prefLabel>
+                              <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.1.5.4</skos:notation>
+                              <skos:definition>Develops new techniques for information management. 
+
+Keeps abreast of and anticipates trends in the design and use of information/data collection, analysis and preservation.</skos:definition>
+                           </skos:Concept>
+                        </skos:narrower>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.1.6">
                         <skos:prefLabel>Languages</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.1.6</skos:notation>
+                        <skos:narrower>
+                           <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.1.6.1">
+                              <skos:prefLabel>Phase 1 of Languages</skos:prefLabel>
+                              <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.1.6.1</skos:notation>
+                              <skos:definition>Has excellent knowledge of language(s) appropriate for research, including technical language.</skos:definition>
+                           </skos:Concept>
+                        </skos:narrower>
+                        <skos:narrower>
+                           <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.1.6.2">
+                              <skos:prefLabel>Phase 2 of Languages</skos:prefLabel>
+                              <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.1.6.2</skos:notation>
+                              <skos:definition>Learns additional language(s), including technical, appropriate for research and career development.</skos:definition>
+                           </skos:Concept>
+                        </skos:narrower>
+                        <skos:narrower>
+                           <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.1.6.3">
+                              <skos:prefLabel>Phases 3–5 of Languages</skos:prefLabel>
+                              <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.1.6.3</skos:notation>
+                              <skos:definition>Becomes fluent/expert in additional relevant language(s).</skos:definition>
+                           </skos:Concept>
+                        </skos:narrower>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.1.7">
                         <skos:prefLabel>Academic literacy and numeracy</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.1.7</skos:notation>
+                        <skos:narrower>
+                           <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.1.7.1">
+                              <skos:prefLabel>Phase 1 of Academic literacy and numeracy</skos:prefLabel>
+                              <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.1.7.1</skos:notation>
+                              <skos:definition>Ability to understand, interpret, create and communicate appropriately within an academic context.
+
+Prepares grammatically and syntactically correct content for presentations.
+
+Writes in a style appropriate to purpose (E1)* and context for specialist and non-specialist audiences.
+
+Is mathematically competent to undertake research in own discipline/research area; understands and applies any statistics that may be used in the discipline/research area; analyses data and uses appropriate computer packages.
+
+Is IT literate and competent in using information and digital technology.</skos:definition>
+                           </skos:Concept>
+                        </skos:narrower>
+                        <skos:narrower>
+                           <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.1.7.2">
+                              <skos:prefLabel>Phase 2 of Academic literacy and numeracy</skos:prefLabel>
+                              <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.1.7.2</skos:notation>
+                              <skos:definition>Continues to develop academic literacy abilities within wider contexts; understands the literacy requirements for different communication media.
+
+Develops capabilities in IT and digital technology, as appropriate.
+
+Presents complex ideas with clarity.
+
+Understands analytical or statistical procedures in related disciplines/research areas and continues to develop mathematical ability.</skos:definition>
+                           </skos:Concept>
+                        </skos:narrower>
+                        <skos:narrower>
+                           <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.1.7.3">
+                              <skos:prefLabel>Phases 3–5 of Academic literacy and numeracy</skos:prefLabel>
+                              <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.1.7.3</skos:notation>
+                              <skos:definition>Has high level academic literacy and numeracy across a range of contexts and communication media.
+
+Keeps up to date with the use of the latest IT and mathematical tools, techniques and procedures for the discipline/research area.
+
+Educates, advises and guides others in academic literacy and numeracy skills, as appropriate.</skos:definition>
+                           </skos:Concept>
+                        </skos:narrower>
                      </skos:Concept>
                   </skos:narrower>
                </skos:Concept>
@@ -247,12 +312,61 @@ Educates others in information/data seeking, accessing, evaluating and verifying
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.2.1">
                         <skos:prefLabel>Analysing</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.2.1</skos:notation>
+                        <skos:narrower>
+                           <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.2.1.1">
+                              <skos:prefLabel>Phase 1 of Analysing</skos:prefLabel>
+                              <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.2.1.1</skos:notation>
+                              <skos:definition>Critically analyses and evaluates own findings and those of others. (A5)*
+
+Validates datasets of others.</skos:definition>
+                           </skos:Concept>
+                        </skos:narrower>
+                        <skos:narrower>
+                           <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.2.1.2">
+                              <skos:prefLabel>Phases 2–3 of Analysing</skos:prefLabel>
+                              <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.2.1.2</skos:notation>
+                              <skos:definition>Has well developed analytical abilities with knowledge of a range of methods. Willing to learn new ones.
+
+Develops the analytical understanding of less experienced researchers and staff.</skos:definition>
+                           </skos:Concept>
+                        </skos:narrower>
+                        <skos:narrower>
+                           <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.2.1.4">
+                              <skos:prefLabel>Phases 4–5 of Analysing</skos:prefLabel>
+                              <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.2.1.4</skos:notation>
+                              <skos:definition>Has outstanding analytical abilities.</skos:definition>
+                           </skos:Concept>
+                        </skos:narrower>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.2.2">
                         <skos:prefLabel>Synthesising</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.2.2</skos:notation>
+                        <skos:narrower>
+                           <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.2.2.1">
+                              <skos:prefLabel>Phase 1 of Synthesising</skos:prefLabel>
+                              <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.2.2.1</skos:notation>
+                              <skos:definition>Sees connections between own research and previous studies. Benefits from guidance with synthesising information/data and ideas.</skos:definition>
+                           </skos:Concept>
+                        </skos:narrower>
+                        <skos:narrower>
+                           <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.2.2.2">
+                              <skos:prefLabel>Phase 2 of Synthesising</skos:prefLabel>
+                              <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.2.2.2</skos:notation>
+                              <skos:definition>Critically synthesises new and complex information from diverse sources.
+
+Recognises patterns and connections beyond own discipline/research area.</skos:definition>
+                           </skos:Concept>
+                        </skos:narrower>
+                        <skos:narrower>
+                           <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.2.2.3">
+                              <skos:prefLabel>Phases 3–5 of Synthesising</skos:prefLabel>
+                              <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.2.2.3</skos:notation>
+                              <skos:definition>Makes imaginative leaps of understanding across disciplines/research areas/agendas and beyond academia.
+</skos:definition>
+                           </skos:Concept>
+                        </skos:narrower>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
