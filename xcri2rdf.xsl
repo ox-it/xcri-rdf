@@ -104,12 +104,15 @@
   </xsl:template>
 
   <xsl:template match="venue">
-    <xcri:venue>
-      <geo:SpatialThing>
-        <xsl:apply-templates select="provider" mode="rdf-about-attribute"/>
-        <xsl:apply-templates select="provider/*"/>
-      </geo:SpatialThing>
-    </xcri:venue>
+    <!-- There's no physical venue for an online course. -->
+    <xsl:if test="not(../attendanceMode[@identifier = 'ON'])">
+      <xcri:venue>
+        <geo:SpatialThing>
+          <xsl:apply-templates select="provider" mode="rdf-about-attribute"/>
+          <xsl:apply-templates select="provider/*"/>
+        </geo:SpatialThing>
+      </xcri:venue>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="dc:title">
