@@ -26,8 +26,8 @@
     xmlns:xtypes="http://purl.org/xtypes/"
     xmlns="http://xcri.org/profiles/1.2/catalog"
     xpath-default-namespace="http://xcri.org/profiles/1.2/catalog">
-  <xsl:output method="xml" indent="yes"/>
   <xsl:import href="xml-to-string.xsl"/>
+  <xsl:output method="xml" indent="yes"/>
 
   <xsl:template match="*" mode="rdf-about-attribute">
     <xsl:variable name="value">
