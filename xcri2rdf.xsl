@@ -93,7 +93,7 @@
   </xsl:template>
 
   <xsl:template match="catalog">
-    <xsl:apply-templates select="*"/>
+    <xsl:apply-templates select="provider"/>
   </xsl:template>
 
   <xsl:template match="catalog/provider">
