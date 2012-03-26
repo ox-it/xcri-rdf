@@ -2,6 +2,7 @@
 <!DOCTYPE xsl:stylesheet [
   <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
   <!ENTITY xhtml "http://www.w3.org/1999/xhtml">
+  <!ENTITY xtypes "http://purl.org/xtypes/">
 ]>
 <xsl:stylesheet version="2.0"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -23,7 +24,6 @@
     xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
     xmlns:v="http://www.w3.org/2006/vcard/ns#"
     xmlns:time="http://www.w3.org/2006/time#"
-    xmlns:xtypes="http://purl.org/xtypes/"
     xmlns="http://xcri.org/profiles/1.2/catalog"
     xpath-default-namespace="http://xcri.org/profiles/1.2/catalog">
   <xsl:import href="xml-to-string.xsl"/>
@@ -130,7 +130,7 @@
           <xsl:attribute name="rdf:resource" select="@href"/>
         </xsl:when>
         <xsl:when test="*[1][namespace-uri() = '&xhtml;']">
-          <xsl:attribute name="rdf:datatype">xtypes:Fragment-XHTML</xsl:attribute>
+          <xsl:attribute name="rdf:datatype">&xtypes;Fragment-XHTML</xsl:attribute>
           <xsl:call-template name="xml-to-string">
             <xsl:with-param name="node-set" select="*[1]"/>
           </xsl:call-template>
