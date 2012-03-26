@@ -27,7 +27,7 @@
     xmlns="http://xcri.org/profiles/1.2/catalog"
     xpath-default-namespace="http://xcri.org/profiles/1.2/catalog">
   <xsl:output method="xml" indent="yes"/>
-  <xsl:include href="xml-to-string.xsl"/>
+  <xsl:import href="xml-to-string.xsl"/>
 
   <xsl:template match="*" mode="rdf-about-attribute">
     <xsl:variable name="value">
