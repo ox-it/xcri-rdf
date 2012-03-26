@@ -66,7 +66,25 @@
       <xsl:value-of select="concat($parentURI, '/address')"/>
     </xsl:if>
   </xsl:template>
-  
+
+  <xsl:template match="venue" mode="rdf-about">
+    <xsl:variable name="parentURI">
+      <xsl:apply-templates select=".." mode="rdf-about"/>
+    </xsl:variable>
+    <xsl:if test="$parentURI/text()">
+      <xsl:value-of select="concat($parentURI, '/venue')"/>
+    </xsl:if>
+  </xsl:template>
+
+  <xsl:template match="xmlo:phone" mode="rdf-about">
+    <xsl:variable name="parentURI">
+      <xsl:apply-templates select="ancestor::provider[1]" mode="rdf-about"/>
+    </xsl:variable>
+    <xsl:if test="$parentURI/text()">
+      <xsl:value-of select="concat($parentURI, '/phone')"/>
+    </xsl:if>
+  </xsl:template>
+
 
   <xsl:template match="/">
     <rdf:RDF>
