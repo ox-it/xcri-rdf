@@ -27,6 +27,7 @@
     xmlns="http://xcri.org/profiles/1.2/catalog"
     xpath-default-namespace="http://xcri.org/profiles/1.2/catalog">
   <xsl:output method="xml" indent="yes"/>
+  <xsl:include href="xml-to-string.xsl"/>
 
   <xsl:template match="*" mode="rdf-about-attribute">
     <xsl:variable name="value">
@@ -130,11 +131,9 @@
         </xsl:when>
         <xsl:when test="*[1][namespace-uri() = '&xhtml;']">
           <xsl:attribute name="rdf:datatype">xtypes:Fragment-XHTML</xsl:attribute>
-          <xsl:element name="{name(*[1])}">
-            <xsl:attribute name="rdf:parseType">Literal</xsl:attribute>
-            <xsl:copy-of select="@xml:lang"/>
-            <xsl:copy-of select="*[1]/(@*|*|text())"/>
-          </xsl:element>
+          <xsl:call-template name="xml-to-string">
+            <xsl:with-param name="node-set" select="*[1]"/>
+          </xsl:call-template>
         </xsl:when>
         <xsl:otherwise>
           <xsl:copy-of select="@xml:lang"/>
