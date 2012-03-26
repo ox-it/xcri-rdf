@@ -126,7 +126,7 @@
     <xsl:if test="not(../attendanceMode[@identifier = 'ON'])">
       <xcri:venue>
         <geo:SpatialThing>
-          <xsl:apply-templates select="provider" mode="rdf-about-attribute"/>
+          <xsl:apply-templates select="." mode="rdf-about-attribute"/>
           <xsl:apply-templates select="provider/*"/>
         </geo:SpatialThing>
       </xcri:venue>
