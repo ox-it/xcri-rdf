@@ -263,6 +263,33 @@
     </mlo:places>
   </xsl:template>
 
+  <xsl:template match="attendanceMode">
+    <xcri:attendanceMode rdf:resource="http://xcri.org/profiles/catalog/1.2/attendanceMode/{@identifier}"/>
+  </xsl:template>
+  <xsl:template match="attendancePattern">
+    <xcri:attendancePattern rdf:resource="http://xcri.org/profiles/catalog/1.2/attendancePattern/{@identifier}"/>
+  </xsl:template>
+  <xsl:template match="studyMode">
+    <xcri:studyMode rdf:resource="http://xcri.org/profiles/catalog/1.2/studyMode/{@identifier}"/>
+  </xsl:template>
+
+  <xsl:template match="dc:subject">
+    <xsl:choose>
+      <xsl:when test="index-of(('hesa:jacs', 'courseDataProgramme:JACS3'), @xsi:type)">
+        <dcterms:subject rdf:resource="http://jacs.dataincubator.org/{lower-case(@identifier)}"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <dc:subject>
+          <xsl:value-of select="text()"/>
+        </dc:subject>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+
+  <xsl:template match="applyTo">
+    <xcri:applyTo rdf:resource="{text()}"/>
+  </xsl:template>
+
   <xsl:template match="*|@*|text()|processing-instruction()"/>
 </xsl:stylesheet>
 
