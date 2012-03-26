@@ -13,7 +13,7 @@
     <xsl:value-of select="/vdex/vocabIdentifier/text()"/>
   </xsl:param>
   <xsl:param name="concept-uri-base">
-    <xsl:value-of select="concat($scheme-uri, '/concept/')"/>
+    <xsl:value-of select="concat($scheme-uri, '/')"/>
   </xsl:param>
   <xsl:param name="notation-uri">
     <xsl:value-of select="concat($scheme-uri, '/notation')"/>

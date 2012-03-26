@@ -4,7 +4,7 @@
    <skos:ConceptScheme rdf:about="http://xcri.org/profiles/catalog/1.2/attendanceMode">
       <skos:prefLabel>Attendance Mode for Course Data Programme.  Created by Jennifer Paull, APS Ltd.  This VDEX version 5 March 2012.</skos:prefLabel>
       <skos:hasTopConcept>
-         <skos:Concept rdf:about="http://xcri.org/profiles/catalog/1.2/attendanceMode/concept/CM">
+         <skos:Concept rdf:about="http://xcri.org/profiles/catalog/1.2/attendanceMode/CM">
             <skos:prefLabel>Campus</skos:prefLabel>
             <skos:definition>Learner will be expected to attend at the venue for the bulk of their teaching time.</skos:definition>
             <skos:inScheme rdf:resource="http://xcri.org/profiles/catalog/1.2/attendanceMode"/>
@@ -12,7 +12,7 @@
          </skos:Concept>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
-         <skos:Concept rdf:about="http://xcri.org/profiles/catalog/1.2/attendanceMode/concept/DA">
+         <skos:Concept rdf:about="http://xcri.org/profiles/catalog/1.2/attendanceMode/DA">
             <skos:prefLabel>Distance with attendance</skos:prefLabel>
             <skos:definition>Primarily distance learning however the learner will be required to attend at the venue as necessary.</skos:definition>
             <skos:inScheme rdf:resource="http://xcri.org/profiles/catalog/1.2/attendanceMode"/>
@@ -20,7 +20,7 @@
          </skos:Concept>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
-         <skos:Concept rdf:about="http://xcri.org/profiles/catalog/1.2/attendanceMode/concept/DS">
+         <skos:Concept rdf:about="http://xcri.org/profiles/catalog/1.2/attendanceMode/DS">
             <skos:prefLabel>Distance without attendance</skos:prefLabel>
             <skos:definition>The learning opportunity does not require any attendance at the venue.</skos:definition>
             <skos:inScheme rdf:resource="http://xcri.org/profiles/catalog/1.2/attendanceMode"/>
@@ -28,7 +28,7 @@
          </skos:Concept>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
-         <skos:Concept rdf:about="http://xcri.org/profiles/catalog/1.2/attendanceMode/concept/MM">
+         <skos:Concept rdf:about="http://xcri.org/profiles/catalog/1.2/attendanceMode/MM">
             <skos:prefLabel>Mixed mode</skos:prefLabel>
             <skos:definition/>
             <skos:inScheme rdf:resource="http://xcri.org/profiles/catalog/1.2/attendanceMode"/>
@@ -36,7 +36,7 @@
          </skos:Concept>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
-         <skos:Concept rdf:about="http://xcri.org/profiles/catalog/1.2/attendanceMode/concept/NC">
+         <skos:Concept rdf:about="http://xcri.org/profiles/catalog/1.2/attendanceMode/NC">
             <skos:prefLabel>Face-to-face non-campus</skos:prefLabel>
             <skos:definition>The learner undertakes the course off campus.</skos:definition>
             <skos:inScheme rdf:resource="http://xcri.org/profiles/catalog/1.2/attendanceMode"/>
@@ -44,7 +44,7 @@
          </skos:Concept>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
-         <skos:Concept rdf:about="http://xcri.org/profiles/catalog/1.2/attendanceMode/concept/ON">
+         <skos:Concept rdf:about="http://xcri.org/profiles/catalog/1.2/attendanceMode/ON">
             <skos:prefLabel>Online (no attendance)</skos:prefLabel>
             <skos:definition>The learner undertakes the course over the internet only.</skos:definition>
             <skos:inScheme rdf:resource="http://xcri.org/profiles/catalog/1.2/attendanceMode"/>
@@ -52,7 +52,7 @@
          </skos:Concept>
       </skos:hasTopConcept>
       <skos:hasTopConcept>
-         <skos:Concept rdf:about="http://xcri.org/profiles/catalog/1.2/attendanceMode/concept/WB">
+         <skos:Concept rdf:about="http://xcri.org/profiles/catalog/1.2/attendanceMode/WB">
             <skos:prefLabel>Work-based</skos:prefLabel>
             <skos:definition>The learner undertakes the course at their workplace.</skos:definition>
             <skos:inScheme rdf:resource="http://xcri.org/profiles/catalog/1.2/attendanceMode"/>
