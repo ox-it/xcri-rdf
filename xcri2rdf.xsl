@@ -129,11 +129,11 @@
           <xsl:attribute name="rdf:resource" select="@href"/>
         </xsl:when>
         <xsl:when test="*[1][namespace-uri() = '&xhtml;']">
-          <xsl:attribute name="rdf:parseType">Literal</xsl:attribute>
           <xsl:attribute name="rdf:datatype">xtypes:Fragment-XHTML</xsl:attribute>
           <xsl:element name="{name(*[1])}">
+            <xsl:attribute name="rdf:parseType">Literal</xsl:attribute>
             <xsl:copy-of select="@xml:lang"/>
-            <xsl:copy-of select="*[1]/(@*|*)"/>
+            <xsl:copy-of select="*[1]/(@*|*|text())"/>
           </xsl:element>
         </xsl:when>
         <xsl:otherwise>
