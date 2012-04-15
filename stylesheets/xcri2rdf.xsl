@@ -319,10 +319,10 @@
     </mlo:places>
   </xsl:template>
 
-  <xsl:template match="attendanceMode">
+  <xsl:template match="attendanceMode[@identifier]">
     <xcri:attendanceMode rdf:resource="http://xcri.org/profiles/catalog/1.2/attendanceMode/{@identifier}"/>
   </xsl:template>
-  <xsl:template match="attendancePattern">
+  <xsl:template match="attendancePattern[@identifier]">
     <xcri:attendancePattern rdf:resource="http://xcri.org/profiles/catalog/1.2/attendancePattern/{@identifier}"/>
   </xsl:template>
   <xsl:template match="studyMode">
