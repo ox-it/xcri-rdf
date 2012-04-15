@@ -331,7 +331,7 @@
 
   <xsl:template match="dc:subject">
     <xsl:choose>
-      <xsl:when test="index-of(('hesa:jacs', 'courseDataProgramme:JACS3'), @xsi:type)">
+      <xsl:when test="@xsi:type and index-of(('hesa:jacs', 'courseDataProgramme:JACS3'), @xsi:type)">
         <dcterms:subject rdf:resource="http://jacs.dataincubator.org/{lower-case(@identifier)}"/>
       </xsl:when>
       <xsl:otherwise>
