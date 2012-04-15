@@ -33,11 +33,36 @@
     <xsl:variable name="value">
       <xsl:apply-templates select="." mode="rdf-about"/>
     </xsl:variable>
-    <xsl:if test="$value/text()">
-      <xsl:attribute name="rdf:about">
-        <xsl:value-of select="$value"/>
-      </xsl:attribute>
-    </xsl:if>
+    <xsl:choose>
+     <xsl:when test="$value/text()">
+       <xsl:attribute name="rdf:about">
+         <xsl:value-of select="$value"/>
+       </xsl:attribute>
+     </xsl:when>
+     <xsl:otherwise>
+       <xsl:attribute name="rdf:nodeID">
+         <xsl:value-of select="generate-id()"/>
+       </xsl:attribute>
+     </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+
+  <xsl:template match="*" mode="rdf-resource-attribute">
+    <xsl:variable name="value">
+      <xsl:apply-templates select="." mode="rdf-about"/>
+    </xsl:variable>
+    <xsl:choose>
+     <xsl:when test="$value/text()">
+       <xsl:attribute name="rdf:resource">
+         <xsl:value-of select="$value"/>
+       </xsl:attribute>
+     </xsl:when>
+     <xsl:otherwise>
+       <xsl:attribute name="rdf:nodeID">
+         <xsl:value-of select="generate-id()"/>
+       </xsl:attribute>
+     </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
 
   <xsl:template match="*" mode="rdf-about">
@@ -93,23 +118,36 @@
   </xsl:template>
 
   <xsl:template match="catalog">
-    <xsl:apply-templates select="provider"/>
+    <xcri:catalog>
+      <xsl:apply-templates select="." mode="rdf-about-attribute"/>
+      <xsl:apply-templates select="*"/>
+      <xsl:for-each select="provider/course">
+        <skos:member>
+          <xsl:apply-templates select="."/>
+        </skos:member>
+      </xsl:for-each>
+    </xcri:catalog>
   </xsl:template>
 
   <xsl:template match="catalog/provider">
-    <xcri:provider>
-      <xsl:apply-templates select="." mode="rdf-about-attribute"/>
-      <xsl:apply-templates select="*"/>
-    </xcri:provider>
+    <dcterms:publisher>
+      <xcri:provider>
+        <xsl:apply-templates select="." mode="rdf-about-attribute"/>
+        <xsl:apply-templates select="*[name() != 'course']"/>
+        <xsl:for-each select="course">
+          <mlo:offers>
+            <xsl:apply-templates select="." mode="rdf-resource-attribute"/>
+          </mlo:offers>
+        </xsl:for-each>
+      </xcri:provider>
+    </dcterms:publisher>
   </xsl:template>
 
   <xsl:template match="course">
-    <mlo:offers>
-      <xcri:course>
-        <xsl:apply-templates select="." mode="rdf-about-attribute"/>
-        <xsl:apply-templates select="*"/>
-      </xcri:course>
-    </mlo:offers>
+    <xcri:course>
+      <xsl:apply-templates select="." mode="rdf-about-attribute"/>
+      <xsl:apply-templates select="*"/>
+    </xcri:course>
   </xsl:template>
 
   <xsl:template match="presentation">
