@@ -77,4 +77,4 @@ Feedback
 --------
 
 Feedback is very welcome to `COURSEDATASTAGE1@JISCMAIL.AC.UK
-<mailto:COURSEDATASTAGE1@JISCMAIL.AC.UK>_`.
+<mailto:COURSEDATASTAGE1@JISCMAIL.AC.UK>`_.
