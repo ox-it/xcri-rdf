@@ -173,20 +173,18 @@ class XCRICAPSerializer(object):
         attrib['generated'] = datetime.datetime.utcnow().isoformat() + '+00:00'
 
         xg.startElement('xcri:catalog', attrib)
-        self.serialize_description(xg, catalog)
+        self.serialize_common(xg, catalog)
 
         provider = self.graph.value(catalog, NS.dcterms.publisher)
-        self.serialize_common(xg, catalog)
-        yield
-
         for _ in self.serialize_provider(xg, catalog, provider): yield
 
         xg.endElement('xcri:catalog')
 
     def serialize_provider(self, xg, catalog, provider):
         xg.startElement('xcri:provider', {})
-        self.serialize_common(xg, provider)
-        self.serialize_location(xg, provider)
+        if provider:
+            self.serialize_common(xg, provider)
+            self.serialize_location(xg, provider)
         yield
         for course in self.graph.objects(catalog, NS.skos.member):
             if (course, NS.rdf.type, NS.xcri.course) not in self.graph:
