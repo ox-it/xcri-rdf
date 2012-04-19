@@ -120,27 +120,29 @@
   <xsl:template match="catalog">
     <xcri:catalog>
       <xsl:apply-templates select="." mode="rdf-about-attribute"/>
-      <xsl:apply-templates select="*"/>
+      <dcterms:publisher>
+        <xsl:apply-templates select="provider[1]" mode="rdf-resource-attribute"/>
+      </dcterms:publisher>
+      <xsl:apply-templates select="*[not(self::provider)]"/>
       <xsl:for-each select="provider/course">
         <skos:member>
           <xsl:apply-templates select="."/>
         </skos:member>
       </xsl:for-each>
     </xcri:catalog>
+    <xsl:apply-templates select="provider"/>
   </xsl:template>
 
   <xsl:template match="catalog/provider">
-    <dcterms:publisher>
       <xcri:provider>
         <xsl:apply-templates select="." mode="rdf-about-attribute"/>
-        <xsl:apply-templates select="*[name() != 'course']"/>
+        <xsl:apply-templates select="*[not(self::course)]"/>
         <xsl:for-each select="course">
           <mlo:offers>
             <xsl:apply-templates select="." mode="rdf-resource-attribute"/>
           </mlo:offers>
         </xsl:for-each>
       </xcri:provider>
-    </dcterms:publisher>
   </xsl:template>
 
   <xsl:template match="course">
