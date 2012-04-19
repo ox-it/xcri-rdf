@@ -291,9 +291,17 @@
     <xsl:value-of select="concat('tel:+44', replace(substring(text(), 2), ' ', ''))"/>
   </xsl:template>
 
-  <xsl:template match="xmlo:start|end">
-    <xsl:if test="@dtf or text()">
-    <xsl:element name="{if (self::xmlo:start) then 'mlo:start' else 'xcri:end'}">
+  <xsl:template match="xmlo:start|end|applyFrom|applyUntil">
+    <xsl:if test="(@dtf and string-length(@dtf))or text()">
+    <xsl:variable name="element-name">
+      <xsl:choose>
+        <xsl:when test="self::xmlo:start">mlo:start</xsl:when>
+        <xsl:when test="self::end">xcri:end</xsl:when>
+        <xsl:when test="self::applyFrom">xcri:applyFrom</xsl:when>
+        <xsl:when test="self::applyUntil">xcri:applyUntil</xsl:when>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:element name="{$element-name}">
       <time:Instant>
         <xsl:apply-templates select="." mode="rdf-about-attribute"/>
         <xsl:if test="text()">
@@ -301,7 +309,7 @@
             <xsl:value-of select="text()"/>
           </rdfs:label>
         </xsl:if>
-        <xsl:if test="@dtf">
+        <xsl:if test="@dtf and string-length(@dtf)">
           <time:inXSDDateTime rdf:datatype="&xsd;{if (string-length(@dtf) &gt; 11) then 'dateTime' else 'date'}">
             <xsl:value-of select="replace(@dtf, ' ', 'T')"/>
           </time:inXSDDateTime>
