@@ -324,9 +324,11 @@
   </xsl:template>
 
   <xsl:template match="xmlo:places">
-    <mlo:places rdf:datatype="&xsd;int">
-      <xsl:value-of select="text()"/>
-    </mlo:places>
+    <xsl:if test="text()">
+      <mlo:places rdf:datatype="&xsd;int">
+        <xsl:value-of select="text()"/>
+      </mlo:places>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="attendanceMode[@identifier]">
