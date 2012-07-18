@@ -224,12 +224,31 @@ class XCRICAPSerializer(object):
         yield
 
     def serialize_venue(self, xg, venue):
+        """
+        Serializes venue information if there is any.
+        """
+
+        # This is so we know where to rewind to if there's nothing known.
+        original_pos = self.stream.tell()
+        
         xg.startElement('xcri:venue', {})
         xg.startElement('xcri:provider', {})
+
+        before_pos = self.stream.tell()
         self.serialize_common(xg, venue)
         self.serialize_location(xg, venue)
+        after_pos = self.stream.tell()
+
         xg.endElement('xcri:provider')
         xg.endElement('xcri:venue')
+
+        if before_pos == after_pos:
+            # serialize_common() and serialize_location() didn't add anything,
+            # so we'll rewind to before where we wrote xcri:venue/xcri:provider
+            # We do this after the endElement calls to maintain correct
+            # indentation.
+            self.stream.seek(original_pos)
+            self.stream.truncate()
         yield
 
     def serialize_common(self, xg, entity):
@@ -239,15 +258,25 @@ class XCRICAPSerializer(object):
         self.serialize_description(xg, entity)
 
     def serialize_location(self, xg, entity):
-        xg.startElement('mlo:location', {})
         address = self.graph.value(entity, NS.v.adr)
         if address:
+            # See comments in serialize_venue() for explanation of all this
+            # pos nonsense.
+            original_pos = self.stream.tell()
+            xg.startElement('mlo:location', {})
+
+            before_pos = self.stream.tell()
             for prop, name in self.address_elements:
                 obj = self.graph.value(address, prop)
                 if obj:
                     xg.textualElement(name, {}, unicode(obj))
+            after_pos = self.stream.tell()
 
-        xg.endElement('mlo:location')
+            xg.endElement('mlo:location')
+
+            if before_pos == after_pos:
+                self.stream.seek(original_pos)
+                self.stream.truncate()
 
     def serialize_controlled_vocabularies(self, xg, presentation):
         for prop, name, datatype in self.controlled_vocabularies:
