@@ -186,12 +186,18 @@ class XCRICAPSerializer(object):
             self.serialize_common(xg, provider)
             self.serialize_location(xg, provider)
         yield
-        for course in self.graph.objects(catalog, NS.skos.member):
-            if (course, NS.rdf.type, NS.xcri.course) not in self.graph:
-                continue
-            for _ in self.serialize_course(xg, course): yield
+        for _ in self.serialize_courses(xg, catalog): yield
         xg.endElement('xcri:provider')
         yield
+
+    def serialize_courses(self, xg, catalog):
+        for member in self.graph.objects(catalog, NS.skos.member):
+            # If it's a course
+            if (member, NS.rdf.type, NS.xcri.course) in self.graph:
+                for _ in self.serialize_course(xg, member): yield
+            # Or a sub-catalogue
+            elif (member, NS.rdf.type, NS.xcri.catalog) in self.graph:
+                for _ in self.serialize_courses(xg, member): yield
 
     def serialize_course(self, xg, course):
         xg.startElement('xcri:course', {})
