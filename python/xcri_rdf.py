@@ -142,9 +142,9 @@ class XCRICAPSerializer(object):
         (NS.xcri.attendancePattern, 'xcri:attendancePattern', rdflib.URIRef('http://xcri.org/profiles/catalog/1.2/attendancePattern/notation')),
     ]
 
-    def __init__(self, graph, encoding='utf-8'):
+    def __init__(self, graph, catalog=None, encoding='utf-8'):
         self.graph = graph
-        self.catalog = self.graph.value(None, NS.rdf.type, NS.xcri.catalog, any=False)
+        self.catalog = catalog or self.graph.value(None, NS.rdf.type, NS.xcri.catalog, any=False)
         self.encoding = encoding
 
     def serialize(self, stream):
