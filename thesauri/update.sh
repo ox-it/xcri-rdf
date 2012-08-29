@@ -12,3 +12,9 @@
   curl http://xcri.co.uk/vocabularies/studyMode2_1.xml > studyMode.vdex ;
   saxon studyMode.vdex ../skosify-vdex.xsl > studyMode.rdf )
 
+( cd vitaeRDF ;
+  make all )
+
+( cd oxRDF ;
+  make all )
+
