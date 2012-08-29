@@ -2,7 +2,7 @@
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
          xmlns:skos="http://www.w3.org/2004/02/skos/core#">
    <skos:ConceptScheme rdf:about="http://xcri.org/profiles/catalog/1.2/studyMode">
-      <skos:prefLabel>Generic Study Mode for Course Data Programme.  Created by Alan Paull, APS Ltd.  This VDEX version 5 March 2012.</skos:prefLabel>
+      <skos:prefLabel>Study Mode for Course Data Programme. Licence: Open Government Licence (OGL), v1.0. A general attribution statement is sufficient, of the form: "Contains public sector information licensed under the Open Government Licence v1.0." Owner: APS Ltd</skos:prefLabel>
       <skos:hasTopConcept>
          <skos:Concept rdf:about="http://xcri.org/profiles/catalog/1.2/studyMode/NK">
             <skos:prefLabel>Not known</skos:prefLabel>
