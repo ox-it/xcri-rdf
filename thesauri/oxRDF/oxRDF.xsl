@@ -17,7 +17,7 @@
   <xsl:variable name="scheme-uri">https://data.ox.ac.uk/id/ox-rdf/concept-scheme</xsl:variable>
   <xsl:variable name="notation-uri">https://data.ox.ac.uk/id/ox-rdf/notation</xsl:variable>
   <xsl:variable name="concept-uri-base">https://data.ox.ac.uk/id/ox-rdf/descriptor/</xsl:variable>
-  <xsl:variable name="vitae-concept-uri-base">https://id.vitae.ac.uk/rdf/descriptor/</xsl:variable>
+  <xsl:variable name="vitae-concept-uri-base">http://id.vitae.ac.uk/rdf/descriptor/</xsl:variable>
 
   <xsl:template match="/">
     <xsl:variable name="simplified">
