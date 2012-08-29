@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0"
+         xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"
+         xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+         xmlns:cc="http://creativecommons.org/ns#"
+         xmlns:dcterms="http://purl.org/dc/terms/">
+   <skos:ConceptScheme rdf:about="https://data.ox.ac.uk/id/ox-rdf/concept-scheme">
+      <skos:prefLabel xml:lang="en">Oxford Researcher Development Framework</skos:prefLabel>
+      <skos:altLabel>OxRDF</skos:altLabel>
+      <rdfs:comment>The Oxford Researcher Development Framework (RDF) is a simplification of the Vitae RDF.</rdfs:comment>
+      <cc:attributionName>University of Oxford; Vitae, Careers and Advisory Centre (CRAC), Limited</cc:attributionName>
+      <cc:attributionURL rdf:resource="https://data.ox.ac.uk/doc/ox-rdf/concept-scheme"/>
+      <cc:attributionURL rdf:resource="http://www.vitae.ac.uk/rdf"/>
+      <dcterms:license>
+         <dcterms:LicenseDocument rdf:about="http://www.vitae.ac.uk/researchers/274251/RDF-conditions-of-use.html"/>
+      </dcterms:license>
+      <skos:hasTopConcept>
+         <skos:Concept rdf:about="https://data.ox.ac.uk/id/ox-rdf/descriptor/CO">
+            <skos:prefLabel>Computing</skos:prefLabel>
+            <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">CO</skos:notation>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.1.5"/>
+         </skos:Concept>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <skos:Concept rdf:about="https://data.ox.ac.uk/id/ox-rdf/descriptor/DA">
+            <skos:prefLabel>Data Analysis</skos:prefLabel>
+            <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">DA</skos:notation>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.2.1"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.2.2"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.2.3"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.2.4"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.2.5"/>
+         </skos:Concept>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <skos:Concept rdf:about="https://data.ox.ac.uk/id/ox-rdf/descriptor/DM">
+            <skos:prefLabel>Data Management</skos:prefLabel>
+            <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">DM</skos:notation>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.1.2"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.1.3"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.1.5"/>
+         </skos:Concept>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <skos:Concept rdf:about="https://data.ox.ac.uk/id/ox-rdf/descriptor/FW">
+            <skos:prefLabel>Field Work</skos:prefLabel>
+            <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">FW</skos:notation>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.1.1"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.1.2"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.1.3"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.1.4"/>
+         </skos:Concept>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <skos:Concept rdf:about="https://data.ox.ac.uk/id/ox-rdf/descriptor/RD">
+            <skos:prefLabel>General Researcher Development</skos:prefLabel>
+            <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">RD</skos:notation>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.1.1"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.1.7"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.2.1"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.2.2"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.2.3"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.2.4"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.3.1"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.3.2"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.3.4"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.3.5"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.1.2"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.1.3"/>
+         </skos:Concept>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <skos:Concept rdf:about="https://data.ox.ac.uk/id/ox-rdf/descriptor/IN">
+            <skos:prefLabel>Information Skills</skos:prefLabel>
+            <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">IN</skos:notation>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.1.4"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.1.5"/>
+         </skos:Concept>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <skos:Concept rdf:about="https://data.ox.ac.uk/id/ox-rdf/descriptor/LS">
+            <skos:prefLabel>Laboratory skills</skos:prefLabel>
+            <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">LS</skos:notation>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.1.2"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.1.3"/>
+         </skos:Concept>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <skos:Concept rdf:about="https://data.ox.ac.uk/id/ox-rdf/descriptor/LA">
+            <skos:prefLabel>Languages</skos:prefLabel>
+            <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">LA</skos:notation>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.1.6"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.1.7"/>
+         </skos:Concept>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <skos:Concept rdf:about="https://data.ox.ac.uk/id/ox-rdf/descriptor/MM">
+            <skos:prefLabel>Mathematical Methods</skos:prefLabel>
+            <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">MM</skos:notation>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.2.5"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.3.1"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.3.4"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.3.5"/>
+         </skos:Concept>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <skos:Concept rdf:about="https://data.ox.ac.uk/id/ox-rdf/descriptor/RM">
+            <skos:prefLabel>Research Methods</skos:prefLabel>
+            <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">RM</skos:notation>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.1.2"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.1.3"/>
+         </skos:Concept>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <skos:Concept rdf:about="https://data.ox.ac.uk/id/ox-rdf/descriptor/ST">
+            <skos:prefLabel>Statistics</skos:prefLabel>
+            <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">ST</skos:notation>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.1.3"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.1.2"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.1.3"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.1.4"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.1.5"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.1.7"/>
+         </skos:Concept>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <skos:Concept rdf:about="https://data.ox.ac.uk/id/ox-rdf/descriptor/TE">
+            <skos:prefLabel>Technical skills</skos:prefLabel>
+            <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">TE</skos:notation>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.1.3"/>
+         </skos:Concept>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <skos:Concept rdf:about="https://data.ox.ac.uk/id/ox-rdf/descriptor/SR">
+            <skos:prefLabel>Study and Research Skills</skos:prefLabel>
+            <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">SR</skos:notation>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.2.3"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.2.4"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.2.5"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.1.7"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/A.1.4"/>
+         </skos:Concept>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <skos:Concept rdf:about="https://data.ox.ac.uk/id/ox-rdf/descriptor/CD">
+            <skos:prefLabel>Career Development</skos:prefLabel>
+            <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">CD</skos:notation>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/B.3.1"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/B.3.2"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/B.3.3"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/B.3.4"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/B.3.5"/>
+         </skos:Concept>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <skos:Concept rdf:about="https://data.ox.ac.uk/id/ox-rdf/descriptor/PE">
+            <skos:prefLabel>Personal Effectiveness</skos:prefLabel>
+            <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">PE</skos:notation>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/B.1.1"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/B.1.2"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/B.1.3"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/B.1.4"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/B.1.6"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/B.2.1"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/B.2.3"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/B.2.4"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/B.2.5"/>
+         </skos:Concept>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <skos:Concept rdf:about="https://data.ox.ac.uk/id/ox-rdf/descriptor/PS">
+            <skos:prefLabel>Presentation Skills*</skos:prefLabel>
+            <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">PS</skos:notation>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/B.1.4"/>
+         </skos:Concept>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <skos:Concept rdf:about="https://data.ox.ac.uk/id/ox-rdf/descriptor/ET">
+            <skos:prefLabel>Ethics</skos:prefLabel>
+            <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">ET</skos:notation>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/C.1.2"/>
+         </skos:Concept>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <skos:Concept rdf:about="https://data.ox.ac.uk/id/ox-rdf/descriptor/IP">
+            <skos:prefLabel>Intellectual property skills</skos:prefLabel>
+            <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">IP</skos:notation>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/C.1.2"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/C.1.3"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/C.1.4"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/C.1.5"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/C.1.6"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/C.1.7"/>
+         </skos:Concept>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <skos:Concept rdf:about="https://data.ox.ac.uk/id/ox-rdf/descriptor/IL">
+            <skos:prefLabel>Interpersonal skills</skos:prefLabel>
+            <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">IL</skos:notation>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/D.1.1"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/D.1.2"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/D.1.3"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/D.1.4"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/D.1.5"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/D.1.6"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/D.1.7"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/D.1.8"/>
+         </skos:Concept>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <skos:Concept rdf:about="https://data.ox.ac.uk/id/ox-rdf/descriptor/LS">
+            <skos:prefLabel>Laboratory skills</skos:prefLabel>
+            <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">LS</skos:notation>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/C.1.1"/>
+         </skos:Concept>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <skos:Concept rdf:about="https://data.ox.ac.uk/id/ox-rdf/descriptor/RF">
+            <skos:prefLabel>Research and financial management</skos:prefLabel>
+            <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">RF</skos:notation>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/C.2.1"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/C.2.2"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/C.2.3"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/C.3.1"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/C.3.2"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/C.3.3"/>
+         </skos:Concept>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <skos:Concept rdf:about="https://data.ox.ac.uk/id/ox-rdf/descriptor/HS">
+            <skos:prefLabel>Safety</skos:prefLabel>
+            <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">HS</skos:notation>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/C.1.1"/>
+         </skos:Concept>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <skos:Concept rdf:about="https://data.ox.ac.uk/id/ox-rdf/descriptor/CO">
+            <skos:prefLabel>Communication skills</skos:prefLabel>
+            <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">CO</skos:notation>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/D.2.1"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/D.2.2"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/D.2.3"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/D.3.2"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/D.3.1"/>
+         </skos:Concept>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <skos:Concept rdf:about="https://data.ox.ac.uk/id/ox-rdf/descriptor/EE">
+            <skos:prefLabel>Enterprise and Entrepreneurship</skos:prefLabel>
+            <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">EE</skos:notation>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/D.3.3"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/D.3.4"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/D.3.5"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/D.3.6"/>
+         </skos:Concept>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <skos:Concept rdf:about="https://data.ox.ac.uk/id/ox-rdf/descriptor/PS">
+            <skos:prefLabel>Presentation skills*</skos:prefLabel>
+            <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">PS</skos:notation>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/D.2.1"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/D.2.2"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/D.3.1"/>
+         </skos:Concept>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <skos:Concept rdf:about="https://data.ox.ac.uk/id/ox-rdf/descriptor/SC">
+            <skos:prefLabel>Seminars / Colloquia</skos:prefLabel>
+            <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">SC</skos:notation>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/D.1.6"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/B.1.4"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/D.2.1"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/D.2.2"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/D.3.2"/>
+         </skos:Concept>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <skos:Concept rdf:about="https://data.ox.ac.uk/id/ox-rdf/descriptor/TA">
+            <skos:prefLabel>Teaching &amp; Academic skills</skos:prefLabel>
+            <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">TA</skos:notation>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/D.2.1"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/D.2.2"/>
+            <skos:narrower rdf:resource="https://id.vitae.ac.uk/rdf/descriptor/D.3.1"/>
+         </skos:Concept>
+      </skos:hasTopConcept>
+   </skos:ConceptScheme>
+</rdf:RDF>
