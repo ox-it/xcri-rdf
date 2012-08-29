@@ -22,18 +22,22 @@ The RDF is a professional development framework for planning, promoting and supp
          <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A">
             <skos:prefLabel>Knowledge and intellectual abilities</skos:prefLabel>
             <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A</skos:notation>
+            <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
             <skos:narrower>
                <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.1">
                   <skos:prefLabel>Knowledge base</skos:prefLabel>
                   <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.1</skos:notation>
+                  <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.1.1">
                         <skos:prefLabel>Subject knowledge</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.1.1</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                         <skos:narrower>
                            <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.1.1.1">
                               <skos:prefLabel>Phase 1 of Subject knowledge</skos:prefLabel>
                               <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.1.1.1</skos:notation>
+                              <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                               <skos:definition>Has, at least, core knowledge and basic understanding of key concepts, issues and history of thought.
 
 Knows of recent advances within own research area and in related areas. (A3)*
@@ -47,6 +51,7 @@ Is developing a broader awareness of international and non-academic aspects of k
                            <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.1.1.2">
                               <skos:prefLabel>Phases 2–3 of Subject knowledge</skos:prefLabel>
                               <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.1.1.2</skos:notation>
+                              <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                               <skos:definition>Develops detailed and thorough knowledge/understanding of own and related subject areas – and becomes familiar with associated areas in other disciplines/research areas.
 
 Demonstrates link between own research and real world affairs.
@@ -58,6 +63,7 @@ Situates knowledge in international context.</skos:definition>
                            <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.1.1.4">
                               <skos:prefLabel>Phases 4–5 of Subject knowledge</skos:prefLabel>
                               <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.1.1.4</skos:notation>
+                              <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                               <skos:definition>Stimulates new knowledge; may make outstanding breakthroughs. Considers multiple perspectives.
 
 Has deep and holistic understanding of strategic direction and intellectual developments of discipline/research area and its inter-relatedness with other disciplines/research areas. Uses this knowledge to enrich own discipline/research area.
@@ -71,10 +77,12 @@ Contributes to the integrity and future vibrancy of the discipline/research area
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.1.2">
                         <skos:prefLabel>Research methods – theoretical knowledge</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.1.2</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                         <skos:narrower>
                            <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.1.2.1">
                               <skos:prefLabel>Phase 1 of Research methods – theoretical knowledge</skos:prefLabel>
                               <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.1.2.1</skos:notation>
+                              <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                               <skos:definition>Understands relevant research methodologies and techniques and their appropriate application within own research area. (A4)*
 
 Justifies the principles and experimental techniques used in own research. (B6)*</skos:definition>
@@ -84,6 +92,7 @@ Justifies the principles and experimental techniques used in own research. (B6)*
                            <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.1.2.2">
                               <skos:prefLabel>Phase 2 of Research methods – theoretical knowledge</skos:prefLabel>
                               <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.1.2.2</skos:notation>
+                              <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                               <skos:definition>Appreciates the value of a range of standards and methods/techniques for information/data collection and analysis; assesses and demonstrates usefulness and validity of information/data in the context of a specific problem/question.</skos:definition>
                            </skos:Concept>
                         </skos:narrower>
@@ -91,6 +100,7 @@ Justifies the principles and experimental techniques used in own research. (B6)*
                            <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.1.2.3">
                               <skos:prefLabel>Phase 3 of Research methods – theoretical knowledge</skos:prefLabel>
                               <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.1.2.3</skos:notation>
+                              <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                               <skos:definition>Combines and justifies methods/techniques designed specifically for an investigation in a flexible and vigorous manner.</skos:definition>
                            </skos:Concept>
                         </skos:narrower>
@@ -98,6 +108,7 @@ Justifies the principles and experimental techniques used in own research. (B6)*
                            <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.1.2.4">
                               <skos:prefLabel>Phases 4–5 of Research methods – theoretical knowledge</skos:prefLabel>
                               <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.1.2.4</skos:notation>
+                              <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                               <skos:definition>Recognises the value of alternative research paradigms and is able to work in, and support others working in, an inter-disciplinary way.</skos:definition>
                            </skos:Concept>
                         </skos:narrower>
@@ -107,10 +118,12 @@ Justifies the principles and experimental techniques used in own research. (B6)*
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.1.3">
                         <skos:prefLabel>Research methods – practical application</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.1.3</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                         <skos:narrower>
                            <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.1.3.1">
                               <skos:prefLabel>Phase 1 of Research methods – practical application</skos:prefLabel>
                               <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.1.3.1</skos:notation>
+                              <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                               <skos:definition>Uses a range of research methods linked to study area; documents own activity.
 
 Shows growing competence in own subject area and is developing awareness of alternative methods and analysis techniques.</skos:definition>
@@ -120,6 +133,7 @@ Shows growing competence in own subject area and is developing awareness of alte
                            <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.1.3.2">
                               <skos:prefLabel>Phase 2 of Research methods – practical application</skos:prefLabel>
                               <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.1.3.2</skos:notation>
+                              <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                               <skos:definition>Develops research approach and applies a range of appropriate methods and techniques with confidence.
 
 Documents and evaluates research processes, using statistics where appropriate.</skos:definition>
@@ -129,6 +143,7 @@ Documents and evaluates research processes, using statistics where appropriate.<
                            <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.1.3.3">
                               <skos:prefLabel>Phase 3 of Research methods – practical application</skos:prefLabel>
                               <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.1.3.3</skos:notation>
+                              <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                               <skos:definition>Educates and guides others in the appropriate selection and use of research design, information/data collection, information/data management, analysis and methods/techniques.</skos:definition>
                            </skos:Concept>
                         </skos:narrower>
@@ -136,6 +151,7 @@ Documents and evaluates research processes, using statistics where appropriate.<
                            <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.1.3.4">
                               <skos:prefLabel>Phases 4–5 of Research methods – practical application</skos:prefLabel>
                               <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.1.3.4</skos:notation>
+                              <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                               <skos:definition>Creates new models and hypotheses, research designs, data collection and analysis techniques.
 
 Sets expectations for application of methods locally, nationally and internationally.</skos:definition>
@@ -147,10 +163,12 @@ Sets expectations for application of methods locally, nationally and internation
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.1.4">
                         <skos:prefLabel>Information seeking</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.1.4</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                         <skos:narrower>
                            <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.1.4.1">
                               <skos:prefLabel>Phase 1 of Information seeking</skos:prefLabel>
                               <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.1.4.1</skos:notation>
+                              <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                               <skos:definition>Acquires and develops search and discovery skills and techniques.
 
 Identifies and accesses appropriate bibliographical resources, archives and other sources of relevant information (C3)* including web-based resources, primary sources and repositories.
@@ -166,6 +184,7 @@ Seeks feedback from relevant groups to access other insights.</skos:definition>
                            <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.1.4.2">
                               <skos:prefLabel>Phase 2 of Information seeking</skos:prefLabel>
                               <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.1.4.2</skos:notation>
+                              <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                               <skos:definition>Conducts advanced searches using a range of information software, resources and techniques; recognises their advantages and limitations.
 
 Recognises the importance of bibliometrics and citations.</skos:definition>
@@ -175,6 +194,7 @@ Recognises the importance of bibliometrics and citations.</skos:definition>
                            <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.1.4.3">
                               <skos:prefLabel>Phases 3–5 of Information seeking</skos:prefLabel>
                               <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.1.4.3</skos:notation>
+                              <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                               <skos:definition>Shows highly developed awareness of appropriate sources for research.
 
 Uses a range of specialist print and on-line resources, as appropriate.
@@ -190,10 +210,12 @@ Educates others in information/data seeking, accessing, evaluating and verifying
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.1.5">
                         <skos:prefLabel>Information literacy and management</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.1.5</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                         <skos:narrower>
                            <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.1.5.1">
                               <skos:prefLabel>Phase 1 of Information literacy and management</skos:prefLabel>
                               <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.1.5.1</skos:notation>
+                              <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                               <skos:definition>Designs and executes systems for the acquisition and collation of information using information technology appropriately (e.g. word processing, spreadsheets, simulation systems, databases). (C2, C4)*
 
 Develops awareness of information/data security and longevity issues.
@@ -205,6 +227,7 @@ Knows where to obtain expert advice, i.e. information/data managers, archivists 
                            <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.1.5.2">
                               <skos:prefLabel>Phase 2 of Information literacy and management</skos:prefLabel>
                               <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.1.5.2</skos:notation>
+                              <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                               <skos:definition>Develops awareness of the creation, organisation, validation, sharing, storing and curation of information/data and the associated risks.
 
 Understands legal, ethical and security requirements involved in information/data management, especially over time.
@@ -216,6 +239,7 @@ Has knowledge of purpose of metadata.</skos:definition>
                            <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.1.5.3">
                               <skos:prefLabel>Phase 3 of Information literacy and management</skos:prefLabel>
                               <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.1.5.3</skos:notation>
+                              <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                               <skos:definition>Advises and educates peers, less experienced researchers, students and staff in discipline/research area-specific information/data management techniques, data security, legal and ethical requirements.</skos:definition>
                            </skos:Concept>
                         </skos:narrower>
@@ -223,6 +247,7 @@ Has knowledge of purpose of metadata.</skos:definition>
                            <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.1.5.4">
                               <skos:prefLabel>Phases 4–5 of Information literacy and management</skos:prefLabel>
                               <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.1.5.4</skos:notation>
+                              <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                               <skos:definition>Develops new techniques for information management. 
 
 Keeps abreast of and anticipates trends in the design and use of information/data collection, analysis and preservation.</skos:definition>
@@ -234,10 +259,12 @@ Keeps abreast of and anticipates trends in the design and use of information/dat
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.1.6">
                         <skos:prefLabel>Languages</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.1.6</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                         <skos:narrower>
                            <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.1.6.1">
                               <skos:prefLabel>Phase 1 of Languages</skos:prefLabel>
                               <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.1.6.1</skos:notation>
+                              <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                               <skos:definition>Has excellent knowledge of language(s) appropriate for research, including technical language.</skos:definition>
                            </skos:Concept>
                         </skos:narrower>
@@ -245,6 +272,7 @@ Keeps abreast of and anticipates trends in the design and use of information/dat
                            <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.1.6.2">
                               <skos:prefLabel>Phase 2 of Languages</skos:prefLabel>
                               <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.1.6.2</skos:notation>
+                              <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                               <skos:definition>Learns additional language(s), including technical, appropriate for research and career development.</skos:definition>
                            </skos:Concept>
                         </skos:narrower>
@@ -252,6 +280,7 @@ Keeps abreast of and anticipates trends in the design and use of information/dat
                            <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.1.6.3">
                               <skos:prefLabel>Phases 3–5 of Languages</skos:prefLabel>
                               <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.1.6.3</skos:notation>
+                              <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                               <skos:definition>Becomes fluent/expert in additional relevant language(s).</skos:definition>
                            </skos:Concept>
                         </skos:narrower>
@@ -261,10 +290,12 @@ Keeps abreast of and anticipates trends in the design and use of information/dat
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.1.7">
                         <skos:prefLabel>Academic literacy and numeracy</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.1.7</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                         <skos:narrower>
                            <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.1.7.1">
                               <skos:prefLabel>Phase 1 of Academic literacy and numeracy</skos:prefLabel>
                               <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.1.7.1</skos:notation>
+                              <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                               <skos:definition>Ability to understand, interpret, create and communicate appropriately within an academic context.
 
 Prepares grammatically and syntactically correct content for presentations.
@@ -280,6 +311,7 @@ Is IT literate and competent in using information and digital technology.</skos:
                            <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.1.7.2">
                               <skos:prefLabel>Phase 2 of Academic literacy and numeracy</skos:prefLabel>
                               <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.1.7.2</skos:notation>
+                              <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                               <skos:definition>Continues to develop academic literacy abilities within wider contexts; understands the literacy requirements for different communication media.
 
 Develops capabilities in IT and digital technology, as appropriate.
@@ -293,6 +325,7 @@ Understands analytical or statistical procedures in related disciplines/research
                            <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.1.7.3">
                               <skos:prefLabel>Phases 3–5 of Academic literacy and numeracy</skos:prefLabel>
                               <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.1.7.3</skos:notation>
+                              <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                               <skos:definition>Has high level academic literacy and numeracy across a range of contexts and communication media.
 
 Keeps up to date with the use of the latest IT and mathematical tools, techniques and procedures for the discipline/research area.
@@ -308,14 +341,17 @@ Educates, advises and guides others in academic literacy and numeracy skills, as
                <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.2">
                   <skos:prefLabel>Cognitive abilities</skos:prefLabel>
                   <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.2</skos:notation>
+                  <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.2.1">
                         <skos:prefLabel>Analysing</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.2.1</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                         <skos:narrower>
                            <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.2.1.1">
                               <skos:prefLabel>Phase 1 of Analysing</skos:prefLabel>
                               <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.2.1.1</skos:notation>
+                              <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                               <skos:definition>Critically analyses and evaluates own findings and those of others. (A5)*
 
 Validates datasets of others.</skos:definition>
@@ -325,6 +361,7 @@ Validates datasets of others.</skos:definition>
                            <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.2.1.2">
                               <skos:prefLabel>Phases 2–3 of Analysing</skos:prefLabel>
                               <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.2.1.2</skos:notation>
+                              <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                               <skos:definition>Has well developed analytical abilities with knowledge of a range of methods. Willing to learn new ones.
 
 Develops the analytical understanding of less experienced researchers and staff.</skos:definition>
@@ -334,6 +371,7 @@ Develops the analytical understanding of less experienced researchers and staff.
                            <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.2.1.4">
                               <skos:prefLabel>Phases 4–5 of Analysing</skos:prefLabel>
                               <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.2.1.4</skos:notation>
+                              <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                               <skos:definition>Has outstanding analytical abilities.</skos:definition>
                            </skos:Concept>
                         </skos:narrower>
@@ -343,10 +381,12 @@ Develops the analytical understanding of less experienced researchers and staff.
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.2.2">
                         <skos:prefLabel>Synthesising</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.2.2</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                         <skos:narrower>
                            <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.2.2.1">
                               <skos:prefLabel>Phase 1 of Synthesising</skos:prefLabel>
                               <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.2.2.1</skos:notation>
+                              <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                               <skos:definition>Sees connections between own research and previous studies. Benefits from guidance with synthesising information/data and ideas.</skos:definition>
                            </skos:Concept>
                         </skos:narrower>
@@ -354,6 +394,7 @@ Develops the analytical understanding of less experienced researchers and staff.
                            <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.2.2.2">
                               <skos:prefLabel>Phase 2 of Synthesising</skos:prefLabel>
                               <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.2.2.2</skos:notation>
+                              <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                               <skos:definition>Critically synthesises new and complex information from diverse sources.
 
 Recognises patterns and connections beyond own discipline/research area.</skos:definition>
@@ -363,6 +404,7 @@ Recognises patterns and connections beyond own discipline/research area.</skos:d
                            <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.2.2.3">
                               <skos:prefLabel>Phases 3–5 of Synthesising</skos:prefLabel>
                               <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.2.2.3</skos:notation>
+                              <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                               <skos:definition>Makes imaginative leaps of understanding across disciplines/research areas/agendas and beyond academia.
 </skos:definition>
                            </skos:Concept>
@@ -373,18 +415,145 @@ Recognises patterns and connections beyond own discipline/research area.</skos:d
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.2.3">
                         <skos:prefLabel>Critical thinking</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.2.3</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
+                        <skos:narrower>
+                           <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.2.3.1">
+                              <skos:prefLabel>Phase 1 of Critical thinking</skos:prefLabel>
+                              <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.2.3.1</skos:notation>
+                              <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
+                              <skos:definition>Able to understand argument (oral and textual) and articulate own assumptions; developing independent and critical thinking.
+
+Has the ability to recognise and validate problems. (A1)*
+
+Recognises multiple ways of knowing and alternative paradigms.</skos:definition>
+                           </skos:Concept>
+                        </skos:narrower>
+                        <skos:narrower>
+                           <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.2.3.2">
+                              <skos:prefLabel>Phase 2 of Critical thinking</skos:prefLabel>
+                              <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.2.3.2</skos:notation>
+                              <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
+                              <skos:definition>Recognises significant and important arguments and can evaluate the assumptions of others.
+
+Is capable of original, independent and critical thinking and has the ability to develop theoretical concepts. (A2)*
+
+Makes sound and realistic judgements based on evidence.</skos:definition>
+                           </skos:Concept>
+                        </skos:narrower>
+                        <skos:narrower>
+                           <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.2.3.3">
+                              <skos:prefLabel>Phase 3 of Critical thinking</skos:prefLabel>
+                              <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.2.3.3</skos:notation>
+                              <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
+                              <skos:definition>Is proficient and confident in applying critical thinking skills.
+
+Stimulates critical thinking in less experienced researchers and peers.</skos:definition>
+                           </skos:Concept>
+                        </skos:narrower>
+                        <skos:narrower>
+                           <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.2.3.4">
+                              <skos:prefLabel>Phases 4–5 of Critical thinking</skos:prefLabel>
+                              <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.2.3.4</skos:notation>
+                              <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
+                              <skos:definition>Is a creative critical thinker, acknowledged nationally and internationally.
+
+Stimulates critical thinking at discipline/research area and policy levels.</skos:definition>
+                           </skos:Concept>
+                        </skos:narrower>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.2.4">
                         <skos:prefLabel>Evaluating</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.2.4</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
+                        <skos:narrower>
+                           <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.2.4.1">
+                              <skos:prefLabel>Phase 1 of Evaluating</skos:prefLabel>
+                              <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.2.4.1</skos:notation>
+                              <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
+                              <skos:definition>Summarises, documents, reports and reflects on progress. (A6)*
+
+Evaluates the impact and outcomes of own research activities.
+
+Assesses the quality, integrity and authenticity of primary and secondary research information/data.
+
+Accepts and gives constructive criticism.</skos:definition>
+                           </skos:Concept>
+                        </skos:narrower>
+                        <skos:narrower>
+                           <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.2.4.2">
+                              <skos:prefLabel>Phase 2 of Evaluating</skos:prefLabel>
+                              <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.2.4.2</skos:notation>
+                              <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
+                              <skos:definition>Evaluates progress, impact and outcomes of peer researchers’ other researchers’ activities.
+
+Advises and guides less experienced researchers on the quality, integrity, authenticity and validity of primary and secondary research information/data.
+
+Is able to provide and accept constructive criticism at appropriate times.</skos:definition>
+                           </skos:Concept>
+                        </skos:narrower>
+                        <skos:narrower>
+                           <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.2.4.3">
+                              <skos:prefLabel>Phase 3 of Evaluating</skos:prefLabel>
+                              <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.2.4.3</skos:notation>
+                              <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
+                              <skos:definition>Monitors and evaluates progress, impact and outcomes of a range of activities.
+
+Effectively manages difficult criticism.</skos:definition>
+                           </skos:Concept>
+                        </skos:narrower>
+                        <skos:narrower>
+                           <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.2.4.4">
+                              <skos:prefLabel>Phases 4–5 of Evaluating</skos:prefLabel>
+                              <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.2.4.4</skos:notation>
+                              <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
+                              <skos:definition>Creates evaluation processes and evaluates progress, impact and outcomes for national/international organisations and/or projects.</skos:definition>
+                           </skos:Concept>
+                        </skos:narrower>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.2.5">
                         <skos:prefLabel>Problem solving</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.2.5</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
+                        <skos:narrower>
+                           <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.2.5.1">
+                              <skos:prefLabel>Phase 1 of Problem solving</skos:prefLabel>
+                              <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.2.5.1</skos:notation>
+                              <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
+                              <skos:definition>Isolates basic themes of own research; formulates basic research questions and hypotheses.</skos:definition>
+                           </skos:Concept>
+                        </skos:narrower>
+                        <skos:narrower>
+                           <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.2.5.2">
+                              <skos:prefLabel>Phase 2 of Problem solving</skos:prefLabel>
+                              <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.2.5.2</skos:notation>
+                              <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
+                              <skos:definition>Formulates and applies solutions to a range of research problems and effectively analyses and interprets research results.</skos:definition>
+                           </skos:Concept>
+                        </skos:narrower>
+                        <skos:narrower>
+                           <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.2.5.3">
+                              <skos:prefLabel>Phase 3 of Problem solving</skos:prefLabel>
+                              <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.2.5.3</skos:notation>
+                              <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
+                              <skos:definition>Identifies new trends, complex questions and broader problems; designs substantial projects.
+
+Challenges particular hypotheses and refines them in the light of results.</skos:definition>
+                           </skos:Concept>
+                        </skos:narrower>
+                        <skos:narrower>
+                           <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.2.5.4">
+                              <skos:prefLabel>Phases 4–5 of Problem solving</skos:prefLabel>
+                              <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.2.5.4</skos:notation>
+                              <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
+                              <skos:definition>Leads a research agenda by making major contributions to understanding.
+
+Asks the pertinent questions and designs projects that challenge traditional thinking in general and progress research themes.</skos:definition>
+                           </skos:Concept>
+                        </skos:narrower>
                      </skos:Concept>
                   </skos:narrower>
                </skos:Concept>
@@ -393,34 +562,40 @@ Recognises patterns and connections beyond own discipline/research area.</skos:d
                <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.3">
                   <skos:prefLabel>Creativity</skos:prefLabel>
                   <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.3</skos:notation>
+                  <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.3.1">
                         <skos:prefLabel>Inquiring mind</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.3.1</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.3.2">
                         <skos:prefLabel>Intellectual insight</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.3.2</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.3.3">
                         <skos:prefLabel>Innovation</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.3.3</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.3.4">
                         <skos:prefLabel>Argument construction</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.3.4</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/A.3.5">
                         <skos:prefLabel>Intellectual risk</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">A.3.5</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                </skos:Concept>
@@ -431,44 +606,52 @@ Recognises patterns and connections beyond own discipline/research area.</skos:d
          <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/B">
             <skos:prefLabel>Personal effectiveness</skos:prefLabel>
             <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">B</skos:notation>
+            <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
             <skos:narrower>
                <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/B.1">
                   <skos:prefLabel>Personal qualities</skos:prefLabel>
                   <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">B.1</skos:notation>
+                  <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/B.1.1">
                         <skos:prefLabel>Enthusiasm</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">B.1.1</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/B.1.2">
                         <skos:prefLabel>Perseverance</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">B.1.2</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/B.1.3">
                         <skos:prefLabel>Integrity</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">B.1.3</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/B.1.4">
                         <skos:prefLabel>Self-confidence</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">B.1.4</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/B.1.5">
                         <skos:prefLabel>Self-reflection</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">B.1.5</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/B.1.6">
                         <skos:prefLabel>Responsibility</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">B.1.6</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                </skos:Concept>
@@ -477,34 +660,40 @@ Recognises patterns and connections beyond own discipline/research area.</skos:d
                <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/B.2">
                   <skos:prefLabel>Self-management</skos:prefLabel>
                   <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">B.2</skos:notation>
+                  <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/B.2.1">
                         <skos:prefLabel>Preparation and prioritisation</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">B.2.1</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/B.2.2">
                         <skos:prefLabel>Commitment to research</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">B.2.2</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/B.2.3">
                         <skos:prefLabel>Time management</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">B.2.3</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/B.2.4">
                         <skos:prefLabel>Responsiveness to change</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">B.2.4</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/B.2.5">
                         <skos:prefLabel>Work-life balance</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">B.2.5</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                </skos:Concept>
@@ -513,34 +702,40 @@ Recognises patterns and connections beyond own discipline/research area.</skos:d
                <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/B.3">
                   <skos:prefLabel>Professional and career development</skos:prefLabel>
                   <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">B.3</skos:notation>
+                  <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/B.3.1">
                         <skos:prefLabel>Career management</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">B.3.1</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/B.3.2">
                         <skos:prefLabel>Continuing professional development</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">B.3.2</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/B.3.3">
                         <skos:prefLabel>Responsiveness to opportunities</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">B.3.3</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/B.3.4">
                         <skos:prefLabel>Networking</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">B.3.4</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/B.3.5">
                         <skos:prefLabel>Reputation and esteem</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">B.3.5</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                </skos:Concept>
@@ -551,50 +746,59 @@ Recognises patterns and connections beyond own discipline/research area.</skos:d
          <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/C">
             <skos:prefLabel>Research governance and organisation</skos:prefLabel>
             <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">C</skos:notation>
+            <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
             <skos:narrower>
                <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/C.1">
                   <skos:prefLabel>Professional conduct</skos:prefLabel>
                   <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">C.1</skos:notation>
+                  <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/C.1.1">
                         <skos:prefLabel>Health and safety</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">C.1.1</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/C.1.2">
                         <skos:prefLabel>Ethics, principles and sustainability</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">C.1.2</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/C.1.3">
                         <skos:prefLabel>Legal requirements</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">C.1.3</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/C.1.4">
                         <skos:prefLabel>IPR and copyright</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">C.1.4</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/C.1.5">
                         <skos:prefLabel>Respect and confidentiality</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">C.1.5</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/C.1.6">
                         <skos:prefLabel>Attribution and co-authorship</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">C.1.6</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/C.1.7">
                         <skos:prefLabel>Appropriate practice</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">C.1.7</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                </skos:Concept>
@@ -603,22 +807,26 @@ Recognises patterns and connections beyond own discipline/research area.</skos:d
                <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/C.2">
                   <skos:prefLabel>Research management</skos:prefLabel>
                   <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">C.2</skos:notation>
+                  <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/C.2.1">
                         <skos:prefLabel>Research strategy</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">C.2.1</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/C.2.2">
                         <skos:prefLabel>Project planning and delivery</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">C.2.2</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/C.2.3">
                         <skos:prefLabel>Risk management</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">C.2.3</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                </skos:Concept>
@@ -627,22 +835,26 @@ Recognises patterns and connections beyond own discipline/research area.</skos:d
                <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/C.3">
                   <skos:prefLabel>Finance, funding and resources</skos:prefLabel>
                   <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">C.3</skos:notation>
+                  <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/C.3.1">
                         <skos:prefLabel>Income and funding generation</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">C.3.1</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/C.3.2">
                         <skos:prefLabel>Financial management</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">C.3.2</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/C.3.3">
                         <skos:prefLabel>Infrastructure and resources</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">C.3.3</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                </skos:Concept>
@@ -653,56 +865,66 @@ Recognises patterns and connections beyond own discipline/research area.</skos:d
          <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/D">
             <skos:prefLabel>Engagement, influence and impact</skos:prefLabel>
             <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">D</skos:notation>
+            <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
             <skos:narrower>
                <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/D.1">
                   <skos:prefLabel>Working with others</skos:prefLabel>
                   <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">D.1</skos:notation>
+                  <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/D.1.1">
                         <skos:prefLabel>Collegiality</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">D.1.1</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/D.1.2">
                         <skos:prefLabel>Team working</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">D.1.2</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/D.1.3">
                         <skos:prefLabel>People management</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">D.1.3</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/D.1.4">
                         <skos:prefLabel>Supervision</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">D.1.4</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/D.1.5">
                         <skos:prefLabel>Mentoring</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">D.1.5</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/D.1.6">
                         <skos:prefLabel>Influence and leadership</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">D.1.6</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/D.1.7">
                         <skos:prefLabel>Collaboration</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">D.1.7</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/D.1.8">
                         <skos:prefLabel>Equality and diversity</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">D.1.8</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                </skos:Concept>
@@ -711,22 +933,26 @@ Recognises patterns and connections beyond own discipline/research area.</skos:d
                <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/D.2">
                   <skos:prefLabel>Communication and dissemination</skos:prefLabel>
                   <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">D.2</skos:notation>
+                  <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/D.2.1">
                         <skos:prefLabel>Communication methods</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">D.2.1</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/D.2.2">
                         <skos:prefLabel>Communication media</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">D.2.2</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/D.2.3">
                         <skos:prefLabel>Publication</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">D.2.3</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                </skos:Concept>
@@ -735,40 +961,47 @@ Recognises patterns and connections beyond own discipline/research area.</skos:d
                <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/D.3">
                   <skos:prefLabel>Engagement and impact</skos:prefLabel>
                   <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">D.3</skos:notation>
+                  <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/D.3.1">
                         <skos:prefLabel>Teaching</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">D.3.1</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/D.3.2">
                         <skos:prefLabel>Public engagement</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">D.3.2</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/D.3.3">
                         <skos:prefLabel>Enterprise</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">D.3.3</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/D.3.4">
                         <skos:prefLabel>Policy</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">D.3.4</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/D.3.5">
                         <skos:prefLabel>Society and culture</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">D.3.5</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                   <skos:narrower>
                      <skos:Concept rdf:about="http://id.vitae.ac.uk/rdf/descriptor/D.3.6">
                         <skos:prefLabel>Global citizenship</skos:prefLabel>
                         <skos:notation rdf:datatype="http://id.vitae.ac.uk/rdf/notation">D.3.6</skos:notation>
+                        <skos:inScheme rdf:resource="http://id.vitae.ac.uk/rdf/concept-scheme"/>
                      </skos:Concept>
                   </skos:narrower>
                </skos:Concept>

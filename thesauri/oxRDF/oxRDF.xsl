@@ -114,6 +114,7 @@
       <skos:notation rdf:datatype="{$notation-uri}">
         <xsl:value-of select="$notation"/>
       </skos:notation>
+      <skos:inScheme rdf:resource="{$scheme-uri}"/>
       <xsl:for-each select="current-group()">
         <xsl:if test="cell[3]/text:p/text()">
           <xsl:for-each select="tokenize(cell[3]/text:p/text(), ' ')">

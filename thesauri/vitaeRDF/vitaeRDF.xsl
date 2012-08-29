@@ -108,6 +108,7 @@ The RDF is a professional development framework for planning, promoting and supp
       <skos:notation rdf:datatype="{$notation-uri}">
         <xsl:value-of select="$notation"/>
       </skos:notation>
+      <skos:inScheme rdf:resource="{$scheme-uri}"/>
       <xsl:for-each-group select="current-group()" group-starting-with="row[cell[3][@office:value]]">
         <skos:narrower>
           <xsl:apply-templates select="." mode="subdomain">
@@ -127,6 +128,7 @@ The RDF is a professional development framework for planning, promoting and supp
       <skos:notation rdf:datatype="{$notation-uri}">
         <xsl:value-of select="$notation"/>
       </skos:notation>
+      <skos:inScheme rdf:resource="{$scheme-uri}"/>
       <xsl:for-each-group select="current-group()" group-starting-with="row[cell[5][@office:value]]">
         <skos:narrower>
           <xsl:apply-templates select="." mode="subsubdomain">
@@ -146,6 +148,7 @@ The RDF is a professional development framework for planning, promoting and supp
       <skos:notation rdf:datatype="{$notation-uri}">
         <xsl:value-of select="$notation"/>
       </skos:notation>
+      <skos:inScheme rdf:resource="{$scheme-uri}"/>
       <xsl:for-each select="cell[position() &gt; 6]">
         <xsl:if test="@repeated = 'false'">
           <skos:narrower>
@@ -165,6 +168,7 @@ The RDF is a professional development framework for planning, promoting and supp
               <skos:notation rdf:datatype="{$notation-uri}">
                 <xsl:value-of select="concat($notation, '.', position())"/>
               </skos:notation>
+              <skos:inScheme rdf:resource="{$scheme-uri}"/>
               <xsl:if test="text:p">
                 <skos:definition>
                   <xsl:for-each select="text:p">
