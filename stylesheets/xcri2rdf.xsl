@@ -29,6 +29,8 @@
   <xsl:import href="xml-to-string.xsl"/>
   <xsl:output method="xml" indent="yes"/>
 
+  <xsl:variable name="publisher-uri"/>
+
   <xsl:template match="*" mode="rdf-about-attribute">
     <xsl:variable name="value">
       <xsl:apply-templates select="." mode="rdf-about"/>
@@ -121,7 +123,16 @@
     <xcri:catalog>
       <xsl:apply-templates select="." mode="rdf-about-attribute"/>
       <dcterms:publisher>
-        <xsl:apply-templates select="provider[1]" mode="rdf-resource-attribute"/>
+        <xsl:choose>
+          <xsl:when test="$publisher-uri">
+            <xsl:attribute name="rdf:resource">
+              <xsl:value-of select="$publisher-uri"/>
+            </xsl:attribute>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:apply-templates select="provider[1]" mode="rdf-resource-attribute"/>
+          </xsl:otherwise>
+        </xsl:choose>
       </dcterms:publisher>
       <xsl:apply-templates select="*[not(self::provider)]"/>
       <xsl:for-each select="provider/course">
