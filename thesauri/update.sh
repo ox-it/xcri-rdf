@@ -13,8 +13,8 @@
   saxon studyMode.vdex ../skosify-vdex.xsl > studyMode.rdf )
 
 ( cd vitaeRDF ;
-  make all )
+  make clean all )
 
 ( cd oxRDF ;
-  make all )
+  make clean all )
 
