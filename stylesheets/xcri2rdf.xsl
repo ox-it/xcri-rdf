@@ -135,11 +135,7 @@
         </xsl:choose>
       </dcterms:publisher>
       <xsl:apply-templates select="*[not(self::provider)]"/>
-      <xsl:for-each select="provider/course">
-        <skos:member>
-          <xsl:apply-templates select="."/>
-        </skos:member>
-      </xsl:for-each>
+      <xsl:apply-templates select="provider/course" mode="in-catalog"/>
     </xcri:catalog>
     <xsl:apply-templates select="provider"/>
   </xsl:template>
@@ -154,6 +150,12 @@
           </mlo:offers>
         </xsl:for-each>
       </xcri:provider>
+  </xsl:template>
+
+  <xsl:template match="course" mode="in-catalog">
+    <skos:member>
+      <xsl:apply-templates select="."/>
+    </skos:member>
   </xsl:template>
 
   <xsl:template match="course">
