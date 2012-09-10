@@ -122,6 +122,11 @@
           </xsl:for-each>
         </xsl:if>
       </xsl:for-each>
+      <xsl:for-each select="current-group()">
+        <xsl:if test="cell[5]/text:p/text()">
+          <skos:related rdf:resource="{$vitae-concept-uri-base}{cell[5]/text:p/text()}"/>
+        </xsl:if>
+      </xsl:for-each>
     </skos:Concept>
   </xsl:template>
 
