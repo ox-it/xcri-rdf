@@ -1,6 +1,7 @@
 import datetime
 import itertools
 import re
+import types
 try:
     from cStringIO import StringIO
 except ImportError:
@@ -27,6 +28,7 @@ NS = {
     'rdfs': 'http://www.w3.org/2000/01/rdf-schema#',
     'dc': 'http://purl.org/dc/elements/1.1/',
     'dcterms': 'http://purl.org/dc/terms/',
+    'spatialrelations': 'http://data.ordnancesurvey.co.uk/ontology/spatialrelations/',
     'mlo': 'http://purl.org/net/mlo/',
     'xtypes': 'http://purl.org/xtypes/',
     'v': 'http://www.w3.org/2006/vcard/ns#',
@@ -149,12 +151,28 @@ class XCRICAPSerializer(object):
 
     def serialize(self, stream):
         self.stream = stream
-        for _ in self._serialize():
-            pass
+        stack = [self._serialize()]
+        while stack:
+            try:
+                item = stack[-1].next()
+            except StopIteration:
+                stack.pop()
+            else:
+                if isinstance(item, types.GeneratorType):
+                    stack.append(item)
 
     def generator(self):
         self.stream = StringIO()
-        for _ in self._serialize():
+        stack = [self._serialize()]
+        while stack:
+            try:
+                item = stack[-1].next()
+            except StopIteration:
+                stack.pop()
+            else:
+                if isinstance(item, types.GeneratorType):
+                    stack.append(item)
+            print stack, item
             yield self.stream.getvalue()
             self.stream.seek(0)
             self.stream.truncate()
@@ -163,54 +181,62 @@ class XCRICAPSerializer(object):
     def _serialize(self):
         xg = IndentingXMLGenerator(self.stream, self.encoding)
         xg.startDocument()
-        for _ in self.serialize_catalog(xg, self.catalog): yield
+        yield self.catalog_element(xg, self.catalog)
         xg.endDocument()
 
-    def serialize_catalog(self, xg, catalog):
+    def catalog_element(self, xg, catalog):
         attrib = {}
         attrib.update(('xmlns:%s' % prefix, uri) for prefix, uri in XMLNS.iteritems())
         attrib['xsi:schemaLocation'] = ' '.join(map(' '.join, self.xsi_schema_locations.iteritems()))
         attrib['generated'] = datetime.datetime.utcnow().isoformat() + '+00:00'
 
         xg.startElement('xcri:catalog', attrib)
-        self.serialize_common(xg, catalog)
-
-        provider = self.graph.value(catalog, NS.dcterms.publisher)
-        for _ in self.serialize_provider(xg, catalog, provider): yield
-
+        yield self.catalog_content(xg, catalog)
         xg.endElement('xcri:catalog')
+    
+    def catalog_content(self, xg, catalog):
+        provider = self.graph.value(catalog, NS.dcterms.publisher)
+        yield self.serialize_common(xg, catalog)
+        yield self.provider_element(xg, catalog, provider)
 
-    def serialize_provider(self, xg, catalog, provider):
+    def provider_element(self, xg, catalog, provider):
         xg.startElement('xcri:provider', {})
-        if provider:
-            self.serialize_common(xg, provider)
-            self.serialize_location(xg, provider)
-        yield
-        for _ in self.serialize_courses(xg, catalog): yield
+        yield self.provider_content(xg, catalog, provider)
         xg.endElement('xcri:provider')
-        yield
 
-    def serialize_courses(self, xg, catalog):
+    def provider_content(self, xg, catalog, provider):
+        if provider:
+            yield self.serialize_common(xg, provider)
+            yield self.serialize_location(xg, provider)
+        yield self.course_elements(xg, catalog)
+
+    def course_elements(self, xg, catalog):
         for member in self.graph.objects(catalog, NS.skos.member):
             # If it's a course
             if (member, NS.rdf.type, NS.xcri.course) in self.graph:
-                for _ in self.serialize_course(xg, member): yield
+                yield self.course_element(xg, member)
             # Or a sub-catalogue
             elif (member, NS.rdf.type, NS.xcri.catalog) in self.graph:
-                for _ in self.serialize_courses(xg, member): yield
+                yield self.course_elements(xg, member)
 
-    def serialize_course(self, xg, course):
+    def course_element(self, xg, course):
         xg.startElement('xcri:course', {})
-        self.serialize_common(xg, course)
-        self.serialize_common_descriptive_elements(xg, course)
-        self.serialize_subjects(xg, course)
-        for presentation in self.graph.objects(course, NS.mlo.specifies):
-            for _ in self.serialize_presentation(xg, presentation): yield
+        yield self.course_content(xg, course)
         xg.endElement('xcri:course')
-        yield
 
-    def serialize_presentation(self, xg, presentation):
+    def course_content(self, xg, course):
+        yield self.serialize_common(xg, course)
+        yield self.serialize_common_descriptive_elements(xg, course)
+        yield self.serialize_subjects(xg, course)
+        for presentation in self.graph.objects(course, NS.mlo.specifies):
+            yield self.presentation_element(xg, presentation)
+
+    def presentation_element(self, xg, presentation):
         xg.startElement('xcri:presentation', {})
+        yield self.presentation_content(xg, presentation)
+        xg.endElement('xcri:presentation')
+
+    def presentation_content(self, xg, presentation):
         self.serialize_common(xg, presentation)
         self.serialize_common_descriptive_elements(xg, presentation)
         self.serialize_date(xg, presentation, NS.mlo.start, 'mlo:start')
@@ -219,37 +245,20 @@ class XCRICAPSerializer(object):
         self.serialize_applyTo(xg, presentation)
         self.serialize_controlled_vocabularies(xg, presentation)
         for venue in self.graph.objects(presentation, NS.xcri.venue):
-            for _ in self.serialize_venue(xg, venue): yield
-        xg.endElement('xcri:presentation')
-        yield
+            yield self.venue_element(xg, venue)
 
-    def serialize_venue(self, xg, venue):
+
+    def venue_element(self, xg, venue):
         """
         Serializes venue information if there is any.
         """
 
-        # This is so we know where to rewind to if there's nothing known.
-        original_pos = self.stream.tell()
-        
         xg.startElement('xcri:venue', {})
         xg.startElement('xcri:provider', {})
-
-        before_pos = self.stream.tell()
-        self.serialize_common(xg, venue)
-        self.serialize_location(xg, venue)
-        after_pos = self.stream.tell()
-
+        yield self.serialize_common(xg, venue)
+        yield self.serialize_location(xg, venue)
         xg.endElement('xcri:provider')
         xg.endElement('xcri:venue')
-
-        if before_pos == after_pos:
-            # serialize_common() and serialize_location() didn't add anything,
-            # so we'll rewind to before where we wrote xcri:venue/xcri:provider
-            # We do this after the endElement calls to maintain correct
-            # indentation.
-            self.stream.seek(original_pos)
-            self.stream.truncate()
-        yield
 
     def serialize_common(self, xg, entity):
         self.serialize_identifiers(xg, entity)
@@ -258,25 +267,22 @@ class XCRICAPSerializer(object):
         self.serialize_description(xg, entity)
 
     def serialize_location(self, xg, entity):
-        address = self.graph.value(entity, NS.v.adr)
-        if address:
-            # See comments in serialize_venue() for explanation of all this
-            # pos nonsense.
-            original_pos = self.stream.tell()
-            xg.startElement('mlo:location', {})
+        with_address, address = entity, None
+        while with_address:
+            address = self.graph.value(entity, NS.v.adr)
+            if address:
+                break
+            with_address = self.graph.value(with_address, NS.spatialrelations.within)
+        else:
+            return
 
-            before_pos = self.stream.tell()
+        if any(self.graph.value(address, prop) for prop, name in self.address_elements):
+            xg.startElement('mlo:location', {})
             for prop, name in self.address_elements:
                 obj = self.graph.value(address, prop)
                 if obj:
                     xg.textualElement(name, {}, unicode(obj))
-            after_pos = self.stream.tell()
-
             xg.endElement('mlo:location')
-
-            if before_pos == after_pos:
-                self.stream.seek(original_pos)
-                self.stream.truncate()
 
     def serialize_controlled_vocabularies(self, xg, presentation):
         for prop, name, datatype in self.controlled_vocabularies:
