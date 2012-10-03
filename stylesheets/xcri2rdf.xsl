@@ -187,9 +187,9 @@
   </xsl:template>
 
   <xsl:template match="dc:title">
-    <rdfs:label>
+    <dcterms:title>
       <xsl:value-of select="text()"/>
-    </rdfs:label>
+    </dcterms:title>
   </xsl:template>
 
   <xsl:template match="dc:description|abstract|applicationProcedure|learningOutcome
