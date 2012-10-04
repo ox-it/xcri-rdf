@@ -29,6 +29,7 @@
   <xsl:import href="xml-to-string.xsl"/>
   <xsl:output method="xml" indent="yes"/>
 
+  <xsl:param name="order-annotation"/>
   <xsl:variable name="publisher-uri"/>
 
   <xsl:template match="*" mode="rdf-about-attribute">
@@ -143,6 +144,7 @@
   <xsl:template match="catalog/provider">
       <xcri:provider>
         <xsl:apply-templates select="." mode="rdf-about-attribute"/>
+        <xsl:apply-templates select="." mode="order-annotation"/>
         <xsl:apply-templates select="*[not(self::course)]"/>
         <xsl:for-each select="course">
           <mlo:offers>
@@ -161,6 +163,7 @@
   <xsl:template match="course">
     <xcri:course>
       <xsl:apply-templates select="." mode="rdf-about-attribute"/>
+      <xsl:apply-templates select="." mode="order-annotation"/>
       <xsl:apply-templates select="*"/>
     </xcri:course>
   </xsl:template>
@@ -169,6 +172,7 @@
     <mlo:specifies>
       <xcri:presentation>
         <xsl:apply-templates select="." mode="rdf-about-attribute"/>
+        <xsl:apply-templates select="." mode="order-annotation"/>
         <xsl:apply-templates select="*"/>
       </xcri:presentation>
     </mlo:specifies>
@@ -180,6 +184,7 @@
       <xcri:venue>
         <geo:SpatialThing>
           <xsl:apply-templates select="." mode="rdf-about-attribute"/>
+          <xsl:apply-templates select="." mode="order-annotation"/>
           <xsl:apply-templates select="provider/*"/>
         </geo:SpatialThing>
       </xcri:venue>
@@ -369,6 +374,14 @@
 
   <xsl:template match="applyTo">
     <xcri:applyTo rdf:resource="{text()}"/>
+  </xsl:template>
+
+  <xsl:template match="*" mode="order-annotation">
+    <xsl:if test="$order-annotation">
+      <xcri:x-order rdf:datatype="&xsd;int">
+        <xsl:value-of select="count(preceding::*)"/>
+      </xcri:x-order>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="*|@*|text()|processing-instruction()"/>
