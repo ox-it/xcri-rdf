@@ -115,7 +115,7 @@ def serialize_etree(xml, xg, previous_nsmap={}):
 
 class XCRICAPSerializer(object):
     common_descriptive_elements = [
-        (NS.xcri.abstract, 'xcri:abstract'),
+        (NS.xcri['abstract'], 'xcri:abstract'),
         (NS.xcri.applicationProcedure, 'xcri:applicationProcedure'),
         (NS.mlo.assessment, 'mlo:assessment'),
         (NS.xcri.learningOutcome, 'xcri:learningOutcome'),
