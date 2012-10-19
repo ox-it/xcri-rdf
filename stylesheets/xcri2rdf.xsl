@@ -71,7 +71,7 @@
   <xsl:template match="*" mode="rdf-about">
     <!-- Override this to attach identifiers to your RDF resources. If you
          don't, you'll end up with blank nodes, which would be Bad. -->
-    <xsl:variable name="identifier" select="dc:identifier[not(@xsi:type) and starts-with(text(), 'http:')]"/>
+    <xsl:variable name="identifier" select="dc:identifier[not(@xsi:type) and (starts-with(text(), 'http:') or starts-with(text(), 'https:'))]"/>
     <xsl:if test="$identifier">
         <xsl:value-of select="$identifier[1]/text()"/>
     </xsl:if>
