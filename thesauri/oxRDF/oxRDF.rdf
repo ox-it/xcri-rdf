@@ -186,6 +186,7 @@
                   <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/B.3.3"/>
                   <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/B.3.4"/>
                   <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/B.3.5"/>
+                  <skos:related rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/B.3"/>
                </skos:Concept>
             </skos:narrower>
             <skos:narrower>
