@@ -95,13 +95,20 @@
         </dcterms:LicenseDocument>
       </dcterms:license>
 
-      <xsl:for-each-group select="row[position() &gt; 1]" group-starting-with="row[not(cell[1]/@covered)]">
-        <xsl:if test="cell[1]/text:p/text()">
-          <skos:hasTopConcept>
-            <xsl:apply-templates select="." mode="gap-category"/>
-          </skos:hasTopConcept>
-        </xsl:if>
-      </xsl:for-each-group>
+      <skos:hasTopConcept>
+        <skos:Concept rdf:about="{$concept-uri-base}GT">
+          <skos:prefLabel>Graduate Training</skos:prefLabel>
+          <skos:notation rdf:datatype="{$notation-uri}">GT</skos:notation>
+          <skos:inScheme rdf:resource="{$scheme-uri}"/>
+          <xsl:for-each-group select="row[position() &gt; 1]" group-starting-with="row[not(cell[1]/@covered)]">
+            <xsl:if test="cell[1]/text:p/text()">
+              <skos:narrower>
+                <xsl:apply-templates select="." mode="gap-category"/>
+              </skos:narrower>
+            </xsl:if>
+          </xsl:for-each-group>
+        </skos:Concept>
+      </skos:hasTopConcept>
     </skos:ConceptScheme>
   </xsl:template>
 
