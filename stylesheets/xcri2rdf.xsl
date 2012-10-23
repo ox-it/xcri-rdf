@@ -99,9 +99,9 @@
     <xsl:variable name="parentURI">
       <xsl:apply-templates select=".." mode="rdf-about"/>
     </xsl:variable>
-    <xsl:variable name="identifier" select="dc:identifier[not(@xsi:type) and (starts-with(text(), 'http:') or starts-with(text(), 'https:'))]"/>
+    <xsl:variable name="identifier" select="provider/dc:identifier[not(@xsi:type) and (starts-with(text(), 'http:') or starts-with(text(), 'https:'))]"/>
     <xsl:choose>
-      <xsl:when test="$identifier">
+      <xsl:when test="$identifier/text()">
         <xsl:value-of select="$identifier"/>
       </xsl:when>
       <xsl:when test="$parentURI/text()">
