@@ -255,11 +255,11 @@
           </xsl:otherwise>
         </xsl:choose>
       </xsl:when>
-      <xsl:otherwise>
+      <xsl:when test="text()">
         <dcterms:identifier>
           <xsl:value-of select="text()"/>
         </dcterms:identifier>
-      </xsl:otherwise>
+      </xsl:when>
     </xsl:choose>
   </xsl:template>
 
