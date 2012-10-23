@@ -333,11 +333,28 @@
             <xsl:value-of select="text()"/>
           </rdfs:label>
         </xsl:if>
-        <xsl:if test="@dtf and string-length(@dtf)">
-          <time:inXSDDateTime rdf:datatype="&xsd;{if (string-length(@dtf) &gt; 11) then 'dateTime' else 'date'}">
-            <xsl:value-of select="replace(@dtf, ' ', 'T')"/>
-          </time:inXSDDateTime>
-        </xsl:if>
+        <xsl:choose>
+          <xsl:when test="@dtf and string-length(@dtf) &gt; 15">
+            <time:inXSDDateTime rdf:datatype="&xsd;dateTime">
+              <xsl:value-of select="replace(@dtf, ' ', 'T')"/>
+            </time:inXSDDateTime>
+          </xsl:when>
+          <xsl:when test="matches(text(), '^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}:\d{2}(Z|([-+]\d{2}:\d{2}))?$')">
+            <time:inXSDDateTime rdf:datatype="&xsd;dateTime">
+              <xsl:value-of select="replace(@dtf, text())"/>
+            </time:inXSDDateTime>
+          </xsl:when>
+          <xsl:when test="@dtf and string-length(@dtf)">
+            <rdf:value rdf:datatype="&xsd;dateTime">
+              <xsl:value-of select="@dtf"/>
+            </rdf:value>
+          </xsl:when>
+          <xsl:when test="matches(text(), '^\d{4}-\d{2}-\d{2}$')">
+            <rdf:value rdf:datatype="&xsd;dateTime">
+              <xsl:value-of select="text()"/>
+            </rdf:value>
+          </xsl:when>
+        </xsl:choose>
       </time:Instant>
     </xsl:element>
     </xsl:if>
