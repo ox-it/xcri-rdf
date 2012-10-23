@@ -341,7 +341,7 @@
           </xsl:when>
           <xsl:when test="matches(text(), '^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}:\d{2}(Z|([-+]\d{2}:\d{2}))?$')">
             <time:inXSDDateTime rdf:datatype="&xsd;dateTime">
-              <xsl:value-of select="replace(@dtf, text())"/>
+              <xsl:value-of select="replace(text(), ' ', 'T')"/>
             </time:inXSDDateTime>
           </xsl:when>
           <xsl:when test="@dtf and string-length(@dtf)">
