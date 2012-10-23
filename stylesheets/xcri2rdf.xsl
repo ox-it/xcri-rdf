@@ -99,9 +99,15 @@
     <xsl:variable name="parentURI">
       <xsl:apply-templates select=".." mode="rdf-about"/>
     </xsl:variable>
-    <xsl:if test="$parentURI/text()">
-      <xsl:value-of select="concat($parentURI, '/venue')"/>
-    </xsl:if>
+    <xsl:variable name="identifier" select="dc:identifier[not(@xsi:type) and (starts-with(text(), 'http:') or starts-with(text(), 'https:'))]"/>
+    <xsl:choose>
+      <xsl:when test="$identifier">
+        <xsl:value-of select="$identifier"/>
+      </xsl:when>
+      <xsl:when test="$parentURI/text()">
+        <xsl:value-of select="concat($parentURI, '/venue')"/>
+      </xsl:when>
+    </xsl:choose>
   </xsl:template>
 
   <xsl:template match="xmlo:phone" mode="rdf-about">
