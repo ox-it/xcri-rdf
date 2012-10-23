@@ -345,12 +345,12 @@
             </time:inXSDDateTime>
           </xsl:when>
           <xsl:when test="@dtf and string-length(@dtf)">
-            <rdf:value rdf:datatype="&xsd;dateTime">
+            <rdf:value rdf:datatype="&xsd;date">
               <xsl:value-of select="@dtf"/>
             </rdf:value>
           </xsl:when>
           <xsl:when test="matches(text(), '^\d{4}-\d{2}-\d{2}$')">
-            <rdf:value rdf:datatype="&xsd;dateTime">
+            <rdf:value rdf:datatype="&xsd;date">
               <xsl:value-of select="text()"/>
             </rdf:value>
           </xsl:when>
