@@ -28,7 +28,7 @@ XMLNS.update({'mlo': 'http://purl.org/net/mlo',
 NS = Namespaces((k, rdflib.Namespace(NS[k])) for k in NS)
 
 common_descriptive_elements = [(NS.dcterms.description, 'dc:description'),
-                               (NS.xcri.abstract, 'xcri:abstract'),
+                               (NS.xcri['abstract'], 'xcri:abstract'),
                                (NS.xcri.applicationProcedure, 'xcri:applicationProcedure'),
                                (NS.mlo.assessment, 'mlo:assessment'),
                                (NS.xcri.learningOutcome, 'xcri:learningOutcome'),
@@ -186,11 +186,11 @@ class XSLTTestCase(unittest.TestCase):
             for predicate, element in common_descriptive_elements:
                 rdf_cde = list(graph.objects(course, predicate))
                 xml_cde = xml_course.xpath(element, namespaces=XMLNS)
-                self.assertEqual(len(rdf_cde), len(xml_cde), "Missing {0} for {1}".format(element, course))
+                self.assertEqual(len(rdf_cde), len(xml_cde), "Mismatched {0} for {1} ({2} and {3}, {4})".format(element, course, len(rdf_cde), len(xml_cde), graph.value(course, NS.dcterms.identifier)))
                 if len(rdf_cde) == 1:
                     self.assertComplexEqual(rdf_cde[0], xml_cde[0])
                 elif len(rdf_cde) > 1:
-                    raise AssertionError("More than one descriptive element: %s" % element)
+                    raise AssertionError("More than one descriptive element: {0}, {1}".format(element, graph.value(course, NS.dcterms.identifier)))
 
 def load_tests(loader, tests, pattern):
     suite = unittest.TestSuite()

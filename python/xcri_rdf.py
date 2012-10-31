@@ -56,10 +56,20 @@ def xsi_type(uri):
     return {}
 
 identifiers = (NS.dc.identifier, NS.dcterms.identifier)
-subjects = (NS.dcterms.subject, NS.dc.subject)
+subject_predicates = (NS.dcterms.subject, NS.dc.subject)
 labels = (NS.skos.prefLabel, NS.rdfs.label, NS.dcterms.title, NS.dc.title)
 urls = (NS.foaf.homepage, NS.foaf.page)
 descriptions = (NS.dcterms.description, NS.rdfs.comment)
+
+def _find_first(name, ps, rich_element=False):
+    def f(self, xg, entity):
+        for obj in itertools.chain(*(self.graph.objects(entity, p) for p in ps)):
+            if rich_element:
+                self.descriptive_text_element(xg, name, obj)
+            else:
+                xg.textualElement(name, {}, unicode(obj))
+            break
+    return f
 
 class IndentingXMLGenerator(XMLGenerator):
     def __init__(self, *args, **kwargs):
@@ -247,7 +257,6 @@ class XCRICAPSerializer(object):
         for venue in self.graph.objects(presentation, NS.xcri.venue):
             yield self.venue_element(xg, venue)
 
-
     def venue_element(self, xg, venue):
         """
         Serializes venue information if there is any.
@@ -304,23 +313,28 @@ class XCRICAPSerializer(object):
             xg.textualElement(name,
                               {'identifier': unicode(notation)} if notation else {},
                               content or '')
-        
+
 
     def serialize_subjects(self, xg, course):
-        for obj in itertools.chain(*(self.graph.objects(course, p) for p in subjects)):
-            if isinstance(obj, rdflib.Literal):
-                attrib, content = {}, unicode(obj)
+        subjects = set(itertools.chain(*(self.graph.objects(course, p) for p in subject_predicates)))
+        for subject in set(subjects):
+            subjects.update(self.graph.objects(subject, NS.skos.related))
+        
+        for subject in subjects:
+            if isinstance(subject, rdflib.Literal):
+                attrib, content = {}, unicode(subject)
             else:
-                notation = self.graph.value(obj, NS.skos.notation)
+                notation = self.graph.value(subject, NS.skos.notation)
                 attrib = xsi_type(notation.datatype) if notation else {}
                 if notation:
                     attrib['identifier'] = unicode(notation)
                 for label in labels:
-                    content = self.graph.value(obj, label)
+                    content = self.graph.value(subject, label)
                     if content:
                         break
             if attrib or content:
                 xg.textualElement('dc:subject', attrib, content or '')
+
 
     def serialize_date(self, xg, entity, prop, name):
         dt = self.graph.value(entity, prop, any=False)
@@ -362,7 +376,7 @@ class XCRICAPSerializer(object):
             for obj in self.graph.objects(entity, prop):
                 self.descriptive_text_element(xg, name, obj)
 
-    def descriptive_text_element(self, xg, name, obj):
+    def descriptive_text_element(self, xg, name, obj, attrib=None):
         """
         Serializes RDF terms that are either links, HTML or plain text.
         """
@@ -377,19 +391,9 @@ class XCRICAPSerializer(object):
             else:
                 xg.textualElement(name, {}, unicode(obj))
                 return
-            xg.startElement(name, {})
+            xg.startElement(name, attrib or {})
             serialize_etree(xml, xg)
             xg.endElement(name)
-
-    def _find_first(name, ps, rich_element=False):
-        def f(self, xg, entity):
-            for obj in itertools.chain(*(self.graph.objects(entity, p) for p in ps)):
-                if rich_element:
-                    self.descriptive_text_element(xg, name, obj)
-                else:
-                    xg.textualElement(name, {}, unicode(obj))
-                break
-        return f
 
     serialize_title = _find_first('dc:title', labels)
     serialize_url = _find_first('mlo:url', urls)
