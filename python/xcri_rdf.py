@@ -253,6 +253,8 @@ class XCRICAPSerializer(object):
         self.serialize_common_descriptive_elements(xg, presentation)
         self.serialize_date(xg, presentation, NS.mlo.start, 'mlo:start')
         self.serialize_date(xg, presentation, NS.xcri.end, 'xcri:end')
+        self.serialize_date(xg, presentation, NS.xcri.applyFrom, 'xcri:applyFrom')
+        self.serialize_date(xg, presentation, NS.xcri.applyUntil, 'xcri:applyUntil')
         self.serialize_places(xg, presentation)
         self.serialize_applyTo(xg, presentation)
         self.serialize_controlled_vocabularies(xg, presentation)
