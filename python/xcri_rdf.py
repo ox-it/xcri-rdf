@@ -153,6 +153,8 @@ class XCRICAPSerializer(object):
         (NS.xcri.attendanceMode, 'xcri:attendanceMode', rdflib.URIRef('http://xcri.org/profiles/catalog/1.2/attendanceMode/notation')),
         (NS.xcri.attendancePattern, 'xcri:attendancePattern', rdflib.URIRef('http://xcri.org/profiles/catalog/1.2/attendancePattern/notation')),
     ]
+    
+    xmlns = XMLNS.copy()
 
     def __init__(self, graph, catalog=None, encoding='utf-8'):
         self.graph = graph
@@ -196,7 +198,7 @@ class XCRICAPSerializer(object):
 
     def catalog_element(self, xg, catalog):
         attrib = {}
-        attrib.update(('xmlns:%s' % prefix, uri) for prefix, uri in XMLNS.iteritems())
+        attrib.update(('xmlns:%s' % prefix, uri) for prefix, uri in self.xmlns.iteritems())
         attrib['xsi:schemaLocation'] = ' '.join(map(' '.join, self.xsi_schema_locations.iteritems()))
         attrib['generated'] = datetime.datetime.utcnow().isoformat() + '+00:00'
 
