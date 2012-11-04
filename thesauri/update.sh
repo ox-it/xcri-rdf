@@ -18,3 +18,6 @@
 ( cd oxRDF ;
   make clean all )
 
+( cd jacs ;
+  curl http://www.hesa.ac.uk/dox/jacs/JACS.csv > jacs.csv ;
+  python generate_jacs.py > jacs.rdf )
