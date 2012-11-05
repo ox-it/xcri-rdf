@@ -384,8 +384,29 @@
 
   <xsl:template match="dc:subject">
     <xsl:choose>
-      <xsl:when test="@xsi:type and index-of(('hesa:jacs', 'courseDataProgramme:JACS3'), @xsi:type)">
-        <dcterms:subject rdf:resource="http://jacs.dataincubator.org/{lower-case(@identifier)}"/>
+      <xsl:when test="@xsi:type and contains(@xsi:type, ':')">
+        <xsl:variable name="prefix" select="substring-before(@xsi:type, ':')"/>
+        <xsl:variable name="localpart" select="substring-after(@xsi:type, ':')"/>
+        <xsl:choose>
+          <xsl:when test="@xsi:type and index-of(('hesa:jacs', 'courseDataProgramme:JACS3'), @xsi:type)">
+            <dcterms:subject rdf:resource="http://jacs.dataincubator.org/{lower-case(@identifier)}"/>
+          </xsl:when>
+          <xsl:when test="$prefix and index-of(in-scope-prefixes(.), $prefix)">
+            <dcterms:subject>
+              <skos:Concept>
+                <rdfs:label>
+                  <xsl:value-of select="text()"/>
+                </rdfs:label>
+                <skos:notation rdf:datatype="{concat(namespace-uri-for-prefix($prefix, .), $localpart)}">
+                  <xsl:value-of select="text()"/>
+                </skos:notation>
+              </skos:Concept>
+            </dcterms:subject>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:message>Prefix "<xsl:value-of select="$prefix"/>" not defined.</xsl:message>
+          </xsl:otherwise>
+        </xsl:choose>
       </xsl:when>
       <xsl:otherwise>
         <dc:subject>
