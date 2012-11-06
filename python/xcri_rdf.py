@@ -355,7 +355,7 @@ class XCRICAPSerializer(object):
 
 
     def serialize_date(self, xg, entity, prop, name):
-        dt = self.graph.value(entity, prop, any=False)
+        dt = self.graph.value(entity, prop)
         if isinstance(dt, rdflib.Literal):
             dtf, content = dt.toPython(), None
             if isinstance(dtf, basestring):
@@ -363,14 +363,14 @@ class XCRICAPSerializer(object):
             if not isinstance(dtf, (datetime.datetime, datetime.date)):
                 dtf = None
         else:
-            dtf = self.graph.value(entity, NS.rdf.value)
+            dtf = self.graph.value(dt, NS.rdf.value)
             for label in labels:
                 content = self.graph.value(dt, label)
                 if content:
                     break
         if not (dtf or content):
             return
-        attrib = {'dtf': dtf.isoformat()} if dtf else {}
+        attrib = {'dtf': dtf} if dtf else {}
         xg.textualElement(name, attrib, content or '')
 
     def serialize_identifiers(self, xg, entity):
