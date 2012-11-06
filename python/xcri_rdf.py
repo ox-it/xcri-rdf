@@ -1,3 +1,4 @@
+import collections
 import datetime
 import itertools
 import re
@@ -156,10 +157,11 @@ class XCRICAPSerializer(object):
     
     xmlns = XMLNS.copy()
 
-    def __init__(self, graph, catalog=None, encoding='utf-8'):
+    def __init__(self, graph, catalog=None, encoding='utf-8', simple=True):
         self.graph = graph
         self.catalog = catalog or self.graph.value(None, NS.rdf.type, NS.xcri.catalog, any=False)
         self.encoding = encoding
+        self.simple = simple
 
     def serialize(self, stream):
         self.stream = stream
@@ -184,7 +186,6 @@ class XCRICAPSerializer(object):
             else:
                 if isinstance(item, types.GeneratorType):
                     stack.append(item)
-            print stack, item
             yield self.stream.getvalue()
             self.stream.seek(0)
             self.stream.truncate()
@@ -207,29 +208,42 @@ class XCRICAPSerializer(object):
         xg.endElement('xcri:catalog')
     
     def catalog_content(self, xg, catalog):
-        provider = self.graph.value(catalog, NS.dcterms.publisher)
         yield self.serialize_common(xg, catalog)
-        yield self.provider_element(xg, catalog, provider)
 
-    def provider_element(self, xg, catalog, provider):
+        if self.simple:
+            provider = self.graph.value(catalog, NS.dcterms.publisher)
+            courses, catalogs = set(), set([catalog])
+            for member in self.graph.objects(catalogs.pop(), NS.skos.member):
+                # If it's a course
+                if (member, NS.rdf.type, NS.xcri.course) in self.graph:
+                    courses.add(member)
+                # Or a sub-catalogue
+                elif (member, NS.rdf.type, NS.xcri.catalog) in self.graph:
+                    catalogs.add(member)
+            yield self.provider_element(xg, provider, courses)
+        else:
+            provider_courses, catalogs = collections.defaultdict(set), set([catalog])
+            while catalogs:
+                for member in self.objects(catalogs.pop(), NS.skos.member):
+                    if (member, NS.rdf.type, NS.xcri.course) in self.graph:
+                        provider = self.graph.value(None, NS.mlo.offers, member)
+                        provider_courses[provider].add(member)
+                    elif (member, NS.rdf.type, NS.xcri.catalog) in self.graph:
+                        catalogs.add(member)
+            for provider, courses in provider_courses.iteritems():
+                yield self.provider_element(xg, provider, courses)
+
+    def provider_element(self, xg, provider, courses):
         xg.startElement('xcri:provider', {})
-        yield self.provider_content(xg, catalog, provider)
+        yield self.provider_content(xg, provider, courses)
         xg.endElement('xcri:provider')
 
-    def provider_content(self, xg, catalog, provider):
+    def provider_content(self, xg, provider, courses):
         if provider:
             yield self.serialize_common(xg, provider)
             yield self.serialize_location(xg, provider)
-        yield self.course_elements(xg, catalog)
-
-    def course_elements(self, xg, catalog):
-        for member in self.graph.objects(catalog, NS.skos.member):
-            # If it's a course
-            if (member, NS.rdf.type, NS.xcri.course) in self.graph:
-                yield self.course_element(xg, member)
-            # Or a sub-catalogue
-            elif (member, NS.rdf.type, NS.xcri.catalog) in self.graph:
-                yield self.course_elements(xg, member)
+        for course in courses:
+            yield self.course_element(xg, course)
 
     def course_element(self, xg, course):
         xg.startElement('xcri:course', {})
