@@ -398,7 +398,7 @@
                   <xsl:value-of select="text()"/>
                 </rdfs:label>
                 <skos:notation rdf:datatype="{concat(namespace-uri-for-prefix($prefix, .), $localpart)}">
-                  <xsl:value-of select="text()"/>
+                  <xsl:value-of select="@identifier"/>
                 </skos:notation>
               </skos:Concept>
             </dcterms:subject>
