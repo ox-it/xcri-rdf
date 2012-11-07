@@ -224,7 +224,7 @@ class XCRICAPSerializer(object):
         else:
             provider_courses, catalogs = collections.defaultdict(set), set([catalog])
             while catalogs:
-                for member in self.objects(catalogs.pop(), NS.skos.member):
+                for member in self.graph.objects(catalogs.pop(), NS.skos.member):
                     if (member, NS.rdf.type, NS.xcri.course) in self.graph:
                         provider = self.graph.value(None, NS.mlo.offers, member)
                         provider_courses[provider].add(member)
