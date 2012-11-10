@@ -406,7 +406,7 @@ class XCRICAPSerializer(object):
             for obj in self.graph.objects(entity, prop):
                 self.descriptive_text_element(xg, name, obj)
 
-    def descriptive_text_element(self, xg, name, obj, attrib=None):
+    def descriptive_text_element(self, xg, name, obj, attrib={}):
         """
         Serializes RDF terms that are either links, HTML or plain text.
         """
@@ -419,9 +419,9 @@ class XCRICAPSerializer(object):
             elif obj.datatype == NS.xtypes['Fragment-HTML']:
                 xml = etree.fromstring(unicode(obj), parser=etree.HTMLParser())
             else:
-                xg.textualElement(name, {}, unicode(obj))
+                xg.textualElement(name, attrib, unicode(obj))
                 return
-            xg.startElement(name, attrib or {})
+            xg.startElement(name, attrib)
             serialize_etree(xml, xg)
             xg.endElement(name)
 
