@@ -9,6 +9,7 @@ except ImportError:
     import StringIO
 from xml.sax.saxutils import XMLGenerator
 
+import dateutil.parser
 from lxml import etree
 import rdflib
 
@@ -33,6 +34,7 @@ NS = {
     'mlo': 'http://purl.org/net/mlo/',
     'xtypes': 'http://purl.org/xtypes/',
     'v': 'http://www.w3.org/2006/vcard/ns#',
+    'xsd': 'http://www.w3.org/2001/XMLSchema#',
 }
 class _NS(dict):
     def __init__(self, ns):
@@ -370,6 +372,16 @@ class XCRICAPSerializer(object):
                     break
         if not (dtf or content):
             return
+        if not content:
+            try:
+                parsed = dateutil.parser.parse(dtf)
+            except ValueError:
+                content = dtf
+            else:
+                if dtf.datatype == NS.xsd.date:
+                    content = parsed.strftime("%A, %d %B %Y")
+                elif dtf.datatype == NS.xsd.dateTime:
+                    content = parsed.strftime("%I:%M %p, %A, %d %B %Y")
         attrib = {'dtf': dtf} if dtf else {}
         xg.textualElement(name, attrib, content or '')
 
