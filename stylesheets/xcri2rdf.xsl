@@ -170,7 +170,7 @@
     <xcri:course>
       <xsl:apply-templates select="." mode="rdf-about-attribute"/>
       <xsl:apply-templates select="." mode="order-annotation"/>
-      <xsl:apply-templates select="*"/>
+      <xsl:apply-templates select="@*|*"/>
     </xcri:course>
   </xsl:template>
 
@@ -179,7 +179,7 @@
       <xcri:presentation>
         <xsl:apply-templates select="." mode="rdf-about-attribute"/>
         <xsl:apply-templates select="." mode="order-annotation"/>
-        <xsl:apply-templates select="*"/>
+        <xsl:apply-templates select="@*|*"/>
       </xcri:presentation>
     </mlo:specifies>
   </xsl:template>
