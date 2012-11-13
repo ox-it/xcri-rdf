@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0"
+         xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"
+         xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+         xmlns:cc="http://creativecommons.org/ns#"
+         xmlns:dcterms="http://purl.org/dc/terms/">
+   <skos:ConceptScheme rdf:about="https://data.ox.ac.uk/id/ox-rm/concept-scheme">
+      <skos:prefLabel xml:lang="en">Oxford Research Methods Classification</skos:prefLabel>
+      <skos:altLabel>OxRM</skos:altLabel>
+      <cc:attributionName>University of Oxford</cc:attributionName>
+      <skos:hasTopConcept>
+         <skos:Concept rdf:about="https://data.ox.ac.uk/id/ox-rm/qualitative">
+            <skos:prefLabel>Qualitative</skos:prefLabel>
+            <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rm/notation">QL</skos:notation>
+            <skos:inScheme rdf:resource="https://data.ox.ac.uk/id/ox-rm/concept-scheme"/>
+         </skos:Concept>
+      </skos:hasTopConcept>
+      <skos:hasTopConcept>
+         <skos:Concept rdf:about="https://data.ox.ac.uk/id/ox-rm/quantitative">
+            <skos:prefLabel>Quantitative</skos:prefLabel>
+            <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rm/notation">QN</skos:notation>
+            <skos:inScheme rdf:resource="https://data.ox.ac.uk/id/ox-rm/concept-scheme"/>
+         </skos:Concept>
+      </skos:hasTopConcept>
+   </skos:ConceptScheme>
+</rdf:RDF>
+
