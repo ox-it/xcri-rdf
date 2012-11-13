@@ -17,7 +17,9 @@ XMLNS = {
     'xcri': 'http://xcri.org/profiles/1.2/catalog',
     'mlo': 'http://purl.org/net/mlo',
     'dc': 'http://purl.org/dc/elements/1.1/',
-    'xsi': 'http://www.w3.org/2001/XMLSchema-instance'
+    'xsi': 'http://www.w3.org/2001/XMLSchema-instance',
+    'cdp': 'http://xcri.co.uk',
+    'html': 'http://www.w3.org/1999/xhtml',
 }
 INVERSE_XMLNS = tuple((v, k) for k, v in sorted(XMLNS.items(), key=lambda (k,v): -len(v)))
 
@@ -337,6 +339,9 @@ class XCRICAPSerializer(object):
 
     def serialize_subjects(self, xg, course):
         subjects = set(itertools.chain(*(self.graph.objects(course, p) for p in subject_predicates)))
+        for subject in set(subjects):
+            subjects.update(self.graph.subjects(NS.skos.narrower, subject))
+            subjects.update(self.graph.objects(subject, NS.skos.broader))
         for subject in set(subjects):
             subjects.update(self.graph.objects(subject, NS.skos.related))
         
