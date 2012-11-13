@@ -430,7 +430,7 @@ class XCRICAPSerializer(object):
                 xg.textualElement(name, attrib, unicode(obj))
                 return
             xg.startElement(name, attrib)
-            serialize_etree(xml, xg)
+            serialize_etree(xml, xg, self.xmlns)
             xg.endElement(name)
 
     serialize_title = _find_first('dc:title', labels)
