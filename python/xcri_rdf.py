@@ -357,6 +357,9 @@ class XCRICAPSerializer(object):
                     content = self.graph.value(subject, label)
                     if content:
                         break
+                # The non-RDF people do this one specially.
+                if subject.startswith('http://jacs.dataincubator.org/'):
+                    attrib['xsi:type'] = 'cdp:JACS3'
             if attrib or content:
                 xg.textualElement('dc:subject', attrib, content or '')
 
