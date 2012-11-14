@@ -62,7 +62,7 @@ def xsi_type(uri):
 
 identifiers = (NS.dc.identifier, NS.dcterms.identifier)
 subject_predicates = (NS.dcterms.subject, NS.dc.subject)
-labels = (NS.skos.prefLabel, NS.rdfs.label, NS.dcterms.title, NS.dc.title)
+labels = (NS.skos.prefLabel, NS.rdfs.label, NS.dcterms['title'], NS.dc['title'])
 urls = (NS.foaf.homepage, NS.foaf.page)
 descriptions = (NS.dcterms.description, NS.rdfs.comment)
 
