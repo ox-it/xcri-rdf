@@ -77,21 +77,20 @@
     </xsl:if>
   </xsl:template>
 
-  <xsl:template match="xmlo:start|end" mode="rdf-about">
+  <xsl:template match="xmlo:start|end|applyFrom|applyUntil" mode="rdf-about">
     <xsl:variable name="parentURI">
       <xsl:apply-templates select=".." mode="rdf-about"/>
     </xsl:variable>
-    <xsl:if test="$parentURI/text()">
-      <xsl:value-of select="concat($parentURI, '/', (if (self::xmlo:start) then 'start' else 'end'))"/>
-    </xsl:if>
-  </xsl:template>
-
-  <xsl:template match="xmlo:applyFrom|xmlo:applyUntil" mode="rdf-about">
-    <xsl:variable name="parentURI">
-      <xsl:apply-templates select=".." mode="rdf-about"/>
+    <xsl:variable name="suffix">
+      <xsl:choose>
+        <xsl:when test="self::xmlo:start">start</xsl:when>
+        <xsl:when test="self::end">end</xsl:when>
+        <xsl:when test="self::applyFrom">applyFrom</xsl:when>
+        <xsl:when test="self::applyUntil">applyUntil</xsl:when>
+      </xsl:choose>
     </xsl:variable>
     <xsl:if test="$parentURI/text()">
-      <xsl:value-of select="concat($parentURI, '/', (if (self::xmlo:applyFrom) then 'applyFrom' else 'applyUntil'))"/>
+      <xsl:value-of select="concat($parentURI, '/', $suffix)"/>
     </xsl:if>
   </xsl:template>
 
