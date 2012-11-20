@@ -255,6 +255,8 @@
           </xsl:otherwise>
         </xsl:choose>
       </xsl:when>
+      <!-- Ignore HTTP/HTTPS URIs -->
+      <xsl:when test="matches(., '^https?:')"/>
       <xsl:when test="text()">
         <dcterms:identifier>
           <xsl:value-of select="text()"/>
