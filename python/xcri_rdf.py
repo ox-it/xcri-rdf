@@ -34,6 +34,7 @@ NS = {
     'dcterms': 'http://purl.org/dc/terms/',
     'spatialrelations': 'http://data.ordnancesurvey.co.uk/ontology/spatialrelations/',
     'mlo': 'http://purl.org/net/mlo/',
+    'time': 'http://www.w3.org/2006/time#',
     'xtypes': 'http://purl.org/xtypes/',
     'v': 'http://www.w3.org/2006/vcard/ns#',
     'xsd': 'http://www.w3.org/2001/XMLSchema#',
@@ -373,7 +374,7 @@ class XCRICAPSerializer(object):
             if not isinstance(dtf, (datetime.datetime, datetime.date)):
                 dtf = None
         else:
-            dtf = self.graph.value(dt, NS.rdf.value)
+            dtf = self.graph.value(dt, NS.time.inXSDDateTime) or self.graph.value(dt, NS.rdf.value)
             for label in labels:
                 content = self.graph.value(dt, label)
                 if content:
