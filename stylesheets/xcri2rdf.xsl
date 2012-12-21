@@ -376,7 +376,10 @@
 
   <xsl:template match="xmlo:places">
     <xsl:if test="text()">
-      <mlo:places rdf:datatype="&xsd;int">
+      <mlo:places>
+        <xsl:if test="number(text())">
+          <xsl:attribute name="rdf:datatype">&xsd;int</xsl:attribute>
+        </xsl:if>
         <xsl:value-of select="text()"/>
       </mlo:places>
     </xsl:if>
