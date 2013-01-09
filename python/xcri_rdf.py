@@ -215,26 +215,21 @@ class XCRICAPSerializer(object):
     def catalog_content(self, xg, catalog):
         yield self.serialize_common(xg, catalog)
 
-        if self.simple:
-            provider = self.graph.value(catalog, NS.dcterms.publisher)
-            courses, catalogs = set(), set([catalog])
+        provider_courses, catalogs = collections.defaultdict(set), set([catalog])
+        while catalogs:
             for member in self.graph.objects(catalogs.pop(), NS.skos.member):
-                # If it's a course
                 if (member, NS.rdf.type, NS.xcri.course) in self.graph:
-                    courses.add(member)
-                # Or a sub-catalogue
+                    provider = self.graph.value(None, NS.mlo.offers, member)
+                    provider_courses[provider].add(member)
                 elif (member, NS.rdf.type, NS.xcri.catalog) in self.graph:
                     catalogs.add(member)
-            yield self.provider_element(xg, provider, courses)
+
+        if self.simple:
+            provider = self.graph.value(catalog, NS.dcterms.publisher)
+            yield self.provider_element(xg,
+                                        provider,
+                                        itertools.chain(*provider_courses.itervalues()))
         else:
-            provider_courses, catalogs = collections.defaultdict(set), set([catalog])
-            while catalogs:
-                for member in self.graph.objects(catalogs.pop(), NS.skos.member):
-                    if (member, NS.rdf.type, NS.xcri.course) in self.graph:
-                        provider = self.graph.value(None, NS.mlo.offers, member)
-                        provider_courses[provider].add(member)
-                    elif (member, NS.rdf.type, NS.xcri.catalog) in self.graph:
-                        catalogs.add(member)
             for provider, courses in provider_courses.iteritems():
                 yield self.provider_element(xg, provider, courses)
 
