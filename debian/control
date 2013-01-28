@@ -7,7 +7,7 @@ Build-Depends: debhelper (>= 7.0.50~),
                python-support,
                python-setuptools,
                python-rdflib,
-               libsaxon-java
+               libsaxonb-java
 Standards-Version: 3.8.4
 X-Python-Version: >= 2.6
 Homepage: https://github.com/ox-it/xcri-rdf
