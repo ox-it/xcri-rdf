@@ -1,0 +1,23 @@
+Source: xcri-rdf
+Section: misc
+Priority: extra
+Maintainer: Alexander Dutton <alexander.dutton@it.ox.ac.uk>
+Build-Depends: debhelper (>= 7.0.50~),
+               python-all,
+               python-support,
+               python-setuptools,
+               python-rdflib,
+               libsaxon-java
+Standards-Version: 3.8.4
+X-Python-Version: >= 2.6
+Homepage: https://github.com/ox-it/xcri-rdf
+Vcs-Git: git://github.com/ox-it/xcri-rdf.git
+
+Package: xcri-rdf
+Section: misc
+Architecture: all
+Depends: ${misc:Depends},
+         python
+Description: XCRI-CAP and RDF
+ 
+
