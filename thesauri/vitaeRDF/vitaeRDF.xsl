@@ -9,6 +9,7 @@
     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
     xmlns:cc="http://creativecommons.org/ns#"
     xmlns:dcterms="http://purl.org/dc/terms/"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
     xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0"
     xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"
     xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0">
@@ -78,6 +79,14 @@
   </xsl:template>
 
   <xsl:template match="table">
+    <foaf:Document rdf:about="">
+      <cc:attributionName>Vitae, Careers and Advisory Centre (CRAC), Limited</cc:attributionName>
+      <cc:attributionURL rdf:resource="http://www.vitae.ac.uk/rdf"/>
+      <dcterms:license>
+        <dcterms:LicenseDocument rdf:about="http://www.vitae.ac.uk/researchers/274251/RDF-conditions-of-use.html"/>
+      </dcterms:license>
+    </foaf:Document>
+
     <skos:ConceptScheme rdf:about="{$scheme-uri}">
       <skos:prefLabel xml:lang="en">Vitae Researcher Development Framework</skos:prefLabel>
       <skos:altLabel>Vitae RDF</skos:altLabel>
@@ -87,8 +96,7 @@ The RDF is a professional development framework for planning, promoting and supp
       <cc:attributionName>Vitae, Careers and Advisory Centre (CRAC), Limited</cc:attributionName>
       <cc:attributionURL rdf:resource="http://www.vitae.ac.uk/rdf"/>
       <dcterms:license>
-        <dcterms:LicenseDocument rdf:about="http://www.vitae.ac.uk/researchers/274251/RDF-conditions-of-use.html">
-        </dcterms:LicenseDocument>
+        <dcterms:LicenseDocument rdf:about="http://www.vitae.ac.uk/researchers/274251/RDF-conditions-of-use.html"/>
       </dcterms:license>
 
       <xsl:for-each-group select="row[position() &gt; 2]" group-starting-with="row[cell[1]/text:p]">
