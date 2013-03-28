@@ -85,24 +85,18 @@
 
   <xsl:template match="table">
     <foaf:Document rdf:about="">
-      <cc:attributionName>University of Oxford; Vitae, Careers and Advisory Centre (CRAC), Limited</cc:attributionName>
+      <cc:attributionName>University of Oxford</cc:attributionName>
       <cc:attributionURL rdf:resource="https://data.ox.ac.uk/doc/ox-rdf/concept-scheme"/>
-      <cc:attributionURL rdf:resource="http://www.vitae.ac.uk/rdf"/>
-      <dcterms:license>
-        <dcterms:LicenseDocument rdf:about="http://www.vitae.ac.uk/researchers/274251/RDF-conditions-of-use.html"/>
-      </dcterms:license>
+      <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
     </foaf:Document>
 
     <skos:ConceptScheme rdf:about="{$scheme-uri}">
-      <skos:prefLabel xml:lang="en">Oxford Researcher Development Framework</skos:prefLabel>
-      <skos:altLabel>OxRDF</skos:altLabel>
-      <rdfs:comment>The Oxford Researcher Development Framework (RDF) is a simplification of the Vitae RDF.</rdfs:comment>
-      <cc:attributionName>University of Oxford; Vitae, Careers and Advisory Centre (CRAC), Limited</cc:attributionName>
+      <skos:prefLabel xml:lang="en">Oxford Skills Classification</skos:prefLabel>
+      <skos:altLabel>OxSC</skos:altLabel>
+      <rdfs:comment>The Oxford Skills Classification is a simple way to categorize skills courses by subject area.</rdfs:comment>
+      <cc:attributionName>University of Oxford</cc:attributionName>
       <cc:attributionURL rdf:resource="https://data.ox.ac.uk/doc/ox-rdf/concept-scheme"/>
-      <cc:attributionURL rdf:resource="http://www.vitae.ac.uk/rdf"/>
-      <dcterms:license>
-        <dcterms:LicenseDocument rdf:about="http://www.vitae.ac.uk/researchers/274251/RDF-conditions-of-use.html"/>
-      </dcterms:license>
+      <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
 
       <skos:hasTopConcept>
         <skos:Concept rdf:about="{$concept-uri-base}GT">
@@ -131,6 +125,7 @@
         <xsl:value-of select="$notation"/>
       </skos:notation>
       <skos:inScheme rdf:resource="{$scheme-uri}"/>
+<!-- This is not allowed, apparently.
       <xsl:for-each select="current-group()">
         <xsl:if test="cell[3]/text:p/text()">
           <xsl:for-each select="tokenize(cell[3]/text:p/text(), ' ')">
@@ -143,6 +138,7 @@
           <skos:related rdf:resource="{$vitae-concept-uri-base}{cell[5]/text:p/text()}"/>
         </xsl:if>
       </xsl:for-each>
+-->
     </skos:Concept>
   </xsl:template>
 

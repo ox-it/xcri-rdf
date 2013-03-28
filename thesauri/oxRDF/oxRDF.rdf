@@ -9,23 +9,17 @@
          xmlns:cc="http://creativecommons.org/ns#"
          xmlns:dcterms="http://purl.org/dc/terms/">
    <foaf:Document rdf:about="">
-      <cc:attributionName>University of Oxford; Vitae, Careers and Advisory Centre (CRAC), Limited</cc:attributionName>
+      <cc:attributionName>University of Oxford</cc:attributionName>
       <cc:attributionURL rdf:resource="https://data.ox.ac.uk/doc/ox-rdf/concept-scheme"/>
-      <cc:attributionURL rdf:resource="http://www.vitae.ac.uk/rdf"/>
-      <dcterms:license>
-         <dcterms:LicenseDocument rdf:about="http://www.vitae.ac.uk/researchers/274251/RDF-conditions-of-use.html"/>
-      </dcterms:license>
+      <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
    </foaf:Document>
    <skos:ConceptScheme rdf:about="https://data.ox.ac.uk/id/ox-rdf/concept-scheme">
-      <skos:prefLabel xml:lang="en">Oxford Researcher Development Framework</skos:prefLabel>
-      <skos:altLabel>OxRDF</skos:altLabel>
-      <rdfs:comment>The Oxford Researcher Development Framework (RDF) is a simplification of the Vitae RDF.</rdfs:comment>
-      <cc:attributionName>University of Oxford; Vitae, Careers and Advisory Centre (CRAC), Limited</cc:attributionName>
+      <skos:prefLabel xml:lang="en">Oxford Skills Classification</skos:prefLabel>
+      <skos:altLabel>OxSC</skos:altLabel>
+      <rdfs:comment>The Oxford Skills Classification is a simple way to categorize skills courses by subject area.</rdfs:comment>
+      <cc:attributionName>University of Oxford</cc:attributionName>
       <cc:attributionURL rdf:resource="https://data.ox.ac.uk/doc/ox-rdf/concept-scheme"/>
-      <cc:attributionURL rdf:resource="http://www.vitae.ac.uk/rdf"/>
-      <dcterms:license>
-         <dcterms:LicenseDocument rdf:about="http://www.vitae.ac.uk/researchers/274251/RDF-conditions-of-use.html"/>
-      </dcterms:license>
+      <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
       <skos:hasTopConcept>
          <skos:Concept rdf:about="https://data.ox.ac.uk/id/ox-rdf/descriptor/GT">
             <skos:prefLabel>Graduate Training</skos:prefLabel>
@@ -36,8 +30,6 @@
                   <skos:prefLabel>Computing</skos:prefLabel>
                   <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">CO</skos:notation>
                   <skos:inScheme rdf:resource="https://data.ox.ac.uk/id/ox-rdf/concept-scheme"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.1.5"/>
-                  <skos:related rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.1"/>
                </skos:Concept>
             </skos:narrower>
             <skos:narrower>
@@ -45,12 +37,6 @@
                   <skos:prefLabel>Data Analysis</skos:prefLabel>
                   <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">DA</skos:notation>
                   <skos:inScheme rdf:resource="https://data.ox.ac.uk/id/ox-rdf/concept-scheme"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.2.1"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.2.2"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.2.3"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.2.4"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.2.5"/>
-                  <skos:related rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.2"/>
                </skos:Concept>
             </skos:narrower>
             <skos:narrower>
@@ -58,11 +44,6 @@
                   <skos:prefLabel>Data Management</skos:prefLabel>
                   <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">DM</skos:notation>
                   <skos:inScheme rdf:resource="https://data.ox.ac.uk/id/ox-rdf/concept-scheme"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.1.2"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.1.3"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.1.5"/>
-                  <skos:related rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.1"/>
-                  <skos:related rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/C.1"/>
                </skos:Concept>
             </skos:narrower>
             <skos:narrower>
@@ -70,11 +51,6 @@
                   <skos:prefLabel>Field Work</skos:prefLabel>
                   <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">FW</skos:notation>
                   <skos:inScheme rdf:resource="https://data.ox.ac.uk/id/ox-rdf/concept-scheme"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.1.1"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.1.2"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.1.3"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.1.4"/>
-                  <skos:related rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.1"/>
                </skos:Concept>
             </skos:narrower>
             <skos:narrower>
@@ -82,21 +58,6 @@
                   <skos:prefLabel>General Researcher Development</skos:prefLabel>
                   <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">RD</skos:notation>
                   <skos:inScheme rdf:resource="https://data.ox.ac.uk/id/ox-rdf/concept-scheme"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.1.1"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.1.7"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.2.1"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.2.2"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.2.3"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.2.4"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.3.1"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.3.2"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.3.4"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.3.5"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.1.2"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.1.3"/>
-                  <skos:related rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.1"/>
-                  <skos:related rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.2"/>
-                  <skos:related rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.3"/>
                </skos:Concept>
             </skos:narrower>
             <skos:narrower>
@@ -104,9 +65,6 @@
                   <skos:prefLabel>Information skills</skos:prefLabel>
                   <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">IN</skos:notation>
                   <skos:inScheme rdf:resource="https://data.ox.ac.uk/id/ox-rdf/concept-scheme"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.1.4"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.1.5"/>
-                  <skos:related rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.1"/>
                </skos:Concept>
             </skos:narrower>
             <skos:narrower>
@@ -114,9 +72,6 @@
                   <skos:prefLabel>Laboratory skills</skos:prefLabel>
                   <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">LS</skos:notation>
                   <skos:inScheme rdf:resource="https://data.ox.ac.uk/id/ox-rdf/concept-scheme"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.1.2"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.1.3"/>
-                  <skos:related rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.1"/>
                </skos:Concept>
             </skos:narrower>
             <skos:narrower>
@@ -124,9 +79,6 @@
                   <skos:prefLabel>Languages</skos:prefLabel>
                   <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">LA</skos:notation>
                   <skos:inScheme rdf:resource="https://data.ox.ac.uk/id/ox-rdf/concept-scheme"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.1.6"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.1.7"/>
-                  <skos:related rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.1"/>
                </skos:Concept>
             </skos:narrower>
             <skos:narrower>
@@ -134,10 +86,6 @@
                   <skos:prefLabel>Mathematical Methods</skos:prefLabel>
                   <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">MM</skos:notation>
                   <skos:inScheme rdf:resource="https://data.ox.ac.uk/id/ox-rdf/concept-scheme"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.2.5"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.3.1"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.3.4"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.3.5"/>
                </skos:Concept>
             </skos:narrower>
             <skos:narrower>
@@ -145,8 +93,6 @@
                   <skos:prefLabel>Research Methods</skos:prefLabel>
                   <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">RM</skos:notation>
                   <skos:inScheme rdf:resource="https://data.ox.ac.uk/id/ox-rdf/concept-scheme"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.1.2"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.1.3"/>
                </skos:Concept>
             </skos:narrower>
             <skos:narrower>
@@ -154,13 +100,6 @@
                   <skos:prefLabel>Statistics</skos:prefLabel>
                   <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">ST</skos:notation>
                   <skos:inScheme rdf:resource="https://data.ox.ac.uk/id/ox-rdf/concept-scheme"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.1.3"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.1.2"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.1.3"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.1.4"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.1.5"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.1.7"/>
-                  <skos:related rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.1"/>
                </skos:Concept>
             </skos:narrower>
             <skos:narrower>
@@ -168,8 +107,6 @@
                   <skos:prefLabel>Technical skills</skos:prefLabel>
                   <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">TE</skos:notation>
                   <skos:inScheme rdf:resource="https://data.ox.ac.uk/id/ox-rdf/concept-scheme"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.1.3"/>
-                  <skos:related rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.1"/>
                </skos:Concept>
             </skos:narrower>
             <skos:narrower>
@@ -177,12 +114,6 @@
                   <skos:prefLabel>Study and Research skills</skos:prefLabel>
                   <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">SR</skos:notation>
                   <skos:inScheme rdf:resource="https://data.ox.ac.uk/id/ox-rdf/concept-scheme"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.2.3"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.2.4"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.2.5"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.1.7"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.1.4"/>
-                  <skos:related rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/A.1"/>
                </skos:Concept>
             </skos:narrower>
             <skos:narrower>
@@ -190,12 +121,6 @@
                   <skos:prefLabel>Career Development</skos:prefLabel>
                   <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">CD</skos:notation>
                   <skos:inScheme rdf:resource="https://data.ox.ac.uk/id/ox-rdf/concept-scheme"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/B.3.1"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/B.3.2"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/B.3.3"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/B.3.4"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/B.3.5"/>
-                  <skos:related rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/B.3"/>
                </skos:Concept>
             </skos:narrower>
             <skos:narrower>
@@ -203,17 +128,6 @@
                   <skos:prefLabel>Personal Effectiveness</skos:prefLabel>
                   <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">PE</skos:notation>
                   <skos:inScheme rdf:resource="https://data.ox.ac.uk/id/ox-rdf/concept-scheme"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/B.1.1"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/B.1.2"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/B.1.3"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/B.1.4"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/B.1.6"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/B.2.1"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/B.2.3"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/B.2.4"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/B.2.5"/>
-                  <skos:related rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/B.1"/>
-                  <skos:related rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/B.2"/>
                </skos:Concept>
             </skos:narrower>
             <skos:narrower>
@@ -221,8 +135,6 @@
                   <skos:prefLabel>Ethics</skos:prefLabel>
                   <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">ET</skos:notation>
                   <skos:inScheme rdf:resource="https://data.ox.ac.uk/id/ox-rdf/concept-scheme"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/C.1.2"/>
-                  <skos:related rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/C.1"/>
                </skos:Concept>
             </skos:narrower>
             <skos:narrower>
@@ -230,13 +142,6 @@
                   <skos:prefLabel>Intellectual property skills</skos:prefLabel>
                   <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">IP</skos:notation>
                   <skos:inScheme rdf:resource="https://data.ox.ac.uk/id/ox-rdf/concept-scheme"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/C.1.2"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/C.1.3"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/C.1.4"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/C.1.5"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/C.1.6"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/C.1.7"/>
-                  <skos:related rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/C.1"/>
                </skos:Concept>
             </skos:narrower>
             <skos:narrower>
@@ -244,15 +149,6 @@
                   <skos:prefLabel>Interpersonal skills</skos:prefLabel>
                   <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">IL</skos:notation>
                   <skos:inScheme rdf:resource="https://data.ox.ac.uk/id/ox-rdf/concept-scheme"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/D.1.1"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/D.1.2"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/D.1.3"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/D.1.4"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/D.1.5"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/D.1.6"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/D.1.7"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/D.1.8"/>
-                  <skos:related rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/D.1"/>
                </skos:Concept>
             </skos:narrower>
             <skos:narrower>
@@ -260,8 +156,6 @@
                   <skos:prefLabel>Laboratory skills</skos:prefLabel>
                   <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">LS</skos:notation>
                   <skos:inScheme rdf:resource="https://data.ox.ac.uk/id/ox-rdf/concept-scheme"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/C.1.1"/>
-                  <skos:related rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/C.1"/>
                </skos:Concept>
             </skos:narrower>
             <skos:narrower>
@@ -269,13 +163,6 @@
                   <skos:prefLabel>Research and financial management</skos:prefLabel>
                   <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">RF</skos:notation>
                   <skos:inScheme rdf:resource="https://data.ox.ac.uk/id/ox-rdf/concept-scheme"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/C.2.1"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/C.2.2"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/C.2.3"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/C.3.1"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/C.3.2"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/C.3.3"/>
-                  <skos:related rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/C.3"/>
                </skos:Concept>
             </skos:narrower>
             <skos:narrower>
@@ -283,8 +170,6 @@
                   <skos:prefLabel>Safety</skos:prefLabel>
                   <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">HS</skos:notation>
                   <skos:inScheme rdf:resource="https://data.ox.ac.uk/id/ox-rdf/concept-scheme"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/C.1.1"/>
-                  <skos:related rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/C.1"/>
                </skos:Concept>
             </skos:narrower>
             <skos:narrower>
@@ -292,13 +177,6 @@
                   <skos:prefLabel>Communication skills</skos:prefLabel>
                   <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">CS</skos:notation>
                   <skos:inScheme rdf:resource="https://data.ox.ac.uk/id/ox-rdf/concept-scheme"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/D.2.1"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/D.2.2"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/D.2.3"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/D.3.2"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/D.3.1"/>
-                  <skos:related rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/D.2"/>
-                  <skos:related rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/D.3"/>
                </skos:Concept>
             </skos:narrower>
             <skos:narrower>
@@ -306,11 +184,6 @@
                   <skos:prefLabel>Enterprise and Entrepreneurship</skos:prefLabel>
                   <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">EE</skos:notation>
                   <skos:inScheme rdf:resource="https://data.ox.ac.uk/id/ox-rdf/concept-scheme"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/D.3.3"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/D.3.4"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/D.3.5"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/D.3.6"/>
-                  <skos:related rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/D.3"/>
                </skos:Concept>
             </skos:narrower>
             <skos:narrower>
@@ -318,14 +191,6 @@
                   <skos:prefLabel>Presentation skills</skos:prefLabel>
                   <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">PS</skos:notation>
                   <skos:inScheme rdf:resource="https://data.ox.ac.uk/id/ox-rdf/concept-scheme"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/D.2.1"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/D.2.2"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/D.3.1"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/B.1.4"/>
-                  <skos:related rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/B.1"/>
-                  <skos:related rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/D.2"/>
-                  <skos:related rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/D.3"/>
-                  <skos:related rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/B.1"/>
                </skos:Concept>
             </skos:narrower>
             <skos:narrower>
@@ -333,13 +198,6 @@
                   <skos:prefLabel>Seminars / Colloquia</skos:prefLabel>
                   <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">SC</skos:notation>
                   <skos:inScheme rdf:resource="https://data.ox.ac.uk/id/ox-rdf/concept-scheme"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/D.1.6"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/B.1.4"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/D.2.1"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/D.2.2"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/D.3.2"/>
-                  <skos:related rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/D.1"/>
-                  <skos:related rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/D.3"/>
                </skos:Concept>
             </skos:narrower>
             <skos:narrower>
@@ -347,11 +205,6 @@
                   <skos:prefLabel>Teaching &amp; Academic skills</skos:prefLabel>
                   <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">TA</skos:notation>
                   <skos:inScheme rdf:resource="https://data.ox.ac.uk/id/ox-rdf/concept-scheme"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/D.2.1"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/D.2.2"/>
-                  <skos:narrower rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/D.3.1"/>
-                  <skos:related rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/D.2"/>
-                  <skos:related rdf:resource="http://id.vitae.ac.uk/rdf/descriptor/D.3"/>
                </skos:Concept>
             </skos:narrower>
          </skos:Concept>
