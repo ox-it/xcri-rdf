@@ -80,11 +80,13 @@
 
   <xsl:template match="table">
     <foaf:Document rdf:about="">
-      <cc:attributionName>Vitae, Careers and Advisory Centre (CRAC), Limited</cc:attributionName>
+      <cc:attributionName>Vitae, Careers and Advisory Centre (CRAC), Limited; University of Oxford</cc:attributionName>
       <cc:attributionURL rdf:resource="http://www.vitae.ac.uk/rdf"/>
+      <cc:attributionURL rdf:resource="http://www.ox.ac.uk/"/>
       <dcterms:license>
         <dcterms:LicenseDocument rdf:about="http://www.vitae.ac.uk/researchers/274251/RDF-conditions-of-use.html"/>
       </dcterms:license>
+      <dcterms:license rdf:resource="http://creativecommons.org/licenses/by/2.0/uk/"/>
     </foaf:Document>
 
     <skos:ConceptScheme rdf:about="{$scheme-uri}">
@@ -93,11 +95,13 @@
       <rdfs:comment>The Researcher Development Framework (RDF) is a major new approach to researcher development, to enhance our capacity to build the UK workforce, develop world-class researchers and build our research base.
 
 The RDF is a professional development framework for planning, promoting and supporting the personal, professional and career development of researchers in higher education. It articulates the knowledge, behaviours and attributes of successful researchers and encourages them to realise their potential.</rdfs:comment>
-      <cc:attributionName>Vitae, Careers and Advisory Centre (CRAC), Limited</cc:attributionName>
+      <cc:attributionName>Vitae, Careers and Advisory Centre (CRAC), Limited; University of Oxford</cc:attributionName>
       <cc:attributionURL rdf:resource="http://www.vitae.ac.uk/rdf"/>
+      <cc:attributionURL rdf:resource="http://www.ox.ac.uk/"/>
       <dcterms:license>
         <dcterms:LicenseDocument rdf:about="http://www.vitae.ac.uk/researchers/274251/RDF-conditions-of-use.html"/>
       </dcterms:license>
+      <dcterms:license rdf:resource="http://creativecommons.org/licenses/by/2.0/uk/"/>
 
       <xsl:for-each-group select="row[position() &gt; 2]" group-starting-with="row[cell[1]/text:p]">
         <skos:hasTopConcept>
