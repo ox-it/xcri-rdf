@@ -20,6 +20,7 @@ XMLNS = {
     'xsi': 'http://www.w3.org/2001/XMLSchema-instance',
     'cdp': 'http://xcri.co.uk',
     'html': 'http://www.w3.org/1999/xhtml',
+    'xcriterms': 'http://xcri.org/profiles/1.2/catalog/terms',
 }
 INVERSE_XMLNS = tuple((v, k) for k, v in sorted(XMLNS.items(), key=lambda (k,v): -len(v)))
 
@@ -28,6 +29,7 @@ NS = {
     'foaf': 'http://xmlns.com/foaf/0.1/',
 #    'xcri': 'http://xcri.org/profiles/1.2/catalog/',
     'xcri': 'http://xcri.org/profiles/1.2/',
+    'cdp': 'http://xcri.co.uk/',
     'rdf': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
     'rdfs': 'http://www.w3.org/2000/01/rdf-schema#',
     'dc': 'http://purl.org/dc/elements/1.1/',
@@ -38,6 +40,7 @@ NS = {
     'xtypes': 'http://purl.org/xtypes/',
     'v': 'http://www.w3.org/2006/vcard/ns#',
     'xsd': 'http://www.w3.org/2001/XMLSchema#',
+    'xcriterms': 'http://xcri.org/profiles/1.2/catalog/terms/',
 }
 class _NS(dict):
     def __init__(self, ns):
@@ -160,6 +163,17 @@ class XCRICAPSerializer(object):
         (NS.xcri.attendancePattern, 'xcri:attendancePattern', rdflib.URIRef('http://xcri.org/profiles/catalog/1.2/attendancePattern/notation')),
     ]
     
+    # As per http://www.xcri.co.uk/data-definitions-and-vocabulary-framework/descriptive-elements-in-xcri-cap.html
+    typed_descriptive_elements = dict((NS[de.split(':')[0]][de.split(':')[1]], de) for de in """
+        xcriterms:careerOutcome xcriterms:contactHours xcriterms:contactPattern
+        xcriterms:events xcriterms:indicativeResource xcriterms:leadsTo
+        xcriterms:policy xcriterms:providedResource xcriterms:requiredResource
+        xcriterms:specialFeature xcriterms:support xcriterms:structure
+        xcriterms:studyHours xcriterms:teachingStrategy xcriterms:topic
+        
+        cdp:metadataKeywords cdp:targetAudience
+    """.split())
+
     xmlns = XMLNS.copy()
 
     def __init__(self, graph, catalog=None, encoding='utf-8', simple=True):
@@ -253,6 +267,7 @@ class XCRICAPSerializer(object):
     def course_content(self, xg, course):
         yield self.serialize_common(xg, course)
         yield self.serialize_common_descriptive_elements(xg, course)
+        yield self.serialize_typed_descriptive_elements(xg, course)
         yield self.serialize_subjects(xg, course)
         for presentation in self.graph.objects(course, NS.mlo.specifies):
             yield self.presentation_element(xg, presentation)
@@ -410,6 +425,14 @@ class XCRICAPSerializer(object):
             for obj in self.graph.objects(entity, prop):
                 self.descriptive_text_element(xg, name, obj)
 
+    def serialize_typed_descriptive_elements(self, xg, entity):
+        for prop, name in self.typed_descriptive_elements.iteritems():
+            value = self.graph.value(entity, prop)
+            if value:
+                self.descriptive_text_element(xg, 'dc:description',
+                                              value,
+                                              {'xsi:type': name})
+        
     def descriptive_text_element(self, xg, name, obj, attrib={}):
         """
         Serializes RDF terms that are either links, HTML or plain text.
