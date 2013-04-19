@@ -49,6 +49,9 @@
     <xsl:variable name="qname" select="resolve-QName($value, $element)"/>
     <xsl:variable name="namespace-map" select="document('')//namespace-map"/>
     <xsl:variable name="item" select="key('namespace-map', namespace-uri-from-QName($qname), $namespace-map)"/>
+    <xsl:if test="not($item)">
+      <xsl:message terminate="yes">Couldn't find namespace mapping for qname '<xsl:value-of select="$qname"/>' and namespace '<xsl:value-of select="namespace-uri-from-QName($qname)"/>'</xsl:message>
+    </xsl:if>
     <xsl:choose>
       <xsl:when test="$return-type = 'qname'">
         <xsl:value-of select="concat($item/@rdfPrefix, ':', local-name-from-QName($qname))"/>
