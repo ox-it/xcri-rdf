@@ -24,6 +24,9 @@
     xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
     xmlns:v="http://www.w3.org/2006/vcard/ns#"
     xmlns:time="http://www.w3.org/2006/time#"
+    xmlns:cdpRDF="http://www.xcri.co.uk/"
+    xmlns:cdpXML="http://www.xcri.co.uk"
+    xmlns:ex="http://example.org"
     xmlns="http://xcri.org/profiles/1.2/catalog"
     xpath-default-namespace="http://xcri.org/profiles/1.2/catalog">
   <xsl:import href="xml-to-string.xsl"/>
@@ -31,6 +34,37 @@
 
   <xsl:param name="order-annotation"/>
   <xsl:variable name="publisher-uri"/>
+
+  <namespace-map>
+    <item xmlNamespace="http://www.xcri.co.uk" rdfNamespace="http://www.xcri.co.uk/" rdfPrefix="cdpRDF"/>
+    <item xmlNamespace="http://xcri.org/profiles/1.2/catalog" rdfNamespace="http://xcri.org/profiles/1.2/" rdfPrefix="xcri"/>
+    <item xmlNamespace="http://purl.org/net/mlo" rdfNamespace="http://purl.org/net/mlo/" rdfPrefix="mlo"/>
+  </namespace-map>
+  <xsl:key name="namespace-map" match="item" use="@xmlNamespace"/>
+  
+  <xsl:function name="ex:resolve-qname">
+    <xsl:param name="element"/>
+    <xsl:param name="value"/>
+    <xsl:param name="return-type"/>
+    <xsl:variable name="qname" select="resolve-QName($value, $element)"/>
+    <xsl:variable name="namespace-map" select="document('')//namespace-map"/>
+    <xsl:variable name="item" select="key('namespace-map', namespace-uri-from-QName($qname), $namespace-map)"/>
+    <xsl:choose>
+      <xsl:when test="$return-type = 'qname'">
+        <xsl:value-of select="concat($item/@rdfPrefix, ':', local-name-from-QName($qname))"/>
+      </xsl:when>
+      <xsl:when test="$return-type = 'uri'">
+        <xsl:value-of select="concat($item/@rdfNamespace, local-name-from-QName($qname))"/>
+      </xsl:when>
+      <xsl:when test="$return-type = 'item'">
+        <xsl:value-of select="$item"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:message terminate="yes">Unexpected return-type: '<xsl:value-of select="$return-type"/>'</xsl:message>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:function>
+    
 
   <xsl:template match="*" mode="rdf-about-attribute">
     <xsl:variable name="value">
@@ -215,12 +249,12 @@
                       |regulations|xmlo:assessment|xmlo:objective|xmlo:prerequisite">
     <xsl:variable name="elementName">
       <xsl:choose>
-        <xsl:when test="self::dc:description">dcterms:description</xsl:when>
-        <xsl:when test="namespace-uri(.) = 'http://xcri.org/profiles/1.2/catalog'">
-          <xsl:value-of select="concat('xcri:', local-name(.))"/>
+        <xsl:when test="self::dc:description and @xsi:type and contains(@xsi:type, ':')">
+          <xsl:value-of select="ex:resolve-qname(., @xsi:type, 'qname')"/>
         </xsl:when>
-        <xsl:when test="namespace-uri(.) = 'http://purl.org/net/mlo'">
-          <xsl:value-of select="concat('mlo:', local-name(.))"/>
+        <xsl:when test="self::dc:description">dcterms:description</xsl:when>
+        <xsl:when test="ex:resolve-qname(., name(), 'item')">
+          <xsl:value-of select="ex:resolve-qname(., name(), 'qname')"/>
         </xsl:when>
         <xsl:otherwise>
           <xsl:message terminate="yes">You forgot to map an XCRI-CAP element name (<xsl:value-of select="name()"/>) into an RDF property.</xsl:message>
