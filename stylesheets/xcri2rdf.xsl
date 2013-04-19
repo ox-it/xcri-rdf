@@ -24,8 +24,8 @@
     xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
     xmlns:v="http://www.w3.org/2006/vcard/ns#"
     xmlns:time="http://www.w3.org/2006/time#"
-    xmlns:cdpRDF="http://www.xcri.co.uk/"
-    xmlns:cdpXML="http://www.xcri.co.uk"
+    xmlns:cdpRDF="http://xcri.co.uk/"
+    xmlns:cdpXML="http://xcri.co.uk"
     xmlns:ex="http://example.org"
     xmlns="http://xcri.org/profiles/1.2/catalog"
     xpath-default-namespace="http://xcri.org/profiles/1.2/catalog">
