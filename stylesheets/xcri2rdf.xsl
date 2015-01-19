@@ -37,6 +37,7 @@
 
   <namespace-map>
     <item xmlNamespace="http://xcri.co.uk" rdfNamespace="http://xcri.co.uk/" rdfPrefix="cdpRDF"/>
+    <item xmlNamespace="http://xcri.co.uk/" rdfNamespace="http://xcri.co.uk/" rdfPrefix="cdpRDF"/>
     <item xmlNamespace="http://xcri.org/profiles/1.2/catalog" rdfNamespace="http://xcri.org/profiles/1.2/" rdfPrefix="xcri"/>
     <item xmlNamespace="http://purl.org/net/mlo" rdfNamespace="http://purl.org/net/mlo/" rdfPrefix="mlo"/>
   </namespace-map>
