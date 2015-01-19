@@ -99,9 +99,9 @@
       <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
 
       <skos:hasTopConcept>
-        <skos:Concept rdf:about="{$concept-uri-base}GT">
-          <skos:prefLabel>Graduate Training</skos:prefLabel>
-          <skos:notation rdf:datatype="{$notation-uri}">GT</skos:notation>
+        <skos:Concept rdf:about="{$concept-uri-base}RD">
+          <skos:prefLabel>General Researcher Development</skos:prefLabel>
+          <skos:notation rdf:datatype="{$notation-uri}">RD</skos:notation>
           <skos:inScheme rdf:resource="{$scheme-uri}"/>
           <xsl:for-each-group select="row[position() &gt; 1]" group-starting-with="row[not(cell[1]/@covered)]">
             <xsl:if test="cell[1]/text:p/text()">

@@ -21,9 +21,9 @@
       <cc:attributionURL rdf:resource="https://data.ox.ac.uk/doc/ox-rdf/concept-scheme"/>
       <dcterms:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
       <skos:hasTopConcept>
-         <skos:Concept rdf:about="https://data.ox.ac.uk/id/ox-rdf/descriptor/GT">
-            <skos:prefLabel>Graduate Training</skos:prefLabel>
-            <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">GT</skos:notation>
+         <skos:Concept rdf:about="https://data.ox.ac.uk/id/ox-rdf/descriptor/RD">
+            <skos:prefLabel>General Researcher Development</skos:prefLabel>
+            <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">RD</skos:notation>
             <skos:inScheme rdf:resource="https://data.ox.ac.uk/id/ox-rdf/concept-scheme"/>
             <skos:narrower>
                <skos:Concept rdf:about="https://data.ox.ac.uk/id/ox-rdf/descriptor/CO">
@@ -50,13 +50,6 @@
                <skos:Concept rdf:about="https://data.ox.ac.uk/id/ox-rdf/descriptor/FW">
                   <skos:prefLabel>Field Work</skos:prefLabel>
                   <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">FW</skos:notation>
-                  <skos:inScheme rdf:resource="https://data.ox.ac.uk/id/ox-rdf/concept-scheme"/>
-               </skos:Concept>
-            </skos:narrower>
-            <skos:narrower>
-               <skos:Concept rdf:about="https://data.ox.ac.uk/id/ox-rdf/descriptor/RD">
-                  <skos:prefLabel>General Researcher Development</skos:prefLabel>
-                  <skos:notation rdf:datatype="https://data.ox.ac.uk/id/ox-rdf/notation">RD</skos:notation>
                   <skos:inScheme rdf:resource="https://data.ox.ac.uk/id/ox-rdf/concept-scheme"/>
                </skos:Concept>
             </skos:narrower>
