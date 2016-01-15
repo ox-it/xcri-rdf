@@ -8,6 +8,7 @@
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
     xmlns:cc="http://creativecommons.org/ns#"
+    xmlns:ex="http://example.org/"
     xmlns:dcterms="http://purl.org/dc/terms/"
     xmlns:foaf="http://xmlns.com/foaf/0.1/"
     xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0"
@@ -18,7 +19,20 @@
   <xsl:variable name="scheme-uri">https://data.ox.ac.uk/id/ox-rdf/concept-scheme</xsl:variable>
   <xsl:variable name="notation-uri">https://data.ox.ac.uk/id/ox-rdf/notation</xsl:variable>
   <xsl:variable name="concept-uri-base">https://data.ox.ac.uk/id/ox-rdf/descriptor/</xsl:variable>
+  <xsl:variable name="domain-uri-base">https://data.ox.ac.uk/id/ox-rdf/domain/</xsl:variable>
   <xsl:variable name="vitae-concept-uri-base">http://id.vitae.ac.uk/rdf/descriptor/</xsl:variable>
+
+  <xsl:function name="ex:slugify">
+    <xsl:param name="term"/>
+    <xsl:choose>
+      <xsl:when test="contains($term, '(')">
+        <xsl:value-of select="ex:slugify(substring-before($term, '('))"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="replace(lower-case(normalize-space($term)), '[^a-z0-9]+', '-')"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:function>
 
   <xsl:template match="/">
     <xsl:variable name="simplified">
@@ -112,6 +126,30 @@
           </xsl:for-each-group>
         </skos:Concept>
       </skos:hasTopConcept>
+      <skos:hasTopConcept>
+        <skos:Concept rdf:about="{$domain-uri-base}top">
+          <skos:prefLabel>Root skill domain</skos:prefLabel>
+          <xsl:variable name="domains">
+            <xsl:for-each select="row[position() gt 1]/cell[8][not(@covered)]">
+              <xsl:for-each select="tokenize(text:p/text(), ';')">
+                <domain>
+                  <xsl:value-of select="normalize-space(.)"/>
+                </domain>
+              </xsl:for-each>
+            </xsl:for-each>
+          </xsl:variable>
+
+          <xsl:for-each-group select="$domains/domain/text()" group-by=".">
+            <skos:narrower>
+              <skos:Concept rdf:about="{$domain-uri-base}{ex:slugify(.)}">
+                <skos:prefLabel>
+                  <xsl:value-of select="."/>
+                </skos:prefLabel>
+              </skos:Concept>
+            </skos:narrower>
+          </xsl:for-each-group>
+        </skos:Concept>
+      </skos:hasTopConcept>
     </skos:ConceptScheme>
   </xsl:template>
 
@@ -124,6 +162,13 @@
       <skos:notation rdf:datatype="{$notation-uri}">
         <xsl:value-of select="$notation"/>
       </skos:notation>
+      <skos:definition>
+        <xsl:value-of select="cell[7]/text:p/text()"/>
+      </skos:definition>
+      <xsl:for-each select="tokenize(cell[8], ';')">
+        <skos:related rdf:resource="{$domain-uri-base}{ex:slugify(.)}"/>
+      </xsl:for-each>
+
       <skos:inScheme rdf:resource="{$scheme-uri}"/>
 <!-- This is not allowed, apparently.
       <xsl:for-each select="current-group()">
