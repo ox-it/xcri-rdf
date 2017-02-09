@@ -6,7 +6,10 @@ import types
 try:
     from cStringIO import StringIO
 except ImportError:
-    import StringIO
+    try:
+        from StringIO import StringIO
+    except ImportError:
+        from io import StringIO
 from xml.sax.saxutils import XMLGenerator
 
 import dateutil.parser
@@ -22,7 +25,7 @@ XMLNS = {
     'html': 'http://www.w3.org/1999/xhtml',
     'xcriterms': 'http://xcri.org/profiles/1.2/catalog/terms',
 }
-INVERSE_XMLNS = tuple((v, k) for k, v in sorted(XMLNS.items(), key=lambda (k,v): -len(v)))
+INVERSE_XMLNS = tuple((v, k) for k, v in sorted(XMLNS.items(), key=lambda kv: -len(kv[1])))
 
 NS = {
     'skos': 'http://www.w3.org/2004/02/skos/core#',
@@ -44,7 +47,7 @@ NS = {
 }
 class _NS(dict):
     def __init__(self, ns):
-        super(_NS, self).__init__((prefix, rdflib.Namespace(uri)) for prefix, uri in ns.iteritems())
+        super(_NS, self).__init__((prefix, rdflib.Namespace(uri)) for prefix, uri in ns.items())
     def __getattr__(self, name):
         return self[name]
 NS = _NS(NS)
