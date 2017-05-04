@@ -19,7 +19,8 @@ XMLNS = {
     'html': 'http://www.w3.org/1999/xhtml',
     'xcriterms': 'http://xcri.org/profiles/1.2/catalog/terms',
 }
-INVERSE_XMLNS = [(k, XMLNS[k]) for k in sorted(XMLNS, key=len, reversed=True)]
+
+INVERSE_XMLNS = [(k, XMLNS[k]) for k in sorted(XMLNS, key=len, reverse=True)]
 
 NS = {
     'skos': 'http://www.w3.org/2004/02/skos/core#',
