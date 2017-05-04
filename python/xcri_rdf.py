@@ -259,7 +259,7 @@ class XCRICAPSerializer(object):
             provider = self.graph.value(catalog, NS.dcterms.publisher)
             yield self.provider_element(xg,
                                         provider,
-                                        itertools.chain(*provider_courses.itervalues()))
+                                        itertools.chain(*provider_courses.values()))
         else:
             for provider, courses in provider_courses.items():
                 yield self.provider_element(xg, provider, courses)
