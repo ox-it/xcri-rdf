@@ -3,13 +3,7 @@ import datetime
 import itertools
 import re
 import types
-try:
-    from cStringIO import StringIO
-except ImportError:
-    try:
-        from StringIO import StringIO
-    except ImportError:
-        from io import StringIO
+from io import StringIO
 from xml.sax.saxutils import XMLGenerator
 
 import dateutil.parser
@@ -25,12 +19,11 @@ XMLNS = {
     'html': 'http://www.w3.org/1999/xhtml',
     'xcriterms': 'http://xcri.org/profiles/1.2/catalog/terms',
 }
-INVERSE_XMLNS = tuple((v, k) for k, v in sorted(XMLNS.items(), key=lambda kv: -len(kv[1])))
+INVERSE_XMLNS = [(k, XMLNS[k]) for k in sorted(XMLNS, key=len, reversed=True)]
 
 NS = {
     'skos': 'http://www.w3.org/2004/02/skos/core#',
     'foaf': 'http://xmlns.com/foaf/0.1/',
-#    'xcri': 'http://xcri.org/profiles/1.2/catalog/',
     'xcri': 'http://xcri.org/profiles/1.2/',
     'cdp': 'http://xcri.co.uk/',
     'rdf': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
@@ -45,16 +38,22 @@ NS = {
     'xsd': 'http://www.w3.org/2001/XMLSchema#',
     'xcriterms': 'http://xcri.org/profiles/1.2/catalog/terms/',
 }
+
+
 class _NS(dict):
     def __init__(self, ns):
         super(_NS, self).__init__((prefix, rdflib.Namespace(uri)) for prefix, uri in ns.items())
+
     def __getattr__(self, name):
         return self[name]
+
+
 NS = _NS(NS)
 
 is_localpart = re.compile(u"""^[A-Z _ a-z \xc0-\xd6 \xd8-\xf6 \xf8-\xff \u037f-\u1fff \u200c-\u218f]
                                [A-Z _ a-z \xc0-\xd6 \xd8-\xf6 \xf8-\xff \u037f-\u1fff \u200c-\u218f \\- . \\d]*$""",
                           re.VERBOSE).match
+
 
 def xsi_type(uri):
     for ns, prefix in INVERSE_XMLNS:
@@ -62,10 +61,11 @@ def xsi_type(uri):
             localpart = uri[len(ns):]
             if is_localpart(localpart):
                 return {'xsi:type': "%s:%s" % (prefix, localpart)}
-    for i in xrange(len(uri)):
+    for i in range(len(uri)):
         if is_localpart(uri[i:]):
-            return {'xsi:type' :'ns:%s' % uri[i:], 'xmlns:ns': uri[:i]}
+            return {'xsi:type': 'ns:%s' % uri[i:], 'xmlns:ns': uri[:i]}
     return {}
+
 
 identifiers = (NS.dc.identifier, NS.dcterms.identifier)
 subject_predicates = (NS.dcterms.subject, NS.dc.subject)
@@ -73,15 +73,18 @@ labels = (NS.skos.prefLabel, NS.rdfs.label, NS.dcterms['title'], NS.dc['title'])
 urls = (NS.foaf.homepage, NS.foaf.page)
 descriptions = (NS.dcterms.description, NS.rdfs.comment)
 
+
 def _find_first(name, ps, rich_element=False):
     def f(self, xg, entity):
         for obj in itertools.chain(*(self.graph.objects(entity, p) for p in ps)):
             if rich_element:
                 self.descriptive_text_element(xg, name, obj)
             else:
-                xg.textualElement(name, {}, unicode(obj))
+                xg.textualElement(name, {}, str(obj))
             break
+
     return f
+
 
 class IndentingXMLGenerator(XMLGenerator):
     def __init__(self, *args, **kwargs):
@@ -91,7 +94,7 @@ class IndentingXMLGenerator(XMLGenerator):
 
     def startElement(self, name, attrs):
         if self.depth and not self.chars:
-            XMLGenerator.characters(self, '\n' + '  '*self.depth)
+            XMLGenerator.characters(self, '\n' + '  ' * self.depth)
         XMLGenerator.startElement(self, name, attrs)
         self.depth += 1
         self.chars = False
@@ -99,7 +102,7 @@ class IndentingXMLGenerator(XMLGenerator):
     def endElement(self, name):
         self.depth -= 1
         if not self.chars:
-            self.characters('\n' + '  '*self.depth)
+            self.characters('\n' + '  ' * self.depth)
         XMLGenerator.endElement(self, name)
         self.chars = False
 
@@ -107,12 +110,14 @@ class IndentingXMLGenerator(XMLGenerator):
         XMLGenerator.characters(self, content)
         self.chars = True
 
-    def textualElement(self, name, attrs, content):
+    def textualElement(self, name, attrs, content):  # noqa
         self.startElement(name, attrs)
         self.characters(content)
         self.endElement(name)
 
-def serialize_etree(xml, xg, previous_nsmap={}):
+
+def serialize_etree(xml, xg, previous_nsmap=None):
+    previous_nsmap = previous_nsmap or {}
     attrib = dict(xml.attrib)
     for ns in xml.nsmap:
         if xml.nsmap[ns] == previous_nsmap.get(ns):
@@ -134,6 +139,7 @@ def serialize_etree(xml, xg, previous_nsmap={}):
         if child.tail:
             xg.characters(child.tail)
     xg.endElement(tag)
+
 
 class XCRICAPSerializer(object):
     common_descriptive_elements = [
@@ -161,11 +167,17 @@ class XCRICAPSerializer(object):
     }
 
     controlled_vocabularies = [
-        (NS.xcri.studyMode, 'xcri:studyMode', rdflib.URIRef('http://xcri.org/profiles/catalog/1.2/studyMode/notation')),
-        (NS.xcri.attendanceMode, 'xcri:attendanceMode', rdflib.URIRef('http://xcri.org/profiles/catalog/1.2/attendanceMode/notation')),
-        (NS.xcri.attendancePattern, 'xcri:attendancePattern', rdflib.URIRef('http://xcri.org/profiles/catalog/1.2/attendancePattern/notation')),
+        (NS.xcri.studyMode,
+         'xcri:studyMode',
+         rdflib.URIRef('http://xcri.org/profiles/catalog/1.2/studyMode/notation')),
+        (NS.xcri.attendanceMode,
+         'xcri:attendanceMode',
+         rdflib.URIRef('http://xcri.org/profiles/catalog/1.2/attendanceMode/notation')),
+        (NS.xcri.attendancePattern,
+         'xcri:attendancePattern',
+         rdflib.URIRef('http://xcri.org/profiles/catalog/1.2/attendancePattern/notation')),
     ]
-    
+
     # As per http://www.xcri.co.uk/data-definitions-and-vocabulary-framework/descriptive-elements-in-xcri-cap.html
     typed_descriptive_elements = dict((NS[de.split(':')[0]][de.split(':')[1]], de) for de in """
         xcriterms:careerOutcome xcriterms:contactHours xcriterms:contactPattern
@@ -173,7 +185,7 @@ class XCRICAPSerializer(object):
         xcriterms:policy xcriterms:providedResource xcriterms:requiredResource
         xcriterms:specialFeature xcriterms:support xcriterms:structure
         xcriterms:studyHours xcriterms:teachingStrategy xcriterms:topic
-        
+
         cdp:metadataKeywords cdp:targetAudience
     """.split())
 
@@ -184,13 +196,14 @@ class XCRICAPSerializer(object):
         self.catalog = catalog or self.graph.value(None, NS.rdf.type, NS.xcri.catalog, any=False)
         self.encoding = encoding
         self.simple = simple
+        self.stream = None
 
     def serialize(self, stream):
         self.stream = stream
         stack = [self._serialize()]
         while stack:
             try:
-                item = stack[-1].next()
+                item = next(stack[-1])
             except StopIteration:
                 stack.pop()
             else:
@@ -202,7 +215,7 @@ class XCRICAPSerializer(object):
         stack = [self._serialize()]
         while stack:
             try:
-                item = stack[-1].next()
+                item = next(stack[-1])
             except StopIteration:
                 stack.pop()
             else:
@@ -212,7 +225,7 @@ class XCRICAPSerializer(object):
             self.stream.seek(0)
             self.stream.truncate()
         yield self.stream.getvalue()
-    
+
     def _serialize(self):
         xg = IndentingXMLGenerator(self.stream, self.encoding)
         xg.startDocument()
@@ -221,18 +234,18 @@ class XCRICAPSerializer(object):
 
     def catalog_element(self, xg, catalog):
         attrib = {}
-        attrib.update(('xmlns:%s' % prefix, uri) for prefix, uri in self.xmlns.iteritems())
-        attrib['xsi:schemaLocation'] = ' '.join(map(' '.join, self.xsi_schema_locations.iteritems()))
+        attrib.update(('xmlns:%s' % prefix, uri) for prefix, uri in self.xmlns.items())
+        attrib['xsi:schemaLocation'] = ' '.join(map(' '.join, self.xsi_schema_locations.items()))
         attrib['generated'] = datetime.datetime.utcnow().isoformat() + '+00:00'
 
         xg.startElement('xcri:catalog', attrib)
         yield self.catalog_content(xg, catalog)
         xg.endElement('xcri:catalog')
-    
+
     def catalog_content(self, xg, catalog):
         yield self.serialize_common(xg, catalog)
 
-        provider_courses, catalogs = collections.defaultdict(set), set([catalog])
+        provider_courses, catalogs = collections.defaultdict(set), {catalog}
         while catalogs:
             for member in self.graph.objects(catalogs.pop(), NS.skos.member):
                 if (member, NS.rdf.type, NS.xcri.course) in self.graph:
@@ -247,7 +260,7 @@ class XCRICAPSerializer(object):
                                         provider,
                                         itertools.chain(*provider_courses.itervalues()))
         else:
-            for provider, courses in provider_courses.iteritems():
+            for provider, courses in provider_courses.items():
                 yield self.provider_element(xg, provider, courses)
 
     def provider_element(self, xg, provider, courses):
@@ -326,7 +339,7 @@ class XCRICAPSerializer(object):
             for prop, name in self.address_elements:
                 obj = self.graph.value(address, prop)
                 if obj:
-                    xg.textualElement(name, {}, unicode(obj))
+                    xg.textualElement(name, {}, str(obj))
             xg.endElement('mlo:location')
 
     def serialize_controlled_vocabularies(self, xg, presentation):
@@ -347,9 +360,8 @@ class XCRICAPSerializer(object):
             if not (notation or content):
                 continue
             xg.textualElement(name,
-                              {'identifier': unicode(notation)} if notation else {},
+                              {'identifier': str(notation)} if notation else {},
                               content or '')
-
 
     def serialize_subjects(self, xg, course):
         subjects = set(itertools.chain(*(self.graph.objects(course, p) for p in subject_predicates)))
@@ -358,15 +370,15 @@ class XCRICAPSerializer(object):
             subjects.update(self.graph.objects(subject, NS.skos.broader))
         for subject in set(subjects):
             subjects.update(self.graph.objects(subject, NS.skos.related))
-        
+
         for subject in subjects:
             if isinstance(subject, rdflib.Literal):
-                attrib, content = {}, unicode(subject)
+                attrib, content = {}, str(subject)
             else:
                 notation = self.graph.value(subject, NS.skos.notation)
                 attrib = xsi_type(notation.datatype) if notation else {}
                 if notation:
-                    attrib['identifier'] = unicode(notation)
+                    attrib['identifier'] = str(notation)
                 for label in labels:
                     content = self.graph.value(subject, label)
                     if content:
@@ -377,17 +389,16 @@ class XCRICAPSerializer(object):
             if attrib or content:
                 xg.textualElement('dc:subject', attrib, content or '')
 
-
     def serialize_date(self, xg, entity, prop, name):
         dt = self.graph.value(entity, prop)
         if isinstance(dt, rdflib.Literal):
             dtf, content = dt.toPython(), None
-            if isinstance(dtf, basestring):
+            if isinstance(dtf, str):
                 dtf, content = None, dtf
             if not isinstance(dtf, (datetime.datetime, datetime.date)):
                 dtf = None
         else:
-            dtf = self.graph.value(dt, NS.time.inXSDDateTime) or self.graph.value(dt, NS.rdf.value)
+            dtf, content = self.graph.value(dt, NS.time.inXSDDateTime) or self.graph.value(dt, NS.rdf.value), None
             for label in labels:
                 content = self.graph.value(dt, label)
                 if content:
@@ -412,14 +423,14 @@ class XCRICAPSerializer(object):
             attrib = xsi_type(obj.datatype)
             if not attrib:
                 continue
-            xg.textualElement('dc:identifier', attrib, unicode(obj))
+            xg.textualElement('dc:identifier', attrib, str(obj))
 
         plain_identifiers = set()
         if isinstance(entity, rdflib.URIRef):
-            plain_identifiers.add(unicode(entity))
+            plain_identifiers.add(str(entity))
         for obj in itertools.chain(*(self.graph.objects(entity, p) for p in identifiers)):
             if isinstance(obj, rdflib.Literal):
-                plain_identifiers.add(unicode(obj))
+                plain_identifiers.add(str(obj))
         for identifier in plain_identifiers:
             xg.textualElement('dc:identifier', {}, identifier)
 
@@ -429,27 +440,28 @@ class XCRICAPSerializer(object):
                 self.descriptive_text_element(xg, name, obj)
 
     def serialize_typed_descriptive_elements(self, xg, entity):
-        for prop, name in self.typed_descriptive_elements.iteritems():
+        for prop, name in self.typed_descriptive_elements.items():
             value = self.graph.value(entity, prop)
             if value:
                 self.descriptive_text_element(xg, 'dc:description',
                                               value,
                                               {'xsi:type': name})
-        
-    def descriptive_text_element(self, xg, name, obj, attrib={}):
+
+    def descriptive_text_element(self, xg, name, obj, attrib=None):
         """
         Serializes RDF terms that are either links, HTML or plain text.
         """
+        attrib = attrib or {}
         if isinstance(obj, rdflib.URIRef):
-            xg.startElement(name, {'href': unicode(obj)})
+            xg.startElement(name, {'href': str(obj)})
             xg.endElement(name)
         else:
             if obj.datatype == NS.xtypes['Fragment-XHTML']:
-                xml = etree.fromstring(unicode(obj))
+                xml = etree.fromstring(str(obj))
             elif obj.datatype == NS.xtypes['Fragment-HTML']:
-                xml = etree.fromstring(unicode(obj), parser=etree.HTMLParser())
+                xml = etree.fromstring(str(obj), parser=etree.HTMLParser())
             else:
-                xg.textualElement(name, attrib, unicode(obj))
+                xg.textualElement(name, attrib, str(obj))
                 return
             xg.startElement(name, attrib)
             serialize_etree(xml, xg, self.xmlns)
@@ -461,10 +473,8 @@ class XCRICAPSerializer(object):
     serialize_places = _find_first('mlo:places', (NS.mlo.places,))
     serialize_applyTo = _find_first('xcri:applyTo', (NS.xcri.applyTo,))
 
-   
 
-
-if __name__ == '__main__':
+def main():
     import sys
 
     graph = rdflib.ConjunctiveGraph()
@@ -477,3 +487,7 @@ if __name__ == '__main__':
 
     serializer = XCRICAPSerializer(graph)
     serializer.serialize(sys.stdout)
+
+
+if __name__ == '__main__':
+    main()
